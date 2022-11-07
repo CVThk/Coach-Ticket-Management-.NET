@@ -459,11 +459,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\HP\\Documents\\Workspace\\UpOnedrive\\CoachTicketManagement\\CoachTicketManagement\\CoachTicketManagement.csproj",
+      "projectUniqueName": "C:\\Users\\HP\\Documents\\Workspace\\UpOnedrive\\Nam_Ba\\HK1_2022_2023\\DoAn_NET_CNPM\\CodeDoAn\\CoachTicketManagement\\CoachTicketManagement\\CoachTicketManagement.csproj",
       "projectName": "CoachTicketManagement",
-      "projectPath": "C:\\Users\\HP\\Documents\\Workspace\\UpOnedrive\\CoachTicketManagement\\CoachTicketManagement\\CoachTicketManagement.csproj",
+      "projectPath": "C:\\Users\\HP\\Documents\\Workspace\\UpOnedrive\\Nam_Ba\\HK1_2022_2023\\DoAn_NET_CNPM\\CodeDoAn\\CoachTicketManagement\\CoachTicketManagement\\CoachTicketManagement.csproj",
       "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\HP\\Documents\\Workspace\\UpOnedrive\\CoachTicketManagement\\CoachTicketManagement\\obj\\",
+      "outputPath": "C:\\Users\\HP\\Documents\\Workspace\\UpOnedrive\\Nam_Ba\\HK1_2022_2023\\DoAn_NET_CNPM\\CodeDoAn\\CoachTicketManagement\\CoachTicketManagement\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",

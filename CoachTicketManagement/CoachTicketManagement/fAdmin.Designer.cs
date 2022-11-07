@@ -889,7 +889,7 @@ namespace CoachTicketManagement
             this.tpDriverBtnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
             this.tpDriverBtnUpdate.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.tpDriverBtnUpdate.ForeColor = System.Drawing.Color.White;
-            this.tpDriverBtnUpdate.Location = new System.Drawing.Point(308, 6);
+            this.tpDriverBtnUpdate.Location = new System.Drawing.Point(305, 10);
             this.tpDriverBtnUpdate.Name = "tpDriverBtnUpdate";
             this.tpDriverBtnUpdate.Size = new System.Drawing.Size(144, 65);
             this.tpDriverBtnUpdate.TabIndex = 29;
@@ -904,7 +904,7 @@ namespace CoachTicketManagement
             this.tpDriverColNgaySinh});
             this.listView2.GridLines = true;
             this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(6, 80);
+            this.listView2.Location = new System.Drawing.Point(3, 84);
             this.listView2.Name = "listView2";
             this.listView2.Size = new System.Drawing.Size(448, 526);
             this.listView2.TabIndex = 13;
@@ -932,7 +932,7 @@ namespace CoachTicketManagement
             this.tpDriverBtnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
             this.tpDriverBtnDelete.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.tpDriverBtnDelete.ForeColor = System.Drawing.Color.White;
-            this.tpDriverBtnDelete.Location = new System.Drawing.Point(158, 6);
+            this.tpDriverBtnDelete.Location = new System.Drawing.Point(155, 10);
             this.tpDriverBtnDelete.Name = "tpDriverBtnDelete";
             this.tpDriverBtnDelete.Size = new System.Drawing.Size(144, 65);
             this.tpDriverBtnDelete.TabIndex = 28;
@@ -945,7 +945,7 @@ namespace CoachTicketManagement
             this.tpDriverBtnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
             this.tpDriverBtnAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.tpDriverBtnAdd.ForeColor = System.Drawing.Color.White;
-            this.tpDriverBtnAdd.Location = new System.Drawing.Point(8, 6);
+            this.tpDriverBtnAdd.Location = new System.Drawing.Point(5, 10);
             this.tpDriverBtnAdd.Name = "tpDriverBtnAdd";
             this.tpDriverBtnAdd.Size = new System.Drawing.Size(144, 65);
             this.tpDriverBtnAdd.TabIndex = 27;
@@ -958,7 +958,7 @@ namespace CoachTicketManagement
             this.tpDriverBtnFind.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
             this.tpDriverBtnFind.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.tpDriverBtnFind.ForeColor = System.Drawing.Color.White;
-            this.tpDriverBtnFind.Location = new System.Drawing.Point(1208, 15);
+            this.tpDriverBtnFind.Location = new System.Drawing.Point(1205, 19);
             this.tpDriverBtnFind.Name = "tpDriverBtnFind";
             this.tpDriverBtnFind.Size = new System.Drawing.Size(133, 47);
             this.tpDriverBtnFind.TabIndex = 26;
@@ -967,7 +967,7 @@ namespace CoachTicketManagement
             // 
             // tpDriverTxtFind
             // 
-            this.tpDriverTxtFind.Location = new System.Drawing.Point(933, 26);
+            this.tpDriverTxtFind.Location = new System.Drawing.Point(930, 30);
             this.tpDriverTxtFind.Name = "tpDriverTxtFind";
             this.tpDriverTxtFind.Size = new System.Drawing.Size(253, 27);
             this.tpDriverTxtFind.TabIndex = 12;
@@ -976,7 +976,7 @@ namespace CoachTicketManagement
             // 
             this.panel5.Controls.Add(this.tpDriverDtpDateOfBirth);
             this.panel5.Controls.Add(this.label9);
-            this.panel5.Location = new System.Drawing.Point(903, 80);
+            this.panel5.Location = new System.Drawing.Point(900, 84);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(438, 53);
             this.panel5.TabIndex = 24;
@@ -1003,7 +1003,7 @@ namespace CoachTicketManagement
             // 
             this.panel14.Controls.Add(this.label10);
             this.panel14.Controls.Add(this.tpDriverTxtEmail);
-            this.panel14.Location = new System.Drawing.Point(904, 316);
+            this.panel14.Location = new System.Drawing.Point(900, 316);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(438, 53);
             this.panel14.TabIndex = 23;
@@ -1028,7 +1028,7 @@ namespace CoachTicketManagement
             // 
             this.panel15.Controls.Add(this.label11);
             this.panel15.Controls.Add(this.tpDriverTxtName);
-            this.panel15.Location = new System.Drawing.Point(460, 139);
+            this.panel15.Location = new System.Drawing.Point(456, 139);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(438, 53);
             this.panel15.TabIndex = 14;
@@ -1053,7 +1053,7 @@ namespace CoachTicketManagement
             // 
             this.panel16.Controls.Add(this.label12);
             this.panel16.Controls.Add(this.tpDriverTxtIdDriver);
-            this.panel16.Location = new System.Drawing.Point(460, 80);
+            this.panel16.Location = new System.Drawing.Point(456, 84);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(438, 53);
             this.panel16.TabIndex = 25;
@@ -1079,7 +1079,7 @@ namespace CoachTicketManagement
             // 
             this.panel17.Controls.Add(this.tpDriverCboGender);
             this.panel17.Controls.Add(this.label21);
-            this.panel17.Location = new System.Drawing.Point(903, 139);
+            this.panel17.Location = new System.Drawing.Point(900, 139);
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(438, 53);
             this.panel17.TabIndex = 20;
@@ -1105,7 +1105,7 @@ namespace CoachTicketManagement
             // 
             this.panel19.Controls.Add(this.tpDriverCboWard);
             this.panel19.Controls.Add(this.label23);
-            this.panel19.Location = new System.Drawing.Point(460, 316);
+            this.panel19.Location = new System.Drawing.Point(457, 316);
             this.panel19.Name = "panel19";
             this.panel19.Size = new System.Drawing.Size(438, 53);
             this.panel19.TabIndex = 18;
@@ -1131,7 +1131,7 @@ namespace CoachTicketManagement
             // 
             this.panel20.Controls.Add(this.tpDriverCboDistrict);
             this.panel20.Controls.Add(this.label24);
-            this.panel20.Location = new System.Drawing.Point(460, 257);
+            this.panel20.Location = new System.Drawing.Point(457, 257);
             this.panel20.Name = "panel20";
             this.panel20.Size = new System.Drawing.Size(438, 53);
             this.panel20.TabIndex = 17;
@@ -1157,7 +1157,7 @@ namespace CoachTicketManagement
             // 
             this.panel21.Controls.Add(this.tpDriverCboCity);
             this.panel21.Controls.Add(this.label25);
-            this.panel21.Location = new System.Drawing.Point(460, 198);
+            this.panel21.Location = new System.Drawing.Point(457, 198);
             this.panel21.Name = "panel21";
             this.panel21.Size = new System.Drawing.Size(438, 53);
             this.panel21.TabIndex = 16;
@@ -1183,7 +1183,7 @@ namespace CoachTicketManagement
             // 
             this.panel23.Controls.Add(this.label27);
             this.panel23.Controls.Add(this.tpDriverTxtPhone);
-            this.panel23.Location = new System.Drawing.Point(904, 257);
+            this.panel23.Location = new System.Drawing.Point(900, 257);
             this.panel23.Name = "panel23";
             this.panel23.Size = new System.Drawing.Size(438, 53);
             this.panel23.TabIndex = 22;
@@ -1208,7 +1208,7 @@ namespace CoachTicketManagement
             // 
             this.panel24.Controls.Add(this.label28);
             this.panel24.Controls.Add(this.tpDriverTxtIdentityCard);
-            this.panel24.Location = new System.Drawing.Point(904, 198);
+            this.panel24.Location = new System.Drawing.Point(900, 198);
             this.panel24.Name = "panel24";
             this.panel24.Size = new System.Drawing.Size(438, 53);
             this.panel24.TabIndex = 21;
