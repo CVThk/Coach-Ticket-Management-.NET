@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using CoachTicketManagement.Utility;
 
 namespace CoachTicketManagement
 {
@@ -13,7 +14,8 @@ namespace CoachTicketManagement
         public fAdmin()
         {
             InitializeComponent();
+            
         }
-
+        
     }
 }
