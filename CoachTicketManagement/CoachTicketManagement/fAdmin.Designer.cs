@@ -207,13 +207,13 @@ namespace CoachTicketManagement
             this.label45 = new System.Windows.Forms.Label();
             this.tpTicket = new System.Windows.Forms.TabPage();
             this.tpCoach = new System.Windows.Forms.TabPage();
-            this.dataGridViewCoach = new System.Windows.Forms.DataGridView();
             this.tpCoachUpdate = new System.Windows.Forms.Button();
             this.tpCoachBtnDelete = new System.Windows.Forms.Button();
             this.tpCoachBtnAdd = new System.Windows.Forms.Button();
             this.tpCoachBtnFind = new System.Windows.Forms.Button();
             this.tpCoachTxtFind = new System.Windows.Forms.TextBox();
             this.panel44 = new System.Windows.Forms.Panel();
+            this.tpCoachNumAmountSeat = new System.Windows.Forms.NumericUpDown();
             this.label46 = new System.Windows.Forms.Label();
             this.panel45 = new System.Windows.Forms.Panel();
             this.label47 = new System.Windows.Forms.Label();
@@ -221,7 +221,34 @@ namespace CoachTicketManagement
             this.panel46 = new System.Windows.Forms.Panel();
             this.label48 = new System.Windows.Forms.Label();
             this.tpCoachTxtIDCoach = new System.Windows.Forms.TextBox();
-            this.tpCoachNumAmountSeat = new System.Windows.Forms.NumericUpDown();
+            this.dataGridViewCoach = new System.Windows.Forms.DataGridView();
+            this.panel47 = new System.Windows.Forms.Panel();
+            this.label49 = new System.Windows.Forms.Label();
+            this.dataGridViewTicket = new System.Windows.Forms.DataGridView();
+            this.panel48 = new System.Windows.Forms.Panel();
+            this.label50 = new System.Windows.Forms.Label();
+            this.tpTicketBtnUpdate = new System.Windows.Forms.Button();
+            this.panel49 = new System.Windows.Forms.Panel();
+            this.label51 = new System.Windows.Forms.Label();
+            this.tpTicketBtnDelete = new System.Windows.Forms.Button();
+            this.panel50 = new System.Windows.Forms.Panel();
+            this.label52 = new System.Windows.Forms.Label();
+            this.tpTicketBtnAdd = new System.Windows.Forms.Button();
+            this.panel51 = new System.Windows.Forms.Panel();
+            this.label53 = new System.Windows.Forms.Label();
+            this.tpTicketTxtIDTicket = new System.Windows.Forms.TextBox();
+            this.panel52 = new System.Windows.Forms.Panel();
+            this.label54 = new System.Windows.Forms.Label();
+            this.tpTicketBtnFind = new System.Windows.Forms.Button();
+            this.panel53 = new System.Windows.Forms.Panel();
+            this.label55 = new System.Windows.Forms.Label();
+            this.tbTicketTxtFind = new System.Windows.Forms.TextBox();
+            this.tpTicketCboPickUpPoint = new System.Windows.Forms.ComboBox();
+            this.tpTicketCboDropOffPoint = new System.Windows.Forms.ComboBox();
+            this.tpTicketTxtPrice = new System.Windows.Forms.TextBox();
+            this.tpTicketPurchaseDate = new System.Windows.Forms.DateTimePicker();
+            this.tpTicketTxtIDTrip = new System.Windows.Forms.TextBox();
+            this.tpTicketTxtIDSeat = new System.Windows.Forms.TextBox();
             this.tpEmployee.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployee)).BeginInit();
             this.panel10.SuspendLayout();
@@ -280,12 +307,21 @@ namespace CoachTicketManagement
             this.panel41.SuspendLayout();
             this.panel42.SuspendLayout();
             this.panel43.SuspendLayout();
+            this.tpTicket.SuspendLayout();
             this.tpCoach.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCoach)).BeginInit();
             this.panel44.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tpCoachNumAmountSeat)).BeginInit();
             this.panel45.SuspendLayout();
             this.panel46.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tpCoachNumAmountSeat)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCoach)).BeginInit();
+            this.panel47.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTicket)).BeginInit();
+            this.panel48.SuspendLayout();
+            this.panel49.SuspendLayout();
+            this.panel50.SuspendLayout();
+            this.panel51.SuspendLayout();
+            this.panel52.SuspendLayout();
+            this.panel53.SuspendLayout();
             this.SuspendLayout();
             // 
             // tpEmployee
@@ -2043,6 +2079,19 @@ namespace CoachTicketManagement
             // 
             // tpTicket
             // 
+            this.tpTicket.Controls.Add(this.panel47);
+            this.tpTicket.Controls.Add(this.dataGridViewTicket);
+            this.tpTicket.Controls.Add(this.panel48);
+            this.tpTicket.Controls.Add(this.tpTicketBtnUpdate);
+            this.tpTicket.Controls.Add(this.panel49);
+            this.tpTicket.Controls.Add(this.tpTicketBtnDelete);
+            this.tpTicket.Controls.Add(this.panel50);
+            this.tpTicket.Controls.Add(this.tpTicketBtnAdd);
+            this.tpTicket.Controls.Add(this.panel51);
+            this.tpTicket.Controls.Add(this.panel52);
+            this.tpTicket.Controls.Add(this.tpTicketBtnFind);
+            this.tpTicket.Controls.Add(this.panel53);
+            this.tpTicket.Controls.Add(this.tbTicketTxtFind);
             this.tpTicket.Location = new System.Drawing.Point(4, 29);
             this.tpTicket.Name = "tpTicket";
             this.tpTicket.Padding = new System.Windows.Forms.Padding(3);
@@ -2069,17 +2118,6 @@ namespace CoachTicketManagement
             this.tpCoach.TabIndex = 7;
             this.tpCoach.Text = "Xe";
             this.tpCoach.UseVisualStyleBackColor = true;
-            // 
-            // dataGridViewCoach
-            // 
-            this.dataGridViewCoach.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewCoach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewCoach.Location = new System.Drawing.Point(6, 6);
-            this.dataGridViewCoach.Name = "dataGridViewCoach";
-            this.dataGridViewCoach.RowHeadersWidth = 51;
-            this.dataGridViewCoach.RowTemplate.Height = 29;
-            this.dataGridViewCoach.Size = new System.Drawing.Size(777, 600);
-            this.dataGridViewCoach.TabIndex = 56;
             // 
             // tpCoachUpdate
             // 
@@ -2149,6 +2187,14 @@ namespace CoachTicketManagement
             this.panel44.Size = new System.Drawing.Size(524, 53);
             this.panel44.TabIndex = 58;
             // 
+            // tpCoachNumAmountSeat
+            // 
+            this.tpCoachNumAmountSeat.Location = new System.Drawing.Point(220, 14);
+            this.tpCoachNumAmountSeat.Name = "tpCoachNumAmountSeat";
+            this.tpCoachNumAmountSeat.Size = new System.Drawing.Size(292, 27);
+            this.tpCoachNumAmountSeat.TabIndex = 4;
+            this.tpCoachNumAmountSeat.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // label46
             // 
             this.label46.AutoSize = true;
@@ -2209,13 +2255,271 @@ namespace CoachTicketManagement
             this.tpCoachTxtIDCoach.Size = new System.Drawing.Size(291, 27);
             this.tpCoachTxtIDCoach.TabIndex = 2;
             // 
-            // tpCoachNumAmountSeat
+            // dataGridViewCoach
             // 
-            this.tpCoachNumAmountSeat.Location = new System.Drawing.Point(220, 14);
-            this.tpCoachNumAmountSeat.Name = "tpCoachNumAmountSeat";
-            this.tpCoachNumAmountSeat.Size = new System.Drawing.Size(292, 27);
-            this.tpCoachNumAmountSeat.TabIndex = 4;
-            this.tpCoachNumAmountSeat.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.dataGridViewCoach.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewCoach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCoach.Location = new System.Drawing.Point(6, 6);
+            this.dataGridViewCoach.Name = "dataGridViewCoach";
+            this.dataGridViewCoach.RowHeadersWidth = 51;
+            this.dataGridViewCoach.RowTemplate.Height = 29;
+            this.dataGridViewCoach.Size = new System.Drawing.Size(777, 600);
+            this.dataGridViewCoach.TabIndex = 56;
+            // 
+            // panel47
+            // 
+            this.panel47.Controls.Add(this.tpTicketTxtIDTrip);
+            this.panel47.Controls.Add(this.label49);
+            this.panel47.Location = new System.Drawing.Point(901, 143);
+            this.panel47.Name = "panel47";
+            this.panel47.Size = new System.Drawing.Size(438, 53);
+            this.panel47.TabIndex = 42;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(26, 16);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(99, 20);
+            this.label49.TabIndex = 3;
+            this.label49.Text = "Mã chuyến xe";
+            // 
+            // dataGridViewTicket
+            // 
+            this.dataGridViewTicket.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewTicket.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewTicket.Location = new System.Drawing.Point(7, 6);
+            this.dataGridViewTicket.Name = "dataGridViewTicket";
+            this.dataGridViewTicket.RowHeadersWidth = 51;
+            this.dataGridViewTicket.RowTemplate.Height = 29;
+            this.dataGridViewTicket.Size = new System.Drawing.Size(448, 600);
+            this.dataGridViewTicket.TabIndex = 55;
+            // 
+            // panel48
+            // 
+            this.panel48.Controls.Add(this.tpTicketCboDropOffPoint);
+            this.panel48.Controls.Add(this.label50);
+            this.panel48.Location = new System.Drawing.Point(457, 202);
+            this.panel48.Name = "panel48";
+            this.panel48.Size = new System.Drawing.Size(438, 53);
+            this.panel48.TabIndex = 43;
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(26, 16);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(106, 20);
+            this.label50.TabIndex = 3;
+            this.label50.Text = "Trạm xuống xe";
+            // 
+            // tpTicketBtnUpdate
+            // 
+            this.tpTicketBtnUpdate.AutoSize = true;
+            this.tpTicketBtnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
+            this.tpTicketBtnUpdate.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tpTicketBtnUpdate.ForeColor = System.Drawing.Color.White;
+            this.tpTicketBtnUpdate.Location = new System.Drawing.Point(1193, 450);
+            this.tpTicketBtnUpdate.Name = "tpTicketBtnUpdate";
+            this.tpTicketBtnUpdate.Size = new System.Drawing.Size(144, 65);
+            this.tpTicketBtnUpdate.TabIndex = 54;
+            this.tpTicketBtnUpdate.Text = "Cập nhật";
+            this.tpTicketBtnUpdate.UseVisualStyleBackColor = false;
+            // 
+            // panel49
+            // 
+            this.panel49.Controls.Add(this.tpTicketCboPickUpPoint);
+            this.panel49.Controls.Add(this.label51);
+            this.panel49.Location = new System.Drawing.Point(457, 143);
+            this.panel49.Name = "panel49";
+            this.panel49.Size = new System.Drawing.Size(438, 53);
+            this.panel49.TabIndex = 44;
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(26, 16);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(85, 20);
+            this.label51.TabIndex = 3;
+            this.label51.Text = "Trạm lên xe";
+            // 
+            // tpTicketBtnDelete
+            // 
+            this.tpTicketBtnDelete.AutoSize = true;
+            this.tpTicketBtnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
+            this.tpTicketBtnDelete.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tpTicketBtnDelete.ForeColor = System.Drawing.Color.White;
+            this.tpTicketBtnDelete.Location = new System.Drawing.Point(1045, 450);
+            this.tpTicketBtnDelete.Name = "tpTicketBtnDelete";
+            this.tpTicketBtnDelete.Size = new System.Drawing.Size(144, 65);
+            this.tpTicketBtnDelete.TabIndex = 53;
+            this.tpTicketBtnDelete.Text = "Xóa";
+            this.tpTicketBtnDelete.UseVisualStyleBackColor = false;
+            // 
+            // panel50
+            // 
+            this.panel50.Controls.Add(this.tpTicketTxtIDSeat);
+            this.panel50.Controls.Add(this.label52);
+            this.panel50.Location = new System.Drawing.Point(901, 202);
+            this.panel50.Name = "panel50";
+            this.panel50.Size = new System.Drawing.Size(438, 53);
+            this.panel50.TabIndex = 45;
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(26, 16);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(59, 20);
+            this.label52.TabIndex = 3;
+            this.label52.Text = "Mã ghế";
+            // 
+            // tpTicketBtnAdd
+            // 
+            this.tpTicketBtnAdd.AutoSize = true;
+            this.tpTicketBtnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
+            this.tpTicketBtnAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tpTicketBtnAdd.ForeColor = System.Drawing.Color.White;
+            this.tpTicketBtnAdd.Location = new System.Drawing.Point(895, 450);
+            this.tpTicketBtnAdd.Name = "tpTicketBtnAdd";
+            this.tpTicketBtnAdd.Size = new System.Drawing.Size(144, 65);
+            this.tpTicketBtnAdd.TabIndex = 52;
+            this.tpTicketBtnAdd.Text = "Thêm";
+            this.tpTicketBtnAdd.UseVisualStyleBackColor = false;
+            // 
+            // panel51
+            // 
+            this.panel51.Controls.Add(this.label53);
+            this.panel51.Controls.Add(this.tpTicketTxtIDTicket);
+            this.panel51.Location = new System.Drawing.Point(457, 84);
+            this.panel51.Name = "panel51";
+            this.panel51.Size = new System.Drawing.Size(438, 53);
+            this.panel51.TabIndex = 46;
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(26, 16);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(49, 20);
+            this.label53.TabIndex = 3;
+            this.label53.Text = "Mã vé";
+            // 
+            // tpTicketTxtIDTicket
+            // 
+            this.tpTicketTxtIDTicket.Location = new System.Drawing.Point(144, 13);
+            this.tpTicketTxtIDTicket.Name = "tpTicketTxtIDTicket";
+            this.tpTicketTxtIDTicket.ReadOnly = true;
+            this.tpTicketTxtIDTicket.Size = new System.Drawing.Size(291, 27);
+            this.tpTicketTxtIDTicket.TabIndex = 2;
+            // 
+            // panel52
+            // 
+            this.panel52.Controls.Add(this.tpTicketTxtPrice);
+            this.panel52.Controls.Add(this.label54);
+            this.panel52.Location = new System.Drawing.Point(457, 259);
+            this.panel52.Name = "panel52";
+            this.panel52.Size = new System.Drawing.Size(438, 53);
+            this.panel52.TabIndex = 47;
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(26, 16);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(31, 20);
+            this.label54.TabIndex = 3;
+            this.label54.Text = "Giá";
+            // 
+            // tpTicketBtnFind
+            // 
+            this.tpTicketBtnFind.AutoSize = true;
+            this.tpTicketBtnFind.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
+            this.tpTicketBtnFind.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tpTicketBtnFind.ForeColor = System.Drawing.Color.White;
+            this.tpTicketBtnFind.Location = new System.Drawing.Point(1206, 15);
+            this.tpTicketBtnFind.Name = "tpTicketBtnFind";
+            this.tpTicketBtnFind.Size = new System.Drawing.Size(133, 47);
+            this.tpTicketBtnFind.TabIndex = 51;
+            this.tpTicketBtnFind.Text = "Tìm";
+            this.tpTicketBtnFind.UseVisualStyleBackColor = false;
+            // 
+            // panel53
+            // 
+            this.panel53.Controls.Add(this.tpTicketPurchaseDate);
+            this.panel53.Controls.Add(this.label55);
+            this.panel53.Location = new System.Drawing.Point(901, 84);
+            this.panel53.Name = "panel53";
+            this.panel53.Size = new System.Drawing.Size(438, 53);
+            this.panel53.TabIndex = 48;
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(26, 16);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(96, 20);
+            this.label55.TabIndex = 3;
+            this.label55.Text = "Ngày mua vé";
+            // 
+            // tbTicketTxtFind
+            // 
+            this.tbTicketTxtFind.Location = new System.Drawing.Point(936, 26);
+            this.tbTicketTxtFind.Name = "tbTicketTxtFind";
+            this.tbTicketTxtFind.Size = new System.Drawing.Size(253, 27);
+            this.tbTicketTxtFind.TabIndex = 50;
+            // 
+            // tpTicketCboPickUpPoint
+            // 
+            this.tpTicketCboPickUpPoint.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tpTicketCboPickUpPoint.FormattingEnabled = true;
+            this.tpTicketCboPickUpPoint.Location = new System.Drawing.Point(144, 13);
+            this.tpTicketCboPickUpPoint.Name = "tpTicketCboPickUpPoint";
+            this.tpTicketCboPickUpPoint.Size = new System.Drawing.Size(291, 28);
+            this.tpTicketCboPickUpPoint.TabIndex = 4;
+            // 
+            // tpTicketCboDropOffPoint
+            // 
+            this.tpTicketCboDropOffPoint.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tpTicketCboDropOffPoint.FormattingEnabled = true;
+            this.tpTicketCboDropOffPoint.Location = new System.Drawing.Point(144, 13);
+            this.tpTicketCboDropOffPoint.Name = "tpTicketCboDropOffPoint";
+            this.tpTicketCboDropOffPoint.Size = new System.Drawing.Size(291, 28);
+            this.tpTicketCboDropOffPoint.TabIndex = 4;
+            // 
+            // tpTicketTxtPrice
+            // 
+            this.tpTicketTxtPrice.Location = new System.Drawing.Point(144, 13);
+            this.tpTicketTxtPrice.Name = "tpTicketTxtPrice";
+            this.tpTicketTxtPrice.ReadOnly = true;
+            this.tpTicketTxtPrice.Size = new System.Drawing.Size(291, 27);
+            this.tpTicketTxtPrice.TabIndex = 4;
+            // 
+            // tpTicketPurchaseDate
+            // 
+            this.tpTicketPurchaseDate.CustomFormat = "dd/MM/yyyy";
+            this.tpTicketPurchaseDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.tpTicketPurchaseDate.Location = new System.Drawing.Point(143, 11);
+            this.tpTicketPurchaseDate.Name = "tpTicketPurchaseDate";
+            this.tpTicketPurchaseDate.Size = new System.Drawing.Size(293, 27);
+            this.tpTicketPurchaseDate.TabIndex = 4;
+            // 
+            // tpTicketTxtIDTrip
+            // 
+            this.tpTicketTxtIDTrip.Location = new System.Drawing.Point(143, 13);
+            this.tpTicketTxtIDTrip.Name = "tpTicketTxtIDTrip";
+            this.tpTicketTxtIDTrip.ReadOnly = true;
+            this.tpTicketTxtIDTrip.Size = new System.Drawing.Size(291, 27);
+            this.tpTicketTxtIDTrip.TabIndex = 4;
+            // 
+            // tpTicketTxtIDSeat
+            // 
+            this.tpTicketTxtIDSeat.Location = new System.Drawing.Point(143, 13);
+            this.tpTicketTxtIDSeat.Name = "tpTicketTxtIDSeat";
+            this.tpTicketTxtIDSeat.ReadOnly = true;
+            this.tpTicketTxtIDSeat.Size = new System.Drawing.Size(291, 27);
+            this.tpTicketTxtIDSeat.TabIndex = 4;
             // 
             // fAdmin
             // 
@@ -2333,16 +2637,33 @@ namespace CoachTicketManagement
             this.panel42.PerformLayout();
             this.panel43.ResumeLayout(false);
             this.panel43.PerformLayout();
+            this.tpTicket.ResumeLayout(false);
+            this.tpTicket.PerformLayout();
             this.tpCoach.ResumeLayout(false);
             this.tpCoach.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCoach)).EndInit();
             this.panel44.ResumeLayout(false);
             this.panel44.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tpCoachNumAmountSeat)).EndInit();
             this.panel45.ResumeLayout(false);
             this.panel45.PerformLayout();
             this.panel46.ResumeLayout(false);
             this.panel46.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tpCoachNumAmountSeat)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCoach)).EndInit();
+            this.panel47.ResumeLayout(false);
+            this.panel47.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTicket)).EndInit();
+            this.panel48.ResumeLayout(false);
+            this.panel48.PerformLayout();
+            this.panel49.ResumeLayout(false);
+            this.panel49.PerformLayout();
+            this.panel50.ResumeLayout(false);
+            this.panel50.PerformLayout();
+            this.panel51.ResumeLayout(false);
+            this.panel51.PerformLayout();
+            this.panel52.ResumeLayout(false);
+            this.panel52.PerformLayout();
+            this.panel53.ResumeLayout(false);
+            this.panel53.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2544,5 +2865,32 @@ namespace CoachTicketManagement
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.TextBox tpCoachTxtIDCoach;
         private System.Windows.Forms.DataGridView dataGridViewCoach;
+        private System.Windows.Forms.Panel panel47;
+        private System.Windows.Forms.TextBox tpTicketTxtIDTrip;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.DataGridView dataGridViewTicket;
+        private System.Windows.Forms.Panel panel48;
+        private System.Windows.Forms.ComboBox tpTicketCboDropOffPoint;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.Button tpTicketBtnUpdate;
+        private System.Windows.Forms.Panel panel49;
+        private System.Windows.Forms.ComboBox tpTicketCboPickUpPoint;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.Button tpTicketBtnDelete;
+        private System.Windows.Forms.Panel panel50;
+        private System.Windows.Forms.TextBox tpTicketTxtIDSeat;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.Button tpTicketBtnAdd;
+        private System.Windows.Forms.Panel panel51;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.TextBox tpTicketTxtIDTicket;
+        private System.Windows.Forms.Panel panel52;
+        private System.Windows.Forms.TextBox tpTicketTxtPrice;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.Button tpTicketBtnFind;
+        private System.Windows.Forms.Panel panel53;
+        private System.Windows.Forms.DateTimePicker tpTicketPurchaseDate;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.TextBox tbTicketTxtFind;
     }
 }

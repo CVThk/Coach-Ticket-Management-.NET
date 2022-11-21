@@ -78,3 +78,4 @@ C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\Co
 C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\obj\Debug\netcoreapp3.1\CoachTicketManagement.dll
 C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\obj\Debug\netcoreapp3.1\CoachTicketManagement.pdb
 C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\obj\Debug\netcoreapp3.1\CoachTicketManagement.genruntimeconfig.cache
+C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\obj\Debug\netcoreapp3.1\CoachTicketManagement.csproj.AssemblyReference.cache

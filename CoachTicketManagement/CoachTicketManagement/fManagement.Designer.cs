@@ -45,21 +45,25 @@ namespace CoachTicketManagement
             this.btnFindTicket = new System.Windows.Forms.Button();
             this.dataGridViewEmployee = new System.Windows.Forms.DataGridView();
             this.imageListSeat = new System.Windows.Forms.ImageList(this.components);
-            this.picBoxEmpty = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.picBoxNo = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.picBoxChoose = new System.Windows.Forms.PictureBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.flowLayoutPanelA = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanelB = new System.Windows.Forms.FlowLayoutPanel();
-            this.label7 = new System.Windows.Forms.Label();
+            this.btnStartChooseSeat = new System.Windows.Forms.Button();
+            this.panelSeat = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.flowLayoutPanelB = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanelA = new System.Windows.Forms.FlowLayoutPanel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.picBoxChoose = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.picBoxNo = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.picBoxEmpty = new System.Windows.Forms.PictureBox();
+            this.lbResultChooseSeat = new System.Windows.Forms.Label();
             this.menuStripManagement.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployee)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxEmpty)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxNo)).BeginInit();
+            this.panelSeat.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxChoose)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxNo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxEmpty)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStripManagement
@@ -195,88 +199,132 @@ namespace CoachTicketManagement
             this.imageListSeat.Images.SetKeyName(1, "Co.png");
             this.imageListSeat.Images.SetKeyName(2, "DangChon.png");
             // 
-            // picBoxEmpty
+            // btnStartChooseSeat
             // 
-            this.picBoxEmpty.Location = new System.Drawing.Point(823, 140);
-            this.picBoxEmpty.Name = "picBoxEmpty";
-            this.picBoxEmpty.Size = new System.Drawing.Size(40, 40);
-            this.picBoxEmpty.TabIndex = 15;
-            this.picBoxEmpty.TabStop = false;
+            this.btnStartChooseSeat.AutoSize = true;
+            this.btnStartChooseSeat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
+            this.btnStartChooseSeat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStartChooseSeat.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnStartChooseSeat.ForeColor = System.Drawing.Color.White;
+            this.btnStartChooseSeat.Location = new System.Drawing.Point(701, 124);
+            this.btnStartChooseSeat.Name = "btnStartChooseSeat";
+            this.btnStartChooseSeat.Size = new System.Drawing.Size(189, 51);
+            this.btnStartChooseSeat.TabIndex = 3;
+            this.btnStartChooseSeat.Text = "Bắt đầu chọn ghế";
+            this.btnStartChooseSeat.UseVisualStyleBackColor = false;
+            this.btnStartChooseSeat.Click += new System.EventHandler(this.btnFindTicket_Click);
             // 
-            // label4
+            // panelSeat
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(869, 150);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(75, 20);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "Còn trống";
-            // 
-            // picBoxNo
-            // 
-            this.picBoxNo.Location = new System.Drawing.Point(965, 140);
-            this.picBoxNo.Name = "picBoxNo";
-            this.picBoxNo.Size = new System.Drawing.Size(40, 40);
-            this.picBoxNo.TabIndex = 15;
-            this.picBoxNo.TabStop = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1011, 150);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(81, 20);
-            this.label5.TabIndex = 16;
-            this.label5.Text = "Không bán";
-            // 
-            // picBoxChoose
-            // 
-            this.picBoxChoose.Location = new System.Drawing.Point(1111, 140);
-            this.picBoxChoose.Name = "picBoxChoose";
-            this.picBoxChoose.Size = new System.Drawing.Size(40, 40);
-            this.picBoxChoose.TabIndex = 15;
-            this.picBoxChoose.TabStop = false;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(1157, 150);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(81, 20);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "Đang chọn";
-            // 
-            // flowLayoutPanelA
-            // 
-            this.flowLayoutPanelA.Location = new System.Drawing.Point(823, 253);
-            this.flowLayoutPanelA.Name = "flowLayoutPanelA";
-            this.flowLayoutPanelA.Size = new System.Drawing.Size(180, 394);
-            this.flowLayoutPanelA.TabIndex = 17;
-            // 
-            // flowLayoutPanelB
-            // 
-            this.flowLayoutPanelB.Location = new System.Drawing.Point(1058, 253);
-            this.flowLayoutPanelB.Name = "flowLayoutPanelB";
-            this.flowLayoutPanelB.Size = new System.Drawing.Size(180, 394);
-            this.flowLayoutPanelB.TabIndex = 17;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(867, 218);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(77, 20);
-            this.label7.TabIndex = 18;
-            this.label7.Text = "Tầng dưới";
+            this.panelSeat.Controls.Add(this.label8);
+            this.panelSeat.Controls.Add(this.label7);
+            this.panelSeat.Controls.Add(this.flowLayoutPanelB);
+            this.panelSeat.Controls.Add(this.flowLayoutPanelA);
+            this.panelSeat.Controls.Add(this.label6);
+            this.panelSeat.Controls.Add(this.picBoxChoose);
+            this.panelSeat.Controls.Add(this.label5);
+            this.panelSeat.Controls.Add(this.picBoxNo);
+            this.panelSeat.Controls.Add(this.label4);
+            this.panelSeat.Controls.Add(this.picBoxEmpty);
+            this.panelSeat.Location = new System.Drawing.Point(896, 124);
+            this.panelSeat.Name = "panelSeat";
+            this.panelSeat.Size = new System.Drawing.Size(464, 486);
+            this.panelSeat.TabIndex = 14;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(1111, 218);
+            this.label8.Location = new System.Drawing.Point(313, 65);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(72, 20);
-            this.label8.TabIndex = 18;
+            this.label8.TabIndex = 27;
             this.label8.Text = "Tầng trên";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(69, 65);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(77, 20);
+            this.label7.TabIndex = 28;
+            this.label7.Text = "Tầng dưới";
+            // 
+            // flowLayoutPanelB
+            // 
+            this.flowLayoutPanelB.AutoScroll = true;
+            this.flowLayoutPanelB.Location = new System.Drawing.Point(260, 95);
+            this.flowLayoutPanelB.Name = "flowLayoutPanelB";
+            this.flowLayoutPanelB.Size = new System.Drawing.Size(180, 384);
+            this.flowLayoutPanelB.TabIndex = 25;
+            // 
+            // flowLayoutPanelA
+            // 
+            this.flowLayoutPanelA.AutoScroll = true;
+            this.flowLayoutPanelA.Location = new System.Drawing.Point(25, 95);
+            this.flowLayoutPanelA.Name = "flowLayoutPanelA";
+            this.flowLayoutPanelA.Size = new System.Drawing.Size(180, 384);
+            this.flowLayoutPanelA.TabIndex = 26;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(359, 18);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(81, 20);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "Đang chọn";
+            // 
+            // picBoxChoose
+            // 
+            this.picBoxChoose.Location = new System.Drawing.Point(313, 8);
+            this.picBoxChoose.Name = "picBoxChoose";
+            this.picBoxChoose.Size = new System.Drawing.Size(40, 40);
+            this.picBoxChoose.TabIndex = 19;
+            this.picBoxChoose.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(213, 18);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(81, 20);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "Không bán";
+            // 
+            // picBoxNo
+            // 
+            this.picBoxNo.Location = new System.Drawing.Point(167, 8);
+            this.picBoxNo.Name = "picBoxNo";
+            this.picBoxNo.Size = new System.Drawing.Size(40, 40);
+            this.picBoxNo.TabIndex = 20;
+            this.picBoxNo.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(71, 18);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(75, 20);
+            this.label4.TabIndex = 24;
+            this.label4.Text = "Còn trống";
+            // 
+            // picBoxEmpty
+            // 
+            this.picBoxEmpty.Location = new System.Drawing.Point(25, 8);
+            this.picBoxEmpty.Name = "picBoxEmpty";
+            this.picBoxEmpty.Size = new System.Drawing.Size(40, 40);
+            this.picBoxEmpty.TabIndex = 21;
+            this.picBoxEmpty.TabStop = false;
+            // 
+            // lbResultChooseSeat
+            // 
+            this.lbResultChooseSeat.AutoSize = true;
+            this.lbResultChooseSeat.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbResultChooseSeat.Location = new System.Drawing.Point(701, 625);
+            this.lbResultChooseSeat.Name = "lbResultChooseSeat";
+            this.lbResultChooseSeat.Size = new System.Drawing.Size(60, 20);
+            this.lbResultChooseSeat.TabIndex = 15;
+            this.lbResultChooseSeat.Text = "Số ghế:";
             // 
             // fManagement
             // 
@@ -284,17 +332,10 @@ namespace CoachTicketManagement
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1360, 654);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.flowLayoutPanelB);
-            this.Controls.Add(this.flowLayoutPanelA);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.picBoxChoose);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.picBoxNo);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.picBoxEmpty);
+            this.Controls.Add(this.lbResultChooseSeat);
+            this.Controls.Add(this.panelSeat);
             this.Controls.Add(this.dataGridViewEmployee);
+            this.Controls.Add(this.btnStartChooseSeat);
             this.Controls.Add(this.btnFindTicket);
             this.Controls.Add(this.dateTimePickerChoose);
             this.Controls.Add(this.label3);
@@ -311,9 +352,11 @@ namespace CoachTicketManagement
             this.menuStripManagement.ResumeLayout(false);
             this.menuStripManagement.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployee)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxEmpty)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxNo)).EndInit();
+            this.panelSeat.ResumeLayout(false);
+            this.panelSeat.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxChoose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxNo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxEmpty)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -335,15 +378,18 @@ namespace CoachTicketManagement
         private System.Windows.Forms.Button btnFindTicket;
         private System.Windows.Forms.DataGridView dataGridViewEmployee;
         private System.Windows.Forms.ImageList imageListSeat;
-        private System.Windows.Forms.PictureBox picBoxEmpty;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.PictureBox picBoxNo;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.PictureBox picBoxChoose;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelA;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelB;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnStartChooseSeat;
+        private System.Windows.Forms.Panel panelSeat;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelB;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelA;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.PictureBox picBoxChoose;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox picBoxNo;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox picBoxEmpty;
+        private System.Windows.Forms.Label lbResultChooseSeat;
     }
 }

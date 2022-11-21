@@ -17,7 +17,7 @@ namespace CoachTicketManagement
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fAuthenticate());
+            Application.Run(new fManagement());
         }
     }
 }
