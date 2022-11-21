@@ -17,6 +17,11 @@ namespace CoachTicketManagement.Utility
         private Utilities() { }
         #endregion
 
+        #region Cons
+        public int _DangChon = 2, _Trong = 0, _KhongBan = 1;
+        public int _WidthSeat = 40, _HeightSeat = 40;
+        #endregion
+
         public void AutoResizeListView(ListView lsv)
         {
             int nCol = lsv.Columns.Count;

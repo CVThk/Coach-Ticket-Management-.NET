@@ -16,6 +16,20 @@ namespace CoachTicketManagement
             InitializeComponent();
             
         }
-        
+
+        private void tpDriverBtnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpDriverBtnDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpDriverBtnUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

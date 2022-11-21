@@ -1,4 +1,4 @@
-﻿using CoachTicketManagement.Core.Services;
+﻿using CoachTicketManagement.Core;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,7 +23,7 @@ namespace CoachTicketManagement
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (new AccountService().Login())
+            if (AccountService.Instance.Login())
             {
                 this.Hide();
                 fManagement f = new fManagement();
