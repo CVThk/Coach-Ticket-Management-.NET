@@ -29,6 +29,7 @@ namespace CoachTicketManagement
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fAccountInfo));
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -69,8 +70,9 @@ namespace CoachTicketManagement
             // 
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.panel1.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(423, 48);
             this.panel1.TabIndex = 10;
@@ -78,6 +80,7 @@ namespace CoachTicketManagement
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(135, 9);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(265, 30);
@@ -96,8 +99,9 @@ namespace CoachTicketManagement
             // 
             this.panel2.Controls.Add(this.txtfAIName);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.panel2.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.panel2.Location = new System.Drawing.Point(12, 66);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(423, 48);
             this.panel2.TabIndex = 2;
@@ -105,6 +109,7 @@ namespace CoachTicketManagement
             // txtfAIName
             // 
             this.txtfAIName.Location = new System.Drawing.Point(135, 9);
+            this.txtfAIName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtfAIName.Name = "txtfAIName";
             this.txtfAIName.Size = new System.Drawing.Size(265, 30);
             this.txtfAIName.TabIndex = 2;
@@ -122,8 +127,9 @@ namespace CoachTicketManagement
             // 
             this.panel3.Controls.Add(this.dtimePickerNgaySinh);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.panel3.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.panel3.Location = new System.Drawing.Point(12, 120);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(423, 48);
             this.panel3.TabIndex = 3;
@@ -132,7 +138,8 @@ namespace CoachTicketManagement
             // 
             this.dtimePickerNgaySinh.CustomFormat = "dd/MM/yyyy";
             this.dtimePickerNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtimePickerNgaySinh.Location = new System.Drawing.Point(135, 7);
+            this.dtimePickerNgaySinh.Location = new System.Drawing.Point(135, 8);
+            this.dtimePickerNgaySinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtimePickerNgaySinh.Name = "dtimePickerNgaySinh";
             this.dtimePickerNgaySinh.Size = new System.Drawing.Size(265, 30);
             this.dtimePickerNgaySinh.TabIndex = 3;
@@ -150,8 +157,9 @@ namespace CoachTicketManagement
             // 
             this.panel4.Controls.Add(this.textBox4);
             this.panel4.Controls.Add(this.label4);
-            this.panel4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.panel4.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.panel4.Location = new System.Drawing.Point(12, 174);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(423, 48);
             this.panel4.TabIndex = 4;
@@ -159,6 +167,7 @@ namespace CoachTicketManagement
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(135, 9);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(265, 30);
             this.textBox4.TabIndex = 4;
@@ -176,8 +185,9 @@ namespace CoachTicketManagement
             // 
             this.panel5.Controls.Add(this.textBox3);
             this.panel5.Controls.Add(this.label5);
-            this.panel5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.panel5.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.panel5.Location = new System.Drawing.Point(441, 12);
+            this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(423, 48);
             this.panel5.TabIndex = 5;
@@ -185,6 +195,7 @@ namespace CoachTicketManagement
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(135, 9);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(265, 30);
             this.textBox3.TabIndex = 5;
@@ -202,8 +213,9 @@ namespace CoachTicketManagement
             // 
             this.panel6.Controls.Add(this.textBox5);
             this.panel6.Controls.Add(this.label6);
-            this.panel6.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.panel6.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.panel6.Location = new System.Drawing.Point(441, 66);
+            this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(423, 48);
             this.panel6.TabIndex = 6;
@@ -211,6 +223,7 @@ namespace CoachTicketManagement
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(135, 9);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(265, 30);
             this.textBox5.TabIndex = 6;
@@ -228,8 +241,9 @@ namespace CoachTicketManagement
             // 
             this.panel7.Controls.Add(this.textBox6);
             this.panel7.Controls.Add(this.label7);
-            this.panel7.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.panel7.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.panel7.Location = new System.Drawing.Point(441, 120);
+            this.panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(423, 48);
             this.panel7.TabIndex = 7;
@@ -237,6 +251,7 @@ namespace CoachTicketManagement
             // textBox6
             // 
             this.textBox6.Location = new System.Drawing.Point(135, 9);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(265, 30);
             this.textBox6.TabIndex = 7;
@@ -254,8 +269,9 @@ namespace CoachTicketManagement
             // 
             this.panel8.Controls.Add(this.textBox7);
             this.panel8.Controls.Add(this.label8);
-            this.panel8.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.panel8.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.panel8.Location = new System.Drawing.Point(441, 174);
+            this.panel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(423, 48);
             this.panel8.TabIndex = 8;
@@ -263,6 +279,7 @@ namespace CoachTicketManagement
             // textBox7
             // 
             this.textBox7.Location = new System.Drawing.Point(135, 9);
+            this.textBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(265, 30);
             this.textBox7.TabIndex = 8;
@@ -280,9 +297,10 @@ namespace CoachTicketManagement
             // 
             this.btnfAIUpdate.AutoSize = true;
             this.btnfAIUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
-            this.btnfAIUpdate.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnfAIUpdate.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.btnfAIUpdate.ForeColor = System.Drawing.Color.White;
             this.btnfAIUpdate.Location = new System.Drawing.Point(723, 228);
+            this.btnfAIUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnfAIUpdate.Name = "btnfAIUpdate";
             this.btnfAIUpdate.Size = new System.Drawing.Size(118, 50);
             this.btnfAIUpdate.TabIndex = 9;
@@ -294,9 +312,10 @@ namespace CoachTicketManagement
             // 
             this.btnfAIExit.AutoSize = true;
             this.btnfAIExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
-            this.btnfAIExit.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnfAIExit.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.btnfAIExit.ForeColor = System.Drawing.Color.White;
             this.btnfAIExit.Location = new System.Drawing.Point(599, 228);
+            this.btnfAIExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnfAIExit.Name = "btnfAIExit";
             this.btnfAIExit.Size = new System.Drawing.Size(118, 50);
             this.btnfAIExit.TabIndex = 10;
@@ -319,6 +338,9 @@ namespace CoachTicketManagement
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "fAccountInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thông tin tài khoản";

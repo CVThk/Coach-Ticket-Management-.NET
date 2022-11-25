@@ -29,6 +29,7 @@ namespace CoachTicketManagement
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fAdmin));
             this.tpEmployee = new System.Windows.Forms.TabPage();
             this.dataGridViewEmployee = new System.Windows.Forms.DataGridView();
             this.tpEmployeeBtnUpdate = new System.Windows.Forms.Button();
@@ -206,6 +207,33 @@ namespace CoachTicketManagement
             this.tpTripIDCoach = new System.Windows.Forms.ComboBox();
             this.label45 = new System.Windows.Forms.Label();
             this.tpTicket = new System.Windows.Forms.TabPage();
+            this.panel47 = new System.Windows.Forms.Panel();
+            this.tpTicketTxtIDTrip = new System.Windows.Forms.TextBox();
+            this.label49 = new System.Windows.Forms.Label();
+            this.dataGridViewTicket = new System.Windows.Forms.DataGridView();
+            this.panel48 = new System.Windows.Forms.Panel();
+            this.tpTicketCboDropOffPoint = new System.Windows.Forms.ComboBox();
+            this.label50 = new System.Windows.Forms.Label();
+            this.tpTicketBtnUpdate = new System.Windows.Forms.Button();
+            this.panel49 = new System.Windows.Forms.Panel();
+            this.tpTicketCboPickUpPoint = new System.Windows.Forms.ComboBox();
+            this.label51 = new System.Windows.Forms.Label();
+            this.tpTicketBtnDelete = new System.Windows.Forms.Button();
+            this.panel50 = new System.Windows.Forms.Panel();
+            this.tpTicketTxtIDSeat = new System.Windows.Forms.TextBox();
+            this.label52 = new System.Windows.Forms.Label();
+            this.tpTicketBtnAdd = new System.Windows.Forms.Button();
+            this.panel51 = new System.Windows.Forms.Panel();
+            this.label53 = new System.Windows.Forms.Label();
+            this.tpTicketTxtIDTicket = new System.Windows.Forms.TextBox();
+            this.panel52 = new System.Windows.Forms.Panel();
+            this.tpTicketTxtPrice = new System.Windows.Forms.TextBox();
+            this.label54 = new System.Windows.Forms.Label();
+            this.tpTicketBtnFind = new System.Windows.Forms.Button();
+            this.panel53 = new System.Windows.Forms.Panel();
+            this.tpTicketPurchaseDate = new System.Windows.Forms.DateTimePicker();
+            this.label55 = new System.Windows.Forms.Label();
+            this.tbTicketTxtFind = new System.Windows.Forms.TextBox();
             this.tpCoach = new System.Windows.Forms.TabPage();
             this.tpCoachUpdate = new System.Windows.Forms.Button();
             this.tpCoachBtnDelete = new System.Windows.Forms.Button();
@@ -222,33 +250,6 @@ namespace CoachTicketManagement
             this.label48 = new System.Windows.Forms.Label();
             this.tpCoachTxtIDCoach = new System.Windows.Forms.TextBox();
             this.dataGridViewCoach = new System.Windows.Forms.DataGridView();
-            this.panel47 = new System.Windows.Forms.Panel();
-            this.label49 = new System.Windows.Forms.Label();
-            this.dataGridViewTicket = new System.Windows.Forms.DataGridView();
-            this.panel48 = new System.Windows.Forms.Panel();
-            this.label50 = new System.Windows.Forms.Label();
-            this.tpTicketBtnUpdate = new System.Windows.Forms.Button();
-            this.panel49 = new System.Windows.Forms.Panel();
-            this.label51 = new System.Windows.Forms.Label();
-            this.tpTicketBtnDelete = new System.Windows.Forms.Button();
-            this.panel50 = new System.Windows.Forms.Panel();
-            this.label52 = new System.Windows.Forms.Label();
-            this.tpTicketBtnAdd = new System.Windows.Forms.Button();
-            this.panel51 = new System.Windows.Forms.Panel();
-            this.label53 = new System.Windows.Forms.Label();
-            this.tpTicketTxtIDTicket = new System.Windows.Forms.TextBox();
-            this.panel52 = new System.Windows.Forms.Panel();
-            this.label54 = new System.Windows.Forms.Label();
-            this.tpTicketBtnFind = new System.Windows.Forms.Button();
-            this.panel53 = new System.Windows.Forms.Panel();
-            this.label55 = new System.Windows.Forms.Label();
-            this.tbTicketTxtFind = new System.Windows.Forms.TextBox();
-            this.tpTicketCboPickUpPoint = new System.Windows.Forms.ComboBox();
-            this.tpTicketCboDropOffPoint = new System.Windows.Forms.ComboBox();
-            this.tpTicketTxtPrice = new System.Windows.Forms.TextBox();
-            this.tpTicketPurchaseDate = new System.Windows.Forms.DateTimePicker();
-            this.tpTicketTxtIDTrip = new System.Windows.Forms.TextBox();
-            this.tpTicketTxtIDSeat = new System.Windows.Forms.TextBox();
             this.tpEmployee.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployee)).BeginInit();
             this.panel10.SuspendLayout();
@@ -308,12 +309,6 @@ namespace CoachTicketManagement
             this.panel42.SuspendLayout();
             this.panel43.SuspendLayout();
             this.tpTicket.SuspendLayout();
-            this.tpCoach.SuspendLayout();
-            this.panel44.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tpCoachNumAmountSeat)).BeginInit();
-            this.panel45.SuspendLayout();
-            this.panel46.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCoach)).BeginInit();
             this.panel47.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTicket)).BeginInit();
             this.panel48.SuspendLayout();
@@ -322,6 +317,12 @@ namespace CoachTicketManagement
             this.panel51.SuspendLayout();
             this.panel52.SuspendLayout();
             this.panel53.SuspendLayout();
+            this.tpCoach.SuspendLayout();
+            this.panel44.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tpCoachNumAmountSeat)).BeginInit();
+            this.panel45.SuspendLayout();
+            this.panel46.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCoach)).BeginInit();
             this.SuspendLayout();
             // 
             // tpEmployee
@@ -345,8 +346,9 @@ namespace CoachTicketManagement
             this.tpEmployee.Controls.Add(this.panel27);
             this.tpEmployee.Controls.Add(this.panel26);
             this.tpEmployee.Location = new System.Drawing.Point(4, 29);
+            this.tpEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpEmployee.Name = "tpEmployee";
-            this.tpEmployee.Padding = new System.Windows.Forms.Padding(3);
+            this.tpEmployee.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpEmployee.Size = new System.Drawing.Size(1347, 613);
             this.tpEmployee.TabIndex = 1;
             this.tpEmployee.Text = "Nhân viên";
@@ -357,6 +359,7 @@ namespace CoachTicketManagement
             this.dataGridViewEmployee.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewEmployee.Location = new System.Drawing.Point(6, 6);
+            this.dataGridViewEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewEmployee.Name = "dataGridViewEmployee";
             this.dataGridViewEmployee.RowHeadersWidth = 51;
             this.dataGridViewEmployee.RowTemplate.Height = 29;
@@ -367,9 +370,10 @@ namespace CoachTicketManagement
             // 
             this.tpEmployeeBtnUpdate.AutoSize = true;
             this.tpEmployeeBtnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
-            this.tpEmployeeBtnUpdate.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tpEmployeeBtnUpdate.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.tpEmployeeBtnUpdate.ForeColor = System.Drawing.Color.White;
-            this.tpEmployeeBtnUpdate.Location = new System.Drawing.Point(1194, 450);
+            this.tpEmployeeBtnUpdate.Location = new System.Drawing.Point(1192, 450);
+            this.tpEmployeeBtnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpEmployeeBtnUpdate.Name = "tpEmployeeBtnUpdate";
             this.tpEmployeeBtnUpdate.Size = new System.Drawing.Size(144, 65);
             this.tpEmployeeBtnUpdate.TabIndex = 11;
@@ -380,9 +384,10 @@ namespace CoachTicketManagement
             // 
             this.tpEmployeeBtnDelete.AutoSize = true;
             this.tpEmployeeBtnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
-            this.tpEmployeeBtnDelete.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tpEmployeeBtnDelete.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.tpEmployeeBtnDelete.ForeColor = System.Drawing.Color.White;
             this.tpEmployeeBtnDelete.Location = new System.Drawing.Point(1044, 450);
+            this.tpEmployeeBtnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpEmployeeBtnDelete.Name = "tpEmployeeBtnDelete";
             this.tpEmployeeBtnDelete.Size = new System.Drawing.Size(144, 65);
             this.tpEmployeeBtnDelete.TabIndex = 11;
@@ -393,9 +398,10 @@ namespace CoachTicketManagement
             // 
             this.tpEmployeeBtnAdd.AutoSize = true;
             this.tpEmployeeBtnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
-            this.tpEmployeeBtnAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tpEmployeeBtnAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.tpEmployeeBtnAdd.ForeColor = System.Drawing.Color.White;
             this.tpEmployeeBtnAdd.Location = new System.Drawing.Point(894, 450);
+            this.tpEmployeeBtnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpEmployeeBtnAdd.Name = "tpEmployeeBtnAdd";
             this.tpEmployeeBtnAdd.Size = new System.Drawing.Size(144, 65);
             this.tpEmployeeBtnAdd.TabIndex = 11;
@@ -406,11 +412,12 @@ namespace CoachTicketManagement
             // 
             this.tpEmployeeBtnFind.AutoSize = true;
             this.tpEmployeeBtnFind.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
-            this.tpEmployeeBtnFind.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tpEmployeeBtnFind.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.tpEmployeeBtnFind.ForeColor = System.Drawing.Color.White;
             this.tpEmployeeBtnFind.Location = new System.Drawing.Point(1205, 19);
+            this.tpEmployeeBtnFind.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpEmployeeBtnFind.Name = "tpEmployeeBtnFind";
-            this.tpEmployeeBtnFind.Size = new System.Drawing.Size(133, 47);
+            this.tpEmployeeBtnFind.Size = new System.Drawing.Size(133, 48);
             this.tpEmployeeBtnFind.TabIndex = 11;
             this.tpEmployeeBtnFind.Text = "Tìm";
             this.tpEmployeeBtnFind.UseVisualStyleBackColor = false;
@@ -418,6 +425,7 @@ namespace CoachTicketManagement
             // tpEmployeeTxtFind
             // 
             this.tpEmployeeTxtFind.Location = new System.Drawing.Point(930, 30);
+            this.tpEmployeeTxtFind.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpEmployeeTxtFind.Name = "tpEmployeeTxtFind";
             this.tpEmployeeTxtFind.Size = new System.Drawing.Size(253, 27);
             this.tpEmployeeTxtFind.TabIndex = 0;
@@ -426,9 +434,10 @@ namespace CoachTicketManagement
             // 
             this.panel10.Controls.Add(this.tpEmployeeDtpDateOfBirth);
             this.panel10.Controls.Add(this.label1);
-            this.panel10.Location = new System.Drawing.Point(899, 143);
+            this.panel10.Location = new System.Drawing.Point(899, 142);
+            this.panel10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(438, 53);
+            this.panel10.Size = new System.Drawing.Size(438, 52);
             this.panel10.TabIndex = 2;
             // 
             // tpEmployeeDtpDateOfBirth
@@ -436,6 +445,7 @@ namespace CoachTicketManagement
             this.tpEmployeeDtpDateOfBirth.CustomFormat = "yyyy";
             this.tpEmployeeDtpDateOfBirth.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.tpEmployeeDtpDateOfBirth.Location = new System.Drawing.Point(143, 16);
+            this.tpEmployeeDtpDateOfBirth.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpEmployeeDtpDateOfBirth.Name = "tpEmployeeDtpDateOfBirth";
             this.tpEmployeeDtpDateOfBirth.Size = new System.Drawing.Size(292, 27);
             this.tpEmployeeDtpDateOfBirth.TabIndex = 4;
@@ -454,8 +464,9 @@ namespace CoachTicketManagement
             this.panel28.Controls.Add(this.label16);
             this.panel28.Controls.Add(this.tpEmployeeTxtEmail);
             this.panel28.Location = new System.Drawing.Point(900, 379);
+            this.panel28.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel28.Name = "panel28";
-            this.panel28.Size = new System.Drawing.Size(438, 53);
+            this.panel28.Size = new System.Drawing.Size(438, 52);
             this.panel28.TabIndex = 2;
             // 
             // label16
@@ -469,7 +480,8 @@ namespace CoachTicketManagement
             // 
             // tpEmployeeTxtEmail
             // 
-            this.tpEmployeeTxtEmail.Location = new System.Drawing.Point(144, 13);
+            this.tpEmployeeTxtEmail.Location = new System.Drawing.Point(144, 12);
+            this.tpEmployeeTxtEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpEmployeeTxtEmail.Name = "tpEmployeeTxtEmail";
             this.tpEmployeeTxtEmail.Size = new System.Drawing.Size(291, 27);
             this.tpEmployeeTxtEmail.TabIndex = 2;
@@ -479,8 +491,9 @@ namespace CoachTicketManagement
             this.panel11.Controls.Add(this.label6);
             this.panel11.Controls.Add(this.tpEmployeeTxtName);
             this.panel11.Location = new System.Drawing.Point(457, 202);
+            this.panel11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(438, 53);
+            this.panel11.Size = new System.Drawing.Size(438, 52);
             this.panel11.TabIndex = 2;
             // 
             // label6
@@ -494,7 +507,8 @@ namespace CoachTicketManagement
             // 
             // tpEmployeeTxtName
             // 
-            this.tpEmployeeTxtName.Location = new System.Drawing.Point(144, 13);
+            this.tpEmployeeTxtName.Location = new System.Drawing.Point(144, 12);
+            this.tpEmployeeTxtName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpEmployeeTxtName.Name = "tpEmployeeTxtName";
             this.tpEmployeeTxtName.Size = new System.Drawing.Size(291, 27);
             this.tpEmployeeTxtName.TabIndex = 2;
@@ -503,9 +517,10 @@ namespace CoachTicketManagement
             // 
             this.panel12.Controls.Add(this.label7);
             this.panel12.Controls.Add(this.tpEmployeeTxtIdEmployee);
-            this.panel12.Location = new System.Drawing.Point(457, 143);
+            this.panel12.Location = new System.Drawing.Point(457, 142);
+            this.panel12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(438, 53);
+            this.panel12.Size = new System.Drawing.Size(438, 52);
             this.panel12.TabIndex = 2;
             // 
             // label7
@@ -519,7 +534,8 @@ namespace CoachTicketManagement
             // 
             // tpEmployeeTxtIdEmployee
             // 
-            this.tpEmployeeTxtIdEmployee.Location = new System.Drawing.Point(144, 13);
+            this.tpEmployeeTxtIdEmployee.Location = new System.Drawing.Point(144, 12);
+            this.tpEmployeeTxtIdEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpEmployeeTxtIdEmployee.Name = "tpEmployeeTxtIdEmployee";
             this.tpEmployeeTxtIdEmployee.ReadOnly = true;
             this.tpEmployeeTxtIdEmployee.Size = new System.Drawing.Size(291, 27);
@@ -530,15 +546,17 @@ namespace CoachTicketManagement
             this.panel25.Controls.Add(this.tpEmployeeCboGender);
             this.panel25.Controls.Add(this.label13);
             this.panel25.Location = new System.Drawing.Point(899, 202);
+            this.panel25.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel25.Name = "panel25";
-            this.panel25.Size = new System.Drawing.Size(438, 53);
+            this.panel25.Size = new System.Drawing.Size(438, 52);
             this.panel25.TabIndex = 2;
             // 
             // tpEmployeeCboGender
             // 
             this.tpEmployeeCboGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.tpEmployeeCboGender.FormattingEnabled = true;
-            this.tpEmployeeCboGender.Location = new System.Drawing.Point(143, 13);
+            this.tpEmployeeCboGender.Location = new System.Drawing.Point(143, 12);
+            this.tpEmployeeCboGender.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpEmployeeCboGender.Name = "tpEmployeeCboGender";
             this.tpEmployeeCboGender.Size = new System.Drawing.Size(291, 28);
             this.tpEmployeeCboGender.TabIndex = 4;
@@ -557,8 +575,9 @@ namespace CoachTicketManagement
             this.panel13.Controls.Add(this.label8);
             this.panel13.Controls.Add(this.tpEmployeeTxtIdAccount);
             this.panel13.Location = new System.Drawing.Point(456, 84);
+            this.panel13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(438, 53);
+            this.panel13.Size = new System.Drawing.Size(438, 52);
             this.panel13.TabIndex = 2;
             // 
             // label8
@@ -572,7 +591,8 @@ namespace CoachTicketManagement
             // 
             // tpEmployeeTxtIdAccount
             // 
-            this.tpEmployeeTxtIdAccount.Location = new System.Drawing.Point(144, 13);
+            this.tpEmployeeTxtIdAccount.Location = new System.Drawing.Point(144, 12);
+            this.tpEmployeeTxtIdAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpEmployeeTxtIdAccount.Name = "tpEmployeeTxtIdAccount";
             this.tpEmployeeTxtIdAccount.ReadOnly = true;
             this.tpEmployeeTxtIdAccount.Size = new System.Drawing.Size(291, 27);
@@ -583,15 +603,17 @@ namespace CoachTicketManagement
             this.panel4.Controls.Add(this.tpEmployeeCboWard);
             this.panel4.Controls.Add(this.label20);
             this.panel4.Location = new System.Drawing.Point(457, 379);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(438, 53);
+            this.panel4.Size = new System.Drawing.Size(438, 52);
             this.panel4.TabIndex = 2;
             // 
             // tpEmployeeCboWard
             // 
             this.tpEmployeeCboWard.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.tpEmployeeCboWard.FormattingEnabled = true;
-            this.tpEmployeeCboWard.Location = new System.Drawing.Point(144, 13);
+            this.tpEmployeeCboWard.Location = new System.Drawing.Point(144, 12);
+            this.tpEmployeeCboWard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpEmployeeCboWard.Name = "tpEmployeeCboWard";
             this.tpEmployeeCboWard.Size = new System.Drawing.Size(291, 28);
             this.tpEmployeeCboWard.TabIndex = 4;
@@ -610,15 +632,17 @@ namespace CoachTicketManagement
             this.panel3.Controls.Add(this.tpEmployeeCboDistrict);
             this.panel3.Controls.Add(this.label19);
             this.panel3.Location = new System.Drawing.Point(457, 320);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(438, 53);
+            this.panel3.Size = new System.Drawing.Size(438, 52);
             this.panel3.TabIndex = 2;
             // 
             // tpEmployeeCboDistrict
             // 
             this.tpEmployeeCboDistrict.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.tpEmployeeCboDistrict.FormattingEnabled = true;
-            this.tpEmployeeCboDistrict.Location = new System.Drawing.Point(144, 13);
+            this.tpEmployeeCboDistrict.Location = new System.Drawing.Point(144, 12);
+            this.tpEmployeeCboDistrict.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpEmployeeCboDistrict.Name = "tpEmployeeCboDistrict";
             this.tpEmployeeCboDistrict.Size = new System.Drawing.Size(291, 28);
             this.tpEmployeeCboDistrict.TabIndex = 4;
@@ -637,15 +661,17 @@ namespace CoachTicketManagement
             this.panel2.Controls.Add(this.tpEmployeeCboCity);
             this.panel2.Controls.Add(this.label18);
             this.panel2.Location = new System.Drawing.Point(457, 261);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(438, 53);
+            this.panel2.Size = new System.Drawing.Size(438, 52);
             this.panel2.TabIndex = 2;
             // 
             // tpEmployeeCboCity
             // 
             this.tpEmployeeCboCity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.tpEmployeeCboCity.FormattingEnabled = true;
-            this.tpEmployeeCboCity.Location = new System.Drawing.Point(144, 13);
+            this.tpEmployeeCboCity.Location = new System.Drawing.Point(144, 12);
+            this.tpEmployeeCboCity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpEmployeeCboCity.Name = "tpEmployeeCboCity";
             this.tpEmployeeCboCity.Size = new System.Drawing.Size(291, 28);
             this.tpEmployeeCboCity.TabIndex = 4;
@@ -664,15 +690,17 @@ namespace CoachTicketManagement
             this.panel1.Controls.Add(this.tpEmployeeCboTypeOfEmployee);
             this.panel1.Controls.Add(this.label17);
             this.panel1.Location = new System.Drawing.Point(899, 84);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(438, 53);
+            this.panel1.Size = new System.Drawing.Size(438, 52);
             this.panel1.TabIndex = 2;
             // 
             // tpEmployeeCboTypeOfEmployee
             // 
             this.tpEmployeeCboTypeOfEmployee.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.tpEmployeeCboTypeOfEmployee.FormattingEnabled = true;
-            this.tpEmployeeCboTypeOfEmployee.Location = new System.Drawing.Point(144, 13);
+            this.tpEmployeeCboTypeOfEmployee.Location = new System.Drawing.Point(144, 12);
+            this.tpEmployeeCboTypeOfEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpEmployeeCboTypeOfEmployee.Name = "tpEmployeeCboTypeOfEmployee";
             this.tpEmployeeCboTypeOfEmployee.Size = new System.Drawing.Size(291, 28);
             this.tpEmployeeCboTypeOfEmployee.TabIndex = 4;
@@ -691,8 +719,9 @@ namespace CoachTicketManagement
             this.panel27.Controls.Add(this.label15);
             this.panel27.Controls.Add(this.tpEmployeeTxtPhone);
             this.panel27.Location = new System.Drawing.Point(900, 320);
+            this.panel27.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel27.Name = "panel27";
-            this.panel27.Size = new System.Drawing.Size(438, 53);
+            this.panel27.Size = new System.Drawing.Size(438, 52);
             this.panel27.TabIndex = 2;
             // 
             // label15
@@ -706,7 +735,8 @@ namespace CoachTicketManagement
             // 
             // tpEmployeeTxtPhone
             // 
-            this.tpEmployeeTxtPhone.Location = new System.Drawing.Point(144, 13);
+            this.tpEmployeeTxtPhone.Location = new System.Drawing.Point(144, 12);
+            this.tpEmployeeTxtPhone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpEmployeeTxtPhone.Name = "tpEmployeeTxtPhone";
             this.tpEmployeeTxtPhone.Size = new System.Drawing.Size(291, 27);
             this.tpEmployeeTxtPhone.TabIndex = 2;
@@ -716,8 +746,9 @@ namespace CoachTicketManagement
             this.panel26.Controls.Add(this.label14);
             this.panel26.Controls.Add(this.tpEmployeeTxtIdentityCard);
             this.panel26.Location = new System.Drawing.Point(900, 261);
+            this.panel26.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel26.Name = "panel26";
-            this.panel26.Size = new System.Drawing.Size(438, 53);
+            this.panel26.Size = new System.Drawing.Size(438, 52);
             this.panel26.TabIndex = 2;
             // 
             // label14
@@ -731,7 +762,8 @@ namespace CoachTicketManagement
             // 
             // tpEmployeeTxtIdentityCard
             // 
-            this.tpEmployeeTxtIdentityCard.Location = new System.Drawing.Point(144, 13);
+            this.tpEmployeeTxtIdentityCard.Location = new System.Drawing.Point(144, 12);
+            this.tpEmployeeTxtIdentityCard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpEmployeeTxtIdentityCard.Name = "tpEmployeeTxtIdentityCard";
             this.tpEmployeeTxtIdentityCard.Size = new System.Drawing.Size(291, 27);
             this.tpEmployeeTxtIdentityCard.TabIndex = 2;
@@ -746,7 +778,8 @@ namespace CoachTicketManagement
             this.tabControlAdmin.Controls.Add(this.tpTrip);
             this.tabControlAdmin.Controls.Add(this.tpTicket);
             this.tabControlAdmin.Controls.Add(this.tpCoach);
-            this.tabControlAdmin.Location = new System.Drawing.Point(2, 3);
+            this.tabControlAdmin.Location = new System.Drawing.Point(2, 2);
+            this.tabControlAdmin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControlAdmin.Name = "tabControlAdmin";
             this.tabControlAdmin.SelectedIndex = 0;
             this.tabControlAdmin.Size = new System.Drawing.Size(1355, 646);
@@ -763,8 +796,9 @@ namespace CoachTicketManagement
             this.tpAccount.Controls.Add(this.tpAccountBtnFind);
             this.tpAccount.Controls.Add(this.tpAccountBtnResetPassword);
             this.tpAccount.Location = new System.Drawing.Point(4, 29);
+            this.tpAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpAccount.Name = "tpAccount";
-            this.tpAccount.Padding = new System.Windows.Forms.Padding(3);
+            this.tpAccount.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpAccount.Size = new System.Drawing.Size(1347, 613);
             this.tpAccount.TabIndex = 0;
             this.tpAccount.Text = "Tài khoản";
@@ -774,11 +808,12 @@ namespace CoachTicketManagement
             // 
             this.dataGridViewAccount.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewAccount.Location = new System.Drawing.Point(3, 137);
+            this.dataGridViewAccount.Location = new System.Drawing.Point(3, 138);
+            this.dataGridViewAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewAccount.Name = "dataGridViewAccount";
             this.dataGridViewAccount.RowHeadersWidth = 51;
             this.dataGridViewAccount.RowTemplate.Height = 29;
-            this.dataGridViewAccount.Size = new System.Drawing.Size(1184, 473);
+            this.dataGridViewAccount.Size = new System.Drawing.Size(1184, 472);
             this.dataGridViewAccount.TabIndex = 14;
             // 
             // grBoxInfoAccount
@@ -788,7 +823,9 @@ namespace CoachTicketManagement
             this.grBoxInfoAccount.Controls.Add(this.panel7);
             this.grBoxInfoAccount.Controls.Add(this.panel6);
             this.grBoxInfoAccount.Location = new System.Drawing.Point(3, 6);
+            this.grBoxInfoAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grBoxInfoAccount.Name = "grBoxInfoAccount";
+            this.grBoxInfoAccount.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grBoxInfoAccount.Size = new System.Drawing.Size(925, 125);
             this.grBoxInfoAccount.TabIndex = 13;
             this.grBoxInfoAccount.TabStop = false;
@@ -798,9 +835,10 @@ namespace CoachTicketManagement
             // 
             this.panel9.Controls.Add(this.label5);
             this.panel9.Controls.Add(this.tpAccountTxtTypeAccount);
-            this.panel9.Location = new System.Drawing.Point(482, 73);
+            this.panel9.Location = new System.Drawing.Point(482, 72);
+            this.panel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(438, 53);
+            this.panel9.Size = new System.Drawing.Size(438, 52);
             this.panel9.TabIndex = 21;
             // 
             // label5
@@ -814,7 +852,8 @@ namespace CoachTicketManagement
             // 
             // tpAccountTxtTypeAccount
             // 
-            this.tpAccountTxtTypeAccount.Location = new System.Drawing.Point(144, 13);
+            this.tpAccountTxtTypeAccount.Location = new System.Drawing.Point(144, 12);
+            this.tpAccountTxtTypeAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpAccountTxtTypeAccount.Name = "tpAccountTxtTypeAccount";
             this.tpAccountTxtTypeAccount.ReadOnly = true;
             this.tpAccountTxtTypeAccount.Size = new System.Drawing.Size(291, 27);
@@ -825,8 +864,9 @@ namespace CoachTicketManagement
             this.panel8.Controls.Add(this.label4);
             this.panel8.Controls.Add(this.tpAccountTxtUsername);
             this.panel8.Location = new System.Drawing.Point(481, 14);
+            this.panel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(438, 53);
+            this.panel8.Size = new System.Drawing.Size(438, 52);
             this.panel8.TabIndex = 22;
             // 
             // label4
@@ -840,7 +880,8 @@ namespace CoachTicketManagement
             // 
             // tpAccountTxtUsername
             // 
-            this.tpAccountTxtUsername.Location = new System.Drawing.Point(144, 13);
+            this.tpAccountTxtUsername.Location = new System.Drawing.Point(144, 12);
+            this.tpAccountTxtUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpAccountTxtUsername.Name = "tpAccountTxtUsername";
             this.tpAccountTxtUsername.Size = new System.Drawing.Size(291, 27);
             this.tpAccountTxtUsername.TabIndex = 2;
@@ -849,9 +890,10 @@ namespace CoachTicketManagement
             // 
             this.panel7.Controls.Add(this.label3);
             this.panel7.Controls.Add(this.tpAccountTxtIdEmployee);
-            this.panel7.Location = new System.Drawing.Point(20, 73);
+            this.panel7.Location = new System.Drawing.Point(20, 72);
+            this.panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(438, 53);
+            this.panel7.Size = new System.Drawing.Size(438, 52);
             this.panel7.TabIndex = 23;
             // 
             // label3
@@ -865,7 +907,8 @@ namespace CoachTicketManagement
             // 
             // tpAccountTxtIdEmployee
             // 
-            this.tpAccountTxtIdEmployee.Location = new System.Drawing.Point(144, 13);
+            this.tpAccountTxtIdEmployee.Location = new System.Drawing.Point(144, 12);
+            this.tpAccountTxtIdEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpAccountTxtIdEmployee.Name = "tpAccountTxtIdEmployee";
             this.tpAccountTxtIdEmployee.Size = new System.Drawing.Size(291, 27);
             this.tpAccountTxtIdEmployee.TabIndex = 2;
@@ -875,8 +918,9 @@ namespace CoachTicketManagement
             this.panel6.Controls.Add(this.label2);
             this.panel6.Controls.Add(this.tpAccountTxtIdAccount);
             this.panel6.Location = new System.Drawing.Point(19, 14);
+            this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(438, 53);
+            this.panel6.Size = new System.Drawing.Size(438, 52);
             this.panel6.TabIndex = 24;
             // 
             // label2
@@ -890,7 +934,8 @@ namespace CoachTicketManagement
             // 
             // tpAccountTxtIdAccount
             // 
-            this.tpAccountTxtIdAccount.Location = new System.Drawing.Point(144, 13);
+            this.tpAccountTxtIdAccount.Location = new System.Drawing.Point(144, 12);
+            this.tpAccountTxtIdAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpAccountTxtIdAccount.Name = "tpAccountTxtIdAccount";
             this.tpAccountTxtIdAccount.ReadOnly = true;
             this.tpAccountTxtIdAccount.Size = new System.Drawing.Size(291, 27);
@@ -900,9 +945,10 @@ namespace CoachTicketManagement
             // 
             this.tpAccountBtnAdd.AutoSize = true;
             this.tpAccountBtnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
-            this.tpAccountBtnAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tpAccountBtnAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.tpAccountBtnAdd.ForeColor = System.Drawing.Color.White;
-            this.tpAccountBtnAdd.Location = new System.Drawing.Point(1194, 137);
+            this.tpAccountBtnAdd.Location = new System.Drawing.Point(1194, 138);
+            this.tpAccountBtnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpAccountBtnAdd.Name = "tpAccountBtnAdd";
             this.tpAccountBtnAdd.Size = new System.Drawing.Size(144, 65);
             this.tpAccountBtnAdd.TabIndex = 11;
@@ -913,9 +959,10 @@ namespace CoachTicketManagement
             // 
             this.tpAccountBtnDelete.AutoSize = true;
             this.tpAccountBtnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
-            this.tpAccountBtnDelete.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tpAccountBtnDelete.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.tpAccountBtnDelete.ForeColor = System.Drawing.Color.White;
             this.tpAccountBtnDelete.Location = new System.Drawing.Point(1194, 220);
+            this.tpAccountBtnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpAccountBtnDelete.Name = "tpAccountBtnDelete";
             this.tpAccountBtnDelete.Size = new System.Drawing.Size(144, 65);
             this.tpAccountBtnDelete.TabIndex = 11;
@@ -926,9 +973,10 @@ namespace CoachTicketManagement
             // 
             this.tpAccountBtnUpdate.AutoSize = true;
             this.tpAccountBtnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
-            this.tpAccountBtnUpdate.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tpAccountBtnUpdate.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.tpAccountBtnUpdate.ForeColor = System.Drawing.Color.White;
             this.tpAccountBtnUpdate.Location = new System.Drawing.Point(1194, 302);
+            this.tpAccountBtnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpAccountBtnUpdate.Name = "tpAccountBtnUpdate";
             this.tpAccountBtnUpdate.Size = new System.Drawing.Size(144, 65);
             this.tpAccountBtnUpdate.TabIndex = 11;
@@ -938,6 +986,7 @@ namespace CoachTicketManagement
             // tpAccountTxtFind
             // 
             this.tpAccountTxtFind.Location = new System.Drawing.Point(934, 32);
+            this.tpAccountTxtFind.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpAccountTxtFind.Name = "tpAccountTxtFind";
             this.tpAccountTxtFind.Size = new System.Drawing.Size(253, 27);
             this.tpAccountTxtFind.TabIndex = 0;
@@ -946,11 +995,12 @@ namespace CoachTicketManagement
             // 
             this.tpAccountBtnFind.AutoSize = true;
             this.tpAccountBtnFind.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
-            this.tpAccountBtnFind.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tpAccountBtnFind.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.tpAccountBtnFind.ForeColor = System.Drawing.Color.White;
             this.tpAccountBtnFind.Location = new System.Drawing.Point(1195, 21);
+            this.tpAccountBtnFind.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpAccountBtnFind.Name = "tpAccountBtnFind";
-            this.tpAccountBtnFind.Size = new System.Drawing.Size(143, 47);
+            this.tpAccountBtnFind.Size = new System.Drawing.Size(143, 48);
             this.tpAccountBtnFind.TabIndex = 11;
             this.tpAccountBtnFind.Text = "Tìm";
             this.tpAccountBtnFind.UseVisualStyleBackColor = false;
@@ -959,11 +1009,12 @@ namespace CoachTicketManagement
             // 
             this.tpAccountBtnResetPassword.AutoSize = true;
             this.tpAccountBtnResetPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
-            this.tpAccountBtnResetPassword.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tpAccountBtnResetPassword.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.tpAccountBtnResetPassword.ForeColor = System.Drawing.Color.White;
             this.tpAccountBtnResetPassword.Location = new System.Drawing.Point(1195, 80);
+            this.tpAccountBtnResetPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpAccountBtnResetPassword.Name = "tpAccountBtnResetPassword";
-            this.tpAccountBtnResetPassword.Size = new System.Drawing.Size(143, 47);
+            this.tpAccountBtnResetPassword.Size = new System.Drawing.Size(143, 48);
             this.tpAccountBtnResetPassword.TabIndex = 12;
             this.tpAccountBtnResetPassword.Text = "Reset Password";
             this.tpAccountBtnResetPassword.UseVisualStyleBackColor = false;
@@ -987,8 +1038,9 @@ namespace CoachTicketManagement
             this.tpDriver.Controls.Add(this.panel23);
             this.tpDriver.Controls.Add(this.panel24);
             this.tpDriver.Location = new System.Drawing.Point(4, 29);
+            this.tpDriver.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpDriver.Name = "tpDriver";
-            this.tpDriver.Padding = new System.Windows.Forms.Padding(3);
+            this.tpDriver.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpDriver.Size = new System.Drawing.Size(1347, 613);
             this.tpDriver.TabIndex = 2;
             this.tpDriver.Text = "Tài xế";
@@ -999,6 +1051,7 @@ namespace CoachTicketManagement
             this.dataGridViewDriver.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewDriver.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDriver.Location = new System.Drawing.Point(6, 6);
+            this.dataGridViewDriver.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewDriver.Name = "dataGridViewDriver";
             this.dataGridViewDriver.RowHeadersWidth = 51;
             this.dataGridViewDriver.RowTemplate.Height = 29;
@@ -1009,9 +1062,10 @@ namespace CoachTicketManagement
             // 
             this.tpDriverBtnUpdate.AutoSize = true;
             this.tpDriverBtnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
-            this.tpDriverBtnUpdate.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tpDriverBtnUpdate.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.tpDriverBtnUpdate.ForeColor = System.Drawing.Color.White;
-            this.tpDriverBtnUpdate.Location = new System.Drawing.Point(1194, 450);
+            this.tpDriverBtnUpdate.Location = new System.Drawing.Point(1192, 450);
+            this.tpDriverBtnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpDriverBtnUpdate.Name = "tpDriverBtnUpdate";
             this.tpDriverBtnUpdate.Size = new System.Drawing.Size(144, 65);
             this.tpDriverBtnUpdate.TabIndex = 29;
@@ -1023,9 +1077,10 @@ namespace CoachTicketManagement
             // 
             this.tpDriverBtnDelete.AutoSize = true;
             this.tpDriverBtnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
-            this.tpDriverBtnDelete.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tpDriverBtnDelete.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.tpDriverBtnDelete.ForeColor = System.Drawing.Color.White;
             this.tpDriverBtnDelete.Location = new System.Drawing.Point(1044, 450);
+            this.tpDriverBtnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpDriverBtnDelete.Name = "tpDriverBtnDelete";
             this.tpDriverBtnDelete.Size = new System.Drawing.Size(144, 65);
             this.tpDriverBtnDelete.TabIndex = 28;
@@ -1037,9 +1092,10 @@ namespace CoachTicketManagement
             // 
             this.tpDriverBtnAdd.AutoSize = true;
             this.tpDriverBtnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
-            this.tpDriverBtnAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tpDriverBtnAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.tpDriverBtnAdd.ForeColor = System.Drawing.Color.White;
             this.tpDriverBtnAdd.Location = new System.Drawing.Point(894, 450);
+            this.tpDriverBtnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpDriverBtnAdd.Name = "tpDriverBtnAdd";
             this.tpDriverBtnAdd.Size = new System.Drawing.Size(144, 65);
             this.tpDriverBtnAdd.TabIndex = 27;
@@ -1051,11 +1107,12 @@ namespace CoachTicketManagement
             // 
             this.tpDriverBtnFind.AutoSize = true;
             this.tpDriverBtnFind.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
-            this.tpDriverBtnFind.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tpDriverBtnFind.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.tpDriverBtnFind.ForeColor = System.Drawing.Color.White;
             this.tpDriverBtnFind.Location = new System.Drawing.Point(1205, 19);
+            this.tpDriverBtnFind.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpDriverBtnFind.Name = "tpDriverBtnFind";
-            this.tpDriverBtnFind.Size = new System.Drawing.Size(133, 47);
+            this.tpDriverBtnFind.Size = new System.Drawing.Size(133, 48);
             this.tpDriverBtnFind.TabIndex = 26;
             this.tpDriverBtnFind.Text = "Tìm";
             this.tpDriverBtnFind.UseVisualStyleBackColor = false;
@@ -1063,6 +1120,7 @@ namespace CoachTicketManagement
             // tpDriverTxtFind
             // 
             this.tpDriverTxtFind.Location = new System.Drawing.Point(930, 30);
+            this.tpDriverTxtFind.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpDriverTxtFind.Name = "tpDriverTxtFind";
             this.tpDriverTxtFind.Size = new System.Drawing.Size(253, 27);
             this.tpDriverTxtFind.TabIndex = 12;
@@ -1072,8 +1130,9 @@ namespace CoachTicketManagement
             this.panel5.Controls.Add(this.tpDriverDtpDateOfBirth);
             this.panel5.Controls.Add(this.label9);
             this.panel5.Location = new System.Drawing.Point(900, 84);
+            this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(438, 53);
+            this.panel5.Size = new System.Drawing.Size(438, 52);
             this.panel5.TabIndex = 24;
             // 
             // tpDriverDtpDateOfBirth
@@ -1081,6 +1140,7 @@ namespace CoachTicketManagement
             this.tpDriverDtpDateOfBirth.CustomFormat = "dd/MM/yyyy";
             this.tpDriverDtpDateOfBirth.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.tpDriverDtpDateOfBirth.Location = new System.Drawing.Point(143, 16);
+            this.tpDriverDtpDateOfBirth.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpDriverDtpDateOfBirth.Name = "tpDriverDtpDateOfBirth";
             this.tpDriverDtpDateOfBirth.Size = new System.Drawing.Size(292, 27);
             this.tpDriverDtpDateOfBirth.TabIndex = 4;
@@ -1099,8 +1159,9 @@ namespace CoachTicketManagement
             this.panel14.Controls.Add(this.label10);
             this.panel14.Controls.Add(this.tpDriverTxtEmail);
             this.panel14.Location = new System.Drawing.Point(900, 316);
+            this.panel14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(438, 53);
+            this.panel14.Size = new System.Drawing.Size(438, 52);
             this.panel14.TabIndex = 23;
             // 
             // label10
@@ -1114,7 +1175,8 @@ namespace CoachTicketManagement
             // 
             // tpDriverTxtEmail
             // 
-            this.tpDriverTxtEmail.Location = new System.Drawing.Point(144, 13);
+            this.tpDriverTxtEmail.Location = new System.Drawing.Point(144, 12);
+            this.tpDriverTxtEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpDriverTxtEmail.Name = "tpDriverTxtEmail";
             this.tpDriverTxtEmail.Size = new System.Drawing.Size(291, 27);
             this.tpDriverTxtEmail.TabIndex = 2;
@@ -1124,8 +1186,9 @@ namespace CoachTicketManagement
             this.panel15.Controls.Add(this.label11);
             this.panel15.Controls.Add(this.tpDriverTxtName);
             this.panel15.Location = new System.Drawing.Point(456, 139);
+            this.panel15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(438, 53);
+            this.panel15.Size = new System.Drawing.Size(438, 52);
             this.panel15.TabIndex = 14;
             // 
             // label11
@@ -1139,7 +1202,8 @@ namespace CoachTicketManagement
             // 
             // tpDriverTxtName
             // 
-            this.tpDriverTxtName.Location = new System.Drawing.Point(144, 13);
+            this.tpDriverTxtName.Location = new System.Drawing.Point(144, 12);
+            this.tpDriverTxtName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpDriverTxtName.Name = "tpDriverTxtName";
             this.tpDriverTxtName.Size = new System.Drawing.Size(291, 27);
             this.tpDriverTxtName.TabIndex = 2;
@@ -1149,8 +1213,9 @@ namespace CoachTicketManagement
             this.panel16.Controls.Add(this.label12);
             this.panel16.Controls.Add(this.tpDriverTxtIdDriver);
             this.panel16.Location = new System.Drawing.Point(456, 84);
+            this.panel16.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(438, 53);
+            this.panel16.Size = new System.Drawing.Size(438, 52);
             this.panel16.TabIndex = 25;
             // 
             // label12
@@ -1164,7 +1229,8 @@ namespace CoachTicketManagement
             // 
             // tpDriverTxtIdDriver
             // 
-            this.tpDriverTxtIdDriver.Location = new System.Drawing.Point(144, 13);
+            this.tpDriverTxtIdDriver.Location = new System.Drawing.Point(144, 12);
+            this.tpDriverTxtIdDriver.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpDriverTxtIdDriver.Name = "tpDriverTxtIdDriver";
             this.tpDriverTxtIdDriver.ReadOnly = true;
             this.tpDriverTxtIdDriver.Size = new System.Drawing.Size(291, 27);
@@ -1175,15 +1241,17 @@ namespace CoachTicketManagement
             this.panel17.Controls.Add(this.tpDriverCboGender);
             this.panel17.Controls.Add(this.label21);
             this.panel17.Location = new System.Drawing.Point(900, 139);
+            this.panel17.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(438, 53);
+            this.panel17.Size = new System.Drawing.Size(438, 52);
             this.panel17.TabIndex = 20;
             // 
             // tpDriverCboGender
             // 
             this.tpDriverCboGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.tpDriverCboGender.FormattingEnabled = true;
-            this.tpDriverCboGender.Location = new System.Drawing.Point(143, 13);
+            this.tpDriverCboGender.Location = new System.Drawing.Point(143, 12);
+            this.tpDriverCboGender.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpDriverCboGender.Name = "tpDriverCboGender";
             this.tpDriverCboGender.Size = new System.Drawing.Size(291, 28);
             this.tpDriverCboGender.TabIndex = 4;
@@ -1202,15 +1270,17 @@ namespace CoachTicketManagement
             this.panel19.Controls.Add(this.tpDriverCboWard);
             this.panel19.Controls.Add(this.label23);
             this.panel19.Location = new System.Drawing.Point(457, 316);
+            this.panel19.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(438, 53);
+            this.panel19.Size = new System.Drawing.Size(438, 52);
             this.panel19.TabIndex = 18;
             // 
             // tpDriverCboWard
             // 
             this.tpDriverCboWard.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.tpDriverCboWard.FormattingEnabled = true;
-            this.tpDriverCboWard.Location = new System.Drawing.Point(144, 13);
+            this.tpDriverCboWard.Location = new System.Drawing.Point(144, 12);
+            this.tpDriverCboWard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpDriverCboWard.Name = "tpDriverCboWard";
             this.tpDriverCboWard.Size = new System.Drawing.Size(291, 28);
             this.tpDriverCboWard.TabIndex = 4;
@@ -1228,16 +1298,18 @@ namespace CoachTicketManagement
             // 
             this.panel20.Controls.Add(this.tpDriverCboDistrict);
             this.panel20.Controls.Add(this.label24);
-            this.panel20.Location = new System.Drawing.Point(457, 257);
+            this.panel20.Location = new System.Drawing.Point(457, 258);
+            this.panel20.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(438, 53);
+            this.panel20.Size = new System.Drawing.Size(438, 52);
             this.panel20.TabIndex = 17;
             // 
             // tpDriverCboDistrict
             // 
             this.tpDriverCboDistrict.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.tpDriverCboDistrict.FormattingEnabled = true;
-            this.tpDriverCboDistrict.Location = new System.Drawing.Point(144, 13);
+            this.tpDriverCboDistrict.Location = new System.Drawing.Point(144, 12);
+            this.tpDriverCboDistrict.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpDriverCboDistrict.Name = "tpDriverCboDistrict";
             this.tpDriverCboDistrict.Size = new System.Drawing.Size(291, 28);
             this.tpDriverCboDistrict.TabIndex = 4;
@@ -1256,15 +1328,17 @@ namespace CoachTicketManagement
             this.panel21.Controls.Add(this.tpDriverCboCity);
             this.panel21.Controls.Add(this.label25);
             this.panel21.Location = new System.Drawing.Point(457, 198);
+            this.panel21.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(438, 53);
+            this.panel21.Size = new System.Drawing.Size(438, 52);
             this.panel21.TabIndex = 16;
             // 
             // tpDriverCboCity
             // 
             this.tpDriverCboCity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.tpDriverCboCity.FormattingEnabled = true;
-            this.tpDriverCboCity.Location = new System.Drawing.Point(144, 13);
+            this.tpDriverCboCity.Location = new System.Drawing.Point(144, 12);
+            this.tpDriverCboCity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpDriverCboCity.Name = "tpDriverCboCity";
             this.tpDriverCboCity.Size = new System.Drawing.Size(291, 28);
             this.tpDriverCboCity.TabIndex = 4;
@@ -1282,9 +1356,10 @@ namespace CoachTicketManagement
             // 
             this.panel23.Controls.Add(this.label27);
             this.panel23.Controls.Add(this.tpDriverTxtPhone);
-            this.panel23.Location = new System.Drawing.Point(900, 257);
+            this.panel23.Location = new System.Drawing.Point(900, 258);
+            this.panel23.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(438, 53);
+            this.panel23.Size = new System.Drawing.Size(438, 52);
             this.panel23.TabIndex = 22;
             // 
             // label27
@@ -1298,7 +1373,8 @@ namespace CoachTicketManagement
             // 
             // tpDriverTxtPhone
             // 
-            this.tpDriverTxtPhone.Location = new System.Drawing.Point(144, 13);
+            this.tpDriverTxtPhone.Location = new System.Drawing.Point(144, 12);
+            this.tpDriverTxtPhone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpDriverTxtPhone.Name = "tpDriverTxtPhone";
             this.tpDriverTxtPhone.Size = new System.Drawing.Size(291, 27);
             this.tpDriverTxtPhone.TabIndex = 2;
@@ -1308,8 +1384,9 @@ namespace CoachTicketManagement
             this.panel24.Controls.Add(this.label28);
             this.panel24.Controls.Add(this.tpDriverTxtIdentityCard);
             this.panel24.Location = new System.Drawing.Point(900, 198);
+            this.panel24.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel24.Name = "panel24";
-            this.panel24.Size = new System.Drawing.Size(438, 53);
+            this.panel24.Size = new System.Drawing.Size(438, 52);
             this.panel24.TabIndex = 21;
             // 
             // label28
@@ -1323,7 +1400,8 @@ namespace CoachTicketManagement
             // 
             // tpDriverTxtIdentityCard
             // 
-            this.tpDriverTxtIdentityCard.Location = new System.Drawing.Point(144, 13);
+            this.tpDriverTxtIdentityCard.Location = new System.Drawing.Point(144, 12);
+            this.tpDriverTxtIdentityCard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpDriverTxtIdentityCard.Name = "tpDriverTxtIdentityCard";
             this.tpDriverTxtIdentityCard.Size = new System.Drawing.Size(291, 27);
             this.tpDriverTxtIdentityCard.TabIndex = 2;
@@ -1342,8 +1420,9 @@ namespace CoachTicketManagement
             this.tpBusLine.Controls.Add(this.panel34);
             this.tpBusLine.Controls.Add(this.panel35);
             this.tpBusLine.Location = new System.Drawing.Point(4, 29);
+            this.tpBusLine.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpBusLine.Name = "tpBusLine";
-            this.tpBusLine.Padding = new System.Windows.Forms.Padding(3);
+            this.tpBusLine.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpBusLine.Size = new System.Drawing.Size(1347, 613);
             this.tpBusLine.TabIndex = 3;
             this.tpBusLine.Text = "Tuyến xe";
@@ -1354,6 +1433,7 @@ namespace CoachTicketManagement
             this.dataGridViewBusLine.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewBusLine.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewBusLine.Location = new System.Drawing.Point(6, 6);
+            this.dataGridViewBusLine.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewBusLine.Name = "dataGridViewBusLine";
             this.dataGridViewBusLine.RowHeadersWidth = 51;
             this.dataGridViewBusLine.RowTemplate.Height = 29;
@@ -1364,9 +1444,10 @@ namespace CoachTicketManagement
             // 
             this.tpBusLineBtnUpdate.AutoSize = true;
             this.tpBusLineBtnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
-            this.tpBusLineBtnUpdate.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tpBusLineBtnUpdate.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.tpBusLineBtnUpdate.ForeColor = System.Drawing.Color.White;
             this.tpBusLineBtnUpdate.Location = new System.Drawing.Point(1192, 450);
+            this.tpBusLineBtnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpBusLineBtnUpdate.Name = "tpBusLineBtnUpdate";
             this.tpBusLineBtnUpdate.Size = new System.Drawing.Size(144, 65);
             this.tpBusLineBtnUpdate.TabIndex = 29;
@@ -1377,9 +1458,10 @@ namespace CoachTicketManagement
             // 
             this.tpBusLineBtnDelete.AutoSize = true;
             this.tpBusLineBtnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
-            this.tpBusLineBtnDelete.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tpBusLineBtnDelete.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.tpBusLineBtnDelete.ForeColor = System.Drawing.Color.White;
             this.tpBusLineBtnDelete.Location = new System.Drawing.Point(1044, 450);
+            this.tpBusLineBtnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpBusLineBtnDelete.Name = "tpBusLineBtnDelete";
             this.tpBusLineBtnDelete.Size = new System.Drawing.Size(144, 65);
             this.tpBusLineBtnDelete.TabIndex = 28;
@@ -1390,9 +1472,10 @@ namespace CoachTicketManagement
             // 
             this.tpBusLineBtnAdd.AutoSize = true;
             this.tpBusLineBtnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
-            this.tpBusLineBtnAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tpBusLineBtnAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.tpBusLineBtnAdd.ForeColor = System.Drawing.Color.White;
             this.tpBusLineBtnAdd.Location = new System.Drawing.Point(894, 450);
+            this.tpBusLineBtnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpBusLineBtnAdd.Name = "tpBusLineBtnAdd";
             this.tpBusLineBtnAdd.Size = new System.Drawing.Size(144, 65);
             this.tpBusLineBtnAdd.TabIndex = 27;
@@ -1403,11 +1486,12 @@ namespace CoachTicketManagement
             // 
             this.tpBusLineBtnFind.AutoSize = true;
             this.tpBusLineBtnFind.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
-            this.tpBusLineBtnFind.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tpBusLineBtnFind.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.tpBusLineBtnFind.ForeColor = System.Drawing.Color.White;
             this.tpBusLineBtnFind.Location = new System.Drawing.Point(1203, 15);
+            this.tpBusLineBtnFind.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpBusLineBtnFind.Name = "tpBusLineBtnFind";
-            this.tpBusLineBtnFind.Size = new System.Drawing.Size(133, 47);
+            this.tpBusLineBtnFind.Size = new System.Drawing.Size(133, 48);
             this.tpBusLineBtnFind.TabIndex = 26;
             this.tpBusLineBtnFind.Text = "Tìm";
             this.tpBusLineBtnFind.UseVisualStyleBackColor = false;
@@ -1415,6 +1499,7 @@ namespace CoachTicketManagement
             // tpBusLineTxtFind
             // 
             this.tpBusLineTxtFind.Location = new System.Drawing.Point(933, 26);
+            this.tpBusLineTxtFind.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpBusLineTxtFind.Name = "tpBusLineTxtFind";
             this.tpBusLineTxtFind.Size = new System.Drawing.Size(253, 27);
             this.tpBusLineTxtFind.TabIndex = 12;
@@ -1424,8 +1509,9 @@ namespace CoachTicketManagement
             this.panel29.Controls.Add(this.label29);
             this.panel29.Controls.Add(this.tpBusLineTxtDestinationStation);
             this.panel29.Location = new System.Drawing.Point(813, 210);
+            this.panel29.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel29.Name = "panel29";
-            this.panel29.Size = new System.Drawing.Size(524, 53);
+            this.panel29.Size = new System.Drawing.Size(524, 52);
             this.panel29.TabIndex = 14;
             // 
             // label29
@@ -1439,7 +1525,8 @@ namespace CoachTicketManagement
             // 
             // tpBusLineTxtDestinationStation
             // 
-            this.tpBusLineTxtDestinationStation.Location = new System.Drawing.Point(221, 13);
+            this.tpBusLineTxtDestinationStation.Location = new System.Drawing.Point(221, 12);
+            this.tpBusLineTxtDestinationStation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpBusLineTxtDestinationStation.Name = "tpBusLineTxtDestinationStation";
             this.tpBusLineTxtDestinationStation.Size = new System.Drawing.Size(291, 27);
             this.tpBusLineTxtDestinationStation.TabIndex = 2;
@@ -1449,8 +1536,9 @@ namespace CoachTicketManagement
             this.panel30.Controls.Add(this.label30);
             this.panel30.Controls.Add(this.tpBusLineTxtDepartureStation);
             this.panel30.Location = new System.Drawing.Point(813, 151);
+            this.panel30.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel30.Name = "panel30";
-            this.panel30.Size = new System.Drawing.Size(524, 53);
+            this.panel30.Size = new System.Drawing.Size(524, 52);
             this.panel30.TabIndex = 25;
             // 
             // label30
@@ -1464,7 +1552,8 @@ namespace CoachTicketManagement
             // 
             // tpBusLineTxtDepartureStation
             // 
-            this.tpBusLineTxtDepartureStation.Location = new System.Drawing.Point(221, 13);
+            this.tpBusLineTxtDepartureStation.Location = new System.Drawing.Point(221, 12);
+            this.tpBusLineTxtDepartureStation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpBusLineTxtDepartureStation.Name = "tpBusLineTxtDepartureStation";
             this.tpBusLineTxtDepartureStation.Size = new System.Drawing.Size(291, 27);
             this.tpBusLineTxtDepartureStation.TabIndex = 2;
@@ -1474,8 +1563,9 @@ namespace CoachTicketManagement
             this.panel32.Controls.Add(this.label32);
             this.panel32.Controls.Add(this.tpBusLineIdBusLine);
             this.panel32.Location = new System.Drawing.Point(812, 92);
+            this.panel32.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel32.Name = "panel32";
-            this.panel32.Size = new System.Drawing.Size(524, 53);
+            this.panel32.Size = new System.Drawing.Size(524, 52);
             this.panel32.TabIndex = 19;
             // 
             // label32
@@ -1489,7 +1579,8 @@ namespace CoachTicketManagement
             // 
             // tpBusLineIdBusLine
             // 
-            this.tpBusLineIdBusLine.Location = new System.Drawing.Point(221, 13);
+            this.tpBusLineIdBusLine.Location = new System.Drawing.Point(221, 12);
+            this.tpBusLineIdBusLine.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpBusLineIdBusLine.Name = "tpBusLineIdBusLine";
             this.tpBusLineIdBusLine.ReadOnly = true;
             this.tpBusLineIdBusLine.Size = new System.Drawing.Size(291, 27);
@@ -1500,15 +1591,17 @@ namespace CoachTicketManagement
             this.panel34.Controls.Add(this.tpBusLineCboListDropOffPoint);
             this.panel34.Controls.Add(this.label34);
             this.panel34.Location = new System.Drawing.Point(813, 328);
+            this.panel34.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel34.Name = "panel34";
-            this.panel34.Size = new System.Drawing.Size(524, 53);
+            this.panel34.Size = new System.Drawing.Size(524, 52);
             this.panel34.TabIndex = 17;
             // 
             // tpBusLineCboListDropOffPoint
             // 
             this.tpBusLineCboListDropOffPoint.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.tpBusLineCboListDropOffPoint.FormattingEnabled = true;
-            this.tpBusLineCboListDropOffPoint.Location = new System.Drawing.Point(221, 13);
+            this.tpBusLineCboListDropOffPoint.Location = new System.Drawing.Point(221, 12);
+            this.tpBusLineCboListDropOffPoint.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpBusLineCboListDropOffPoint.Name = "tpBusLineCboListDropOffPoint";
             this.tpBusLineCboListDropOffPoint.Size = new System.Drawing.Size(291, 28);
             this.tpBusLineCboListDropOffPoint.TabIndex = 4;
@@ -1527,15 +1620,17 @@ namespace CoachTicketManagement
             this.panel35.Controls.Add(this.tpBusLineCboListPickUpPoint);
             this.panel35.Controls.Add(this.label35);
             this.panel35.Location = new System.Drawing.Point(813, 269);
+            this.panel35.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel35.Name = "panel35";
-            this.panel35.Size = new System.Drawing.Size(524, 53);
+            this.panel35.Size = new System.Drawing.Size(524, 52);
             this.panel35.TabIndex = 16;
             // 
             // tpBusLineCboListPickUpPoint
             // 
             this.tpBusLineCboListPickUpPoint.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.tpBusLineCboListPickUpPoint.FormattingEnabled = true;
-            this.tpBusLineCboListPickUpPoint.Location = new System.Drawing.Point(221, 13);
+            this.tpBusLineCboListPickUpPoint.Location = new System.Drawing.Point(221, 12);
+            this.tpBusLineCboListPickUpPoint.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpBusLineCboListPickUpPoint.Name = "tpBusLineCboListPickUpPoint";
             this.tpBusLineCboListPickUpPoint.Size = new System.Drawing.Size(291, 28);
             this.tpBusLineCboListPickUpPoint.TabIndex = 4;
@@ -1562,8 +1657,9 @@ namespace CoachTicketManagement
             this.tpTimeBusLine.Controls.Add(this.tpTimeBusLineBtnDelete);
             this.tpTimeBusLine.Controls.Add(this.tpTimeBusLineBtnAdd);
             this.tpTimeBusLine.Location = new System.Drawing.Point(4, 29);
+            this.tpTimeBusLine.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpTimeBusLine.Name = "tpTimeBusLine";
-            this.tpTimeBusLine.Padding = new System.Windows.Forms.Padding(3);
+            this.tpTimeBusLine.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpTimeBusLine.Size = new System.Drawing.Size(1347, 613);
             this.tpTimeBusLine.TabIndex = 4;
             this.tpTimeBusLine.Text = "Khung thời gian";
@@ -1573,11 +1669,12 @@ namespace CoachTicketManagement
             // 
             this.tpTimeBusLineBtnSeach.AutoSize = true;
             this.tpTimeBusLineBtnSeach.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
-            this.tpTimeBusLineBtnSeach.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tpTimeBusLineBtnSeach.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.tpTimeBusLineBtnSeach.ForeColor = System.Drawing.Color.White;
             this.tpTimeBusLineBtnSeach.Location = new System.Drawing.Point(1203, 15);
+            this.tpTimeBusLineBtnSeach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpTimeBusLineBtnSeach.Name = "tpTimeBusLineBtnSeach";
-            this.tpTimeBusLineBtnSeach.Size = new System.Drawing.Size(133, 47);
+            this.tpTimeBusLineBtnSeach.Size = new System.Drawing.Size(133, 48);
             this.tpTimeBusLineBtnSeach.TabIndex = 61;
             this.tpTimeBusLineBtnSeach.Text = "Tìm";
             this.tpTimeBusLineBtnSeach.UseVisualStyleBackColor = false;
@@ -1585,6 +1682,7 @@ namespace CoachTicketManagement
             // tpTimeBusLineTxtSeach
             // 
             this.tpTimeBusLineTxtSeach.Location = new System.Drawing.Point(919, 26);
+            this.tpTimeBusLineTxtSeach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpTimeBusLineTxtSeach.Name = "tpTimeBusLineTxtSeach";
             this.tpTimeBusLineTxtSeach.Size = new System.Drawing.Size(253, 27);
             this.tpTimeBusLineTxtSeach.TabIndex = 60;
@@ -1595,6 +1693,7 @@ namespace CoachTicketManagement
             this.panel33.Controls.Add(this.tpTimeBusLineDtpFinishTime);
             this.panel33.Controls.Add(this.label31);
             this.panel33.Location = new System.Drawing.Point(812, 204);
+            this.panel33.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel33.Name = "panel33";
             this.panel33.Size = new System.Drawing.Size(524, 50);
             this.panel33.TabIndex = 59;
@@ -1612,6 +1711,7 @@ namespace CoachTicketManagement
             this.tpTimeBusLineDtpFinishTime.CustomFormat = "hh:mm";
             this.tpTimeBusLineDtpFinishTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.tpTimeBusLineDtpFinishTime.Location = new System.Drawing.Point(221, 14);
+            this.tpTimeBusLineDtpFinishTime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpTimeBusLineDtpFinishTime.Name = "tpTimeBusLineDtpFinishTime";
             this.tpTimeBusLineDtpFinishTime.ShowUpDown = true;
             this.tpTimeBusLineDtpFinishTime.Size = new System.Drawing.Size(291, 27);
@@ -1632,6 +1732,7 @@ namespace CoachTicketManagement
             this.panel31.Controls.Add(this.tpTimeBusLineDtpStarTime);
             this.panel31.Controls.Add(this.label26);
             this.panel31.Location = new System.Drawing.Point(812, 148);
+            this.panel31.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel31.Name = "panel31";
             this.panel31.Size = new System.Drawing.Size(524, 50);
             this.panel31.TabIndex = 58;
@@ -1649,6 +1750,7 @@ namespace CoachTicketManagement
             this.tpTimeBusLineDtpStarTime.CustomFormat = "hh:mm";
             this.tpTimeBusLineDtpStarTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.tpTimeBusLineDtpStarTime.Location = new System.Drawing.Point(221, 14);
+            this.tpTimeBusLineDtpStarTime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpTimeBusLineDtpStarTime.Name = "tpTimeBusLineDtpStarTime";
             this.tpTimeBusLineDtpStarTime.ShowUpDown = true;
             this.tpTimeBusLineDtpStarTime.Size = new System.Drawing.Size(291, 27);
@@ -1669,13 +1771,15 @@ namespace CoachTicketManagement
             this.panel22.Controls.Add(this.tpTimeBusLineTxtIDTime);
             this.panel22.Controls.Add(this.label37);
             this.panel22.Location = new System.Drawing.Point(812, 92);
+            this.panel22.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel22.Name = "panel22";
             this.panel22.Size = new System.Drawing.Size(524, 50);
             this.panel22.TabIndex = 57;
             // 
             // tpTimeBusLineTxtIDTime
             // 
-            this.tpTimeBusLineTxtIDTime.Location = new System.Drawing.Point(221, 13);
+            this.tpTimeBusLineTxtIDTime.Location = new System.Drawing.Point(221, 12);
+            this.tpTimeBusLineTxtIDTime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpTimeBusLineTxtIDTime.Name = "tpTimeBusLineTxtIDTime";
             this.tpTimeBusLineTxtIDTime.ReadOnly = true;
             this.tpTimeBusLineTxtIDTime.Size = new System.Drawing.Size(291, 27);
@@ -1695,6 +1799,7 @@ namespace CoachTicketManagement
             this.panel18.Controls.Add(this.tpTimeBusLineTxtTotalTime);
             this.panel18.Controls.Add(this.label33);
             this.panel18.Location = new System.Drawing.Point(812, 260);
+            this.panel18.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel18.Name = "panel18";
             this.panel18.Size = new System.Drawing.Size(524, 50);
             this.panel18.TabIndex = 56;
@@ -1704,6 +1809,7 @@ namespace CoachTicketManagement
             this.tpTimeBusLineTxtTotalTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tpTimeBusLineTxtTotalTime.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tpTimeBusLineTxtTotalTime.Location = new System.Drawing.Point(221, 11);
+            this.tpTimeBusLineTxtTotalTime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpTimeBusLineTxtTotalTime.Name = "tpTimeBusLineTxtTotalTime";
             this.tpTimeBusLineTxtTotalTime.ReadOnly = true;
             this.tpTimeBusLineTxtTotalTime.Size = new System.Drawing.Size(292, 27);
@@ -1723,6 +1829,7 @@ namespace CoachTicketManagement
             this.dataGridViewTimeBusLine.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewTimeBusLine.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewTimeBusLine.Location = new System.Drawing.Point(6, 6);
+            this.dataGridViewTimeBusLine.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewTimeBusLine.Name = "dataGridViewTimeBusLine";
             this.dataGridViewTimeBusLine.RowHeadersWidth = 51;
             this.dataGridViewTimeBusLine.RowTemplate.Height = 29;
@@ -1733,9 +1840,10 @@ namespace CoachTicketManagement
             // 
             this.tpTimeBusLineBtnUpdate.AutoSize = true;
             this.tpTimeBusLineBtnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
-            this.tpTimeBusLineBtnUpdate.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tpTimeBusLineBtnUpdate.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.tpTimeBusLineBtnUpdate.ForeColor = System.Drawing.Color.White;
             this.tpTimeBusLineBtnUpdate.Location = new System.Drawing.Point(1192, 450);
+            this.tpTimeBusLineBtnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpTimeBusLineBtnUpdate.Name = "tpTimeBusLineBtnUpdate";
             this.tpTimeBusLineBtnUpdate.Size = new System.Drawing.Size(144, 65);
             this.tpTimeBusLineBtnUpdate.TabIndex = 54;
@@ -1746,9 +1854,10 @@ namespace CoachTicketManagement
             // 
             this.tpTimeBusLineBtnDelete.AutoSize = true;
             this.tpTimeBusLineBtnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
-            this.tpTimeBusLineBtnDelete.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tpTimeBusLineBtnDelete.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.tpTimeBusLineBtnDelete.ForeColor = System.Drawing.Color.White;
             this.tpTimeBusLineBtnDelete.Location = new System.Drawing.Point(1044, 450);
+            this.tpTimeBusLineBtnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpTimeBusLineBtnDelete.Name = "tpTimeBusLineBtnDelete";
             this.tpTimeBusLineBtnDelete.Size = new System.Drawing.Size(144, 65);
             this.tpTimeBusLineBtnDelete.TabIndex = 53;
@@ -1759,9 +1868,10 @@ namespace CoachTicketManagement
             // 
             this.tpTimeBusLineBtnAdd.AutoSize = true;
             this.tpTimeBusLineBtnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
-            this.tpTimeBusLineBtnAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tpTimeBusLineBtnAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.tpTimeBusLineBtnAdd.ForeColor = System.Drawing.Color.White;
             this.tpTimeBusLineBtnAdd.Location = new System.Drawing.Point(894, 450);
+            this.tpTimeBusLineBtnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpTimeBusLineBtnAdd.Name = "tpTimeBusLineBtnAdd";
             this.tpTimeBusLineBtnAdd.Size = new System.Drawing.Size(144, 65);
             this.tpTimeBusLineBtnAdd.TabIndex = 52;
@@ -1785,8 +1895,9 @@ namespace CoachTicketManagement
             this.tpTrip.Controls.Add(this.tpTripTxtFind);
             this.tpTrip.Controls.Add(this.panel43);
             this.tpTrip.Location = new System.Drawing.Point(4, 29);
+            this.tpTrip.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpTrip.Name = "tpTrip";
-            this.tpTrip.Padding = new System.Windows.Forms.Padding(3);
+            this.tpTrip.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpTrip.Size = new System.Drawing.Size(1347, 613);
             this.tpTrip.TabIndex = 5;
             this.tpTrip.Text = "Chuyến xe";
@@ -1796,16 +1907,18 @@ namespace CoachTicketManagement
             // 
             this.panel36.Controls.Add(this.tpTripCboIDEmployee);
             this.panel36.Controls.Add(this.label22);
-            this.panel36.Location = new System.Drawing.Point(900, 143);
+            this.panel36.Location = new System.Drawing.Point(900, 142);
+            this.panel36.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel36.Name = "panel36";
-            this.panel36.Size = new System.Drawing.Size(438, 53);
+            this.panel36.Size = new System.Drawing.Size(438, 52);
             this.panel36.TabIndex = 3;
             // 
             // tpTripCboIDEmployee
             // 
             this.tpTripCboIDEmployee.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.tpTripCboIDEmployee.FormattingEnabled = true;
-            this.tpTripCboIDEmployee.Location = new System.Drawing.Point(144, 13);
+            this.tpTripCboIDEmployee.Location = new System.Drawing.Point(144, 12);
+            this.tpTripCboIDEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpTripCboIDEmployee.Name = "tpTripCboIDEmployee";
             this.tpTripCboIDEmployee.Size = new System.Drawing.Size(291, 28);
             this.tpTripCboIDEmployee.TabIndex = 5;
@@ -1824,6 +1937,7 @@ namespace CoachTicketManagement
             this.tpTripDataGridViewTrip.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.tpTripDataGridViewTrip.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tpTripDataGridViewTrip.Location = new System.Drawing.Point(6, 6);
+            this.tpTripDataGridViewTrip.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpTripDataGridViewTrip.Name = "tpTripDataGridViewTrip";
             this.tpTripDataGridViewTrip.RowHeadersWidth = 51;
             this.tpTripDataGridViewTrip.RowTemplate.Height = 29;
@@ -1835,13 +1949,15 @@ namespace CoachTicketManagement
             this.panel37.Controls.Add(this.tpTripAmountSeat);
             this.panel37.Controls.Add(this.label36);
             this.panel37.Location = new System.Drawing.Point(456, 202);
+            this.panel37.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel37.Name = "panel37";
-            this.panel37.Size = new System.Drawing.Size(438, 53);
+            this.panel37.Size = new System.Drawing.Size(438, 52);
             this.panel37.TabIndex = 4;
             // 
             // tpTripAmountSeat
             // 
             this.tpTripAmountSeat.Location = new System.Drawing.Point(144, 14);
+            this.tpTripAmountSeat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpTripAmountSeat.Name = "tpTripAmountSeat";
             this.tpTripAmountSeat.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tpTripAmountSeat.Size = new System.Drawing.Size(291, 27);
@@ -1861,9 +1977,10 @@ namespace CoachTicketManagement
             // 
             this.tpTripBtnUpdate.AutoSize = true;
             this.tpTripBtnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
-            this.tpTripBtnUpdate.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tpTripBtnUpdate.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.tpTripBtnUpdate.ForeColor = System.Drawing.Color.White;
             this.tpTripBtnUpdate.Location = new System.Drawing.Point(1192, 450);
+            this.tpTripBtnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpTripBtnUpdate.Name = "tpTripBtnUpdate";
             this.tpTripBtnUpdate.Size = new System.Drawing.Size(144, 65);
             this.tpTripBtnUpdate.TabIndex = 40;
@@ -1874,9 +1991,10 @@ namespace CoachTicketManagement
             // 
             this.panel38.Controls.Add(this.tpTripDepartureDay);
             this.panel38.Controls.Add(this.label40);
-            this.panel38.Location = new System.Drawing.Point(456, 143);
+            this.panel38.Location = new System.Drawing.Point(456, 142);
+            this.panel38.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel38.Name = "panel38";
-            this.panel38.Size = new System.Drawing.Size(438, 53);
+            this.panel38.Size = new System.Drawing.Size(438, 52);
             this.panel38.TabIndex = 5;
             // 
             // tpTripDepartureDay
@@ -1884,6 +2002,7 @@ namespace CoachTicketManagement
             this.tpTripDepartureDay.CustomFormat = "dd/MM/yyyy";
             this.tpTripDepartureDay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.tpTripDepartureDay.Location = new System.Drawing.Point(144, 11);
+            this.tpTripDepartureDay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpTripDepartureDay.Name = "tpTripDepartureDay";
             this.tpTripDepartureDay.Size = new System.Drawing.Size(291, 27);
             this.tpTripDepartureDay.TabIndex = 4;
@@ -1901,9 +2020,10 @@ namespace CoachTicketManagement
             // 
             this.tpTripBtnDelete.AutoSize = true;
             this.tpTripBtnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
-            this.tpTripBtnDelete.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tpTripBtnDelete.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.tpTripBtnDelete.ForeColor = System.Drawing.Color.White;
             this.tpTripBtnDelete.Location = new System.Drawing.Point(1044, 450);
+            this.tpTripBtnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpTripBtnDelete.Name = "tpTripBtnDelete";
             this.tpTripBtnDelete.Size = new System.Drawing.Size(144, 65);
             this.tpTripBtnDelete.TabIndex = 39;
@@ -1915,15 +2035,17 @@ namespace CoachTicketManagement
             this.panel39.Controls.Add(this.tpTripIDDriver);
             this.panel39.Controls.Add(this.label41);
             this.panel39.Location = new System.Drawing.Point(900, 202);
+            this.panel39.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel39.Name = "panel39";
-            this.panel39.Size = new System.Drawing.Size(438, 53);
+            this.panel39.Size = new System.Drawing.Size(438, 52);
             this.panel39.TabIndex = 6;
             // 
             // tpTripIDDriver
             // 
             this.tpTripIDDriver.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.tpTripIDDriver.FormattingEnabled = true;
-            this.tpTripIDDriver.Location = new System.Drawing.Point(143, 13);
+            this.tpTripIDDriver.Location = new System.Drawing.Point(143, 12);
+            this.tpTripIDDriver.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpTripIDDriver.Name = "tpTripIDDriver";
             this.tpTripIDDriver.Size = new System.Drawing.Size(291, 28);
             this.tpTripIDDriver.TabIndex = 4;
@@ -1941,9 +2063,10 @@ namespace CoachTicketManagement
             // 
             this.tpTripBtnAdd.AutoSize = true;
             this.tpTripBtnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
-            this.tpTripBtnAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tpTripBtnAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.tpTripBtnAdd.ForeColor = System.Drawing.Color.White;
             this.tpTripBtnAdd.Location = new System.Drawing.Point(894, 450);
+            this.tpTripBtnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpTripBtnAdd.Name = "tpTripBtnAdd";
             this.tpTripBtnAdd.Size = new System.Drawing.Size(144, 65);
             this.tpTripBtnAdd.TabIndex = 38;
@@ -1955,8 +2078,9 @@ namespace CoachTicketManagement
             this.panel40.Controls.Add(this.label42);
             this.panel40.Controls.Add(this.tpTripTxtIDTrip);
             this.panel40.Location = new System.Drawing.Point(456, 84);
+            this.panel40.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel40.Name = "panel40";
-            this.panel40.Size = new System.Drawing.Size(438, 53);
+            this.panel40.Size = new System.Drawing.Size(438, 52);
             this.panel40.TabIndex = 7;
             // 
             // label42
@@ -1970,7 +2094,8 @@ namespace CoachTicketManagement
             // 
             // tpTripTxtIDTrip
             // 
-            this.tpTripTxtIDTrip.Location = new System.Drawing.Point(144, 13);
+            this.tpTripTxtIDTrip.Location = new System.Drawing.Point(144, 12);
+            this.tpTripTxtIDTrip.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpTripTxtIDTrip.Name = "tpTripTxtIDTrip";
             this.tpTripTxtIDTrip.ReadOnly = true;
             this.tpTripTxtIDTrip.Size = new System.Drawing.Size(291, 27);
@@ -1981,15 +2106,17 @@ namespace CoachTicketManagement
             this.panel41.Controls.Add(this.tpTripCboIDTimeBusLine);
             this.panel41.Controls.Add(this.label43);
             this.panel41.Location = new System.Drawing.Point(456, 259);
+            this.panel41.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel41.Name = "panel41";
-            this.panel41.Size = new System.Drawing.Size(438, 53);
+            this.panel41.Size = new System.Drawing.Size(438, 52);
             this.panel41.TabIndex = 8;
             // 
             // tpTripCboIDTimeBusLine
             // 
             this.tpTripCboIDTimeBusLine.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.tpTripCboIDTimeBusLine.FormattingEnabled = true;
-            this.tpTripCboIDTimeBusLine.Location = new System.Drawing.Point(144, 13);
+            this.tpTripCboIDTimeBusLine.Location = new System.Drawing.Point(144, 12);
+            this.tpTripCboIDTimeBusLine.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpTripCboIDTimeBusLine.Name = "tpTripCboIDTimeBusLine";
             this.tpTripCboIDTimeBusLine.Size = new System.Drawing.Size(291, 28);
             this.tpTripCboIDTimeBusLine.TabIndex = 4;
@@ -2007,11 +2134,12 @@ namespace CoachTicketManagement
             // 
             this.tpTripBtnFind.AutoSize = true;
             this.tpTripBtnFind.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
-            this.tpTripBtnFind.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tpTripBtnFind.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.tpTripBtnFind.ForeColor = System.Drawing.Color.White;
             this.tpTripBtnFind.Location = new System.Drawing.Point(1205, 15);
+            this.tpTripBtnFind.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpTripBtnFind.Name = "tpTripBtnFind";
-            this.tpTripBtnFind.Size = new System.Drawing.Size(133, 47);
+            this.tpTripBtnFind.Size = new System.Drawing.Size(133, 48);
             this.tpTripBtnFind.TabIndex = 37;
             this.tpTripBtnFind.Text = "Tìm";
             this.tpTripBtnFind.UseVisualStyleBackColor = false;
@@ -2021,15 +2149,17 @@ namespace CoachTicketManagement
             this.panel42.Controls.Add(this.tpTripIDBusLine);
             this.panel42.Controls.Add(this.label44);
             this.panel42.Location = new System.Drawing.Point(900, 84);
+            this.panel42.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel42.Name = "panel42";
-            this.panel42.Size = new System.Drawing.Size(438, 53);
+            this.panel42.Size = new System.Drawing.Size(438, 52);
             this.panel42.TabIndex = 9;
             // 
             // tpTripIDBusLine
             // 
             this.tpTripIDBusLine.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.tpTripIDBusLine.FormattingEnabled = true;
-            this.tpTripIDBusLine.Location = new System.Drawing.Point(144, 13);
+            this.tpTripIDBusLine.Location = new System.Drawing.Point(144, 12);
+            this.tpTripIDBusLine.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpTripIDBusLine.Name = "tpTripIDBusLine";
             this.tpTripIDBusLine.Size = new System.Drawing.Size(291, 28);
             this.tpTripIDBusLine.TabIndex = 4;
@@ -2046,6 +2176,7 @@ namespace CoachTicketManagement
             // tpTripTxtFind
             // 
             this.tpTripTxtFind.Location = new System.Drawing.Point(935, 26);
+            this.tpTripTxtFind.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpTripTxtFind.Name = "tpTripTxtFind";
             this.tpTripTxtFind.Size = new System.Drawing.Size(253, 27);
             this.tpTripTxtFind.TabIndex = 31;
@@ -2055,15 +2186,17 @@ namespace CoachTicketManagement
             this.panel43.Controls.Add(this.tpTripIDCoach);
             this.panel43.Controls.Add(this.label45);
             this.panel43.Location = new System.Drawing.Point(900, 259);
+            this.panel43.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel43.Name = "panel43";
-            this.panel43.Size = new System.Drawing.Size(438, 53);
+            this.panel43.Size = new System.Drawing.Size(438, 52);
             this.panel43.TabIndex = 10;
             // 
             // tpTripIDCoach
             // 
             this.tpTripIDCoach.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.tpTripIDCoach.FormattingEnabled = true;
-            this.tpTripIDCoach.Location = new System.Drawing.Point(143, 13);
+            this.tpTripIDCoach.Location = new System.Drawing.Point(143, 12);
+            this.tpTripIDCoach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpTripIDCoach.Name = "tpTripIDCoach";
             this.tpTripIDCoach.Size = new System.Drawing.Size(291, 28);
             this.tpTripIDCoach.TabIndex = 4;
@@ -2093,12 +2226,288 @@ namespace CoachTicketManagement
             this.tpTicket.Controls.Add(this.panel53);
             this.tpTicket.Controls.Add(this.tbTicketTxtFind);
             this.tpTicket.Location = new System.Drawing.Point(4, 29);
+            this.tpTicket.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpTicket.Name = "tpTicket";
-            this.tpTicket.Padding = new System.Windows.Forms.Padding(3);
+            this.tpTicket.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpTicket.Size = new System.Drawing.Size(1347, 613);
             this.tpTicket.TabIndex = 6;
             this.tpTicket.Text = "Vé";
             this.tpTicket.UseVisualStyleBackColor = true;
+            // 
+            // panel47
+            // 
+            this.panel47.Controls.Add(this.tpTicketTxtIDTrip);
+            this.panel47.Controls.Add(this.label49);
+            this.panel47.Location = new System.Drawing.Point(901, 142);
+            this.panel47.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel47.Name = "panel47";
+            this.panel47.Size = new System.Drawing.Size(438, 52);
+            this.panel47.TabIndex = 42;
+            // 
+            // tpTicketTxtIDTrip
+            // 
+            this.tpTicketTxtIDTrip.Location = new System.Drawing.Point(143, 12);
+            this.tpTicketTxtIDTrip.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tpTicketTxtIDTrip.Name = "tpTicketTxtIDTrip";
+            this.tpTicketTxtIDTrip.ReadOnly = true;
+            this.tpTicketTxtIDTrip.Size = new System.Drawing.Size(291, 27);
+            this.tpTicketTxtIDTrip.TabIndex = 4;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(26, 16);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(99, 20);
+            this.label49.TabIndex = 3;
+            this.label49.Text = "Mã chuyến xe";
+            // 
+            // dataGridViewTicket
+            // 
+            this.dataGridViewTicket.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewTicket.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewTicket.Location = new System.Drawing.Point(7, 6);
+            this.dataGridViewTicket.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridViewTicket.Name = "dataGridViewTicket";
+            this.dataGridViewTicket.RowHeadersWidth = 51;
+            this.dataGridViewTicket.RowTemplate.Height = 29;
+            this.dataGridViewTicket.Size = new System.Drawing.Size(448, 600);
+            this.dataGridViewTicket.TabIndex = 55;
+            // 
+            // panel48
+            // 
+            this.panel48.Controls.Add(this.tpTicketCboDropOffPoint);
+            this.panel48.Controls.Add(this.label50);
+            this.panel48.Location = new System.Drawing.Point(457, 202);
+            this.panel48.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel48.Name = "panel48";
+            this.panel48.Size = new System.Drawing.Size(438, 52);
+            this.panel48.TabIndex = 43;
+            // 
+            // tpTicketCboDropOffPoint
+            // 
+            this.tpTicketCboDropOffPoint.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tpTicketCboDropOffPoint.FormattingEnabled = true;
+            this.tpTicketCboDropOffPoint.Location = new System.Drawing.Point(144, 12);
+            this.tpTicketCboDropOffPoint.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tpTicketCboDropOffPoint.Name = "tpTicketCboDropOffPoint";
+            this.tpTicketCboDropOffPoint.Size = new System.Drawing.Size(291, 28);
+            this.tpTicketCboDropOffPoint.TabIndex = 4;
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(26, 16);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(106, 20);
+            this.label50.TabIndex = 3;
+            this.label50.Text = "Trạm xuống xe";
+            // 
+            // tpTicketBtnUpdate
+            // 
+            this.tpTicketBtnUpdate.AutoSize = true;
+            this.tpTicketBtnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
+            this.tpTicketBtnUpdate.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.tpTicketBtnUpdate.ForeColor = System.Drawing.Color.White;
+            this.tpTicketBtnUpdate.Location = new System.Drawing.Point(1193, 450);
+            this.tpTicketBtnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tpTicketBtnUpdate.Name = "tpTicketBtnUpdate";
+            this.tpTicketBtnUpdate.Size = new System.Drawing.Size(144, 65);
+            this.tpTicketBtnUpdate.TabIndex = 54;
+            this.tpTicketBtnUpdate.Text = "Cập nhật";
+            this.tpTicketBtnUpdate.UseVisualStyleBackColor = false;
+            // 
+            // panel49
+            // 
+            this.panel49.Controls.Add(this.tpTicketCboPickUpPoint);
+            this.panel49.Controls.Add(this.label51);
+            this.panel49.Location = new System.Drawing.Point(457, 142);
+            this.panel49.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel49.Name = "panel49";
+            this.panel49.Size = new System.Drawing.Size(438, 52);
+            this.panel49.TabIndex = 44;
+            // 
+            // tpTicketCboPickUpPoint
+            // 
+            this.tpTicketCboPickUpPoint.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tpTicketCboPickUpPoint.FormattingEnabled = true;
+            this.tpTicketCboPickUpPoint.Location = new System.Drawing.Point(144, 12);
+            this.tpTicketCboPickUpPoint.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tpTicketCboPickUpPoint.Name = "tpTicketCboPickUpPoint";
+            this.tpTicketCboPickUpPoint.Size = new System.Drawing.Size(291, 28);
+            this.tpTicketCboPickUpPoint.TabIndex = 4;
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(26, 16);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(85, 20);
+            this.label51.TabIndex = 3;
+            this.label51.Text = "Trạm lên xe";
+            // 
+            // tpTicketBtnDelete
+            // 
+            this.tpTicketBtnDelete.AutoSize = true;
+            this.tpTicketBtnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
+            this.tpTicketBtnDelete.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.tpTicketBtnDelete.ForeColor = System.Drawing.Color.White;
+            this.tpTicketBtnDelete.Location = new System.Drawing.Point(1045, 450);
+            this.tpTicketBtnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tpTicketBtnDelete.Name = "tpTicketBtnDelete";
+            this.tpTicketBtnDelete.Size = new System.Drawing.Size(144, 65);
+            this.tpTicketBtnDelete.TabIndex = 53;
+            this.tpTicketBtnDelete.Text = "Xóa";
+            this.tpTicketBtnDelete.UseVisualStyleBackColor = false;
+            // 
+            // panel50
+            // 
+            this.panel50.Controls.Add(this.tpTicketTxtIDSeat);
+            this.panel50.Controls.Add(this.label52);
+            this.panel50.Location = new System.Drawing.Point(901, 202);
+            this.panel50.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel50.Name = "panel50";
+            this.panel50.Size = new System.Drawing.Size(438, 52);
+            this.panel50.TabIndex = 45;
+            // 
+            // tpTicketTxtIDSeat
+            // 
+            this.tpTicketTxtIDSeat.Location = new System.Drawing.Point(143, 12);
+            this.tpTicketTxtIDSeat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tpTicketTxtIDSeat.Name = "tpTicketTxtIDSeat";
+            this.tpTicketTxtIDSeat.ReadOnly = true;
+            this.tpTicketTxtIDSeat.Size = new System.Drawing.Size(291, 27);
+            this.tpTicketTxtIDSeat.TabIndex = 4;
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(26, 16);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(59, 20);
+            this.label52.TabIndex = 3;
+            this.label52.Text = "Mã ghế";
+            // 
+            // tpTicketBtnAdd
+            // 
+            this.tpTicketBtnAdd.AutoSize = true;
+            this.tpTicketBtnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
+            this.tpTicketBtnAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.tpTicketBtnAdd.ForeColor = System.Drawing.Color.White;
+            this.tpTicketBtnAdd.Location = new System.Drawing.Point(895, 450);
+            this.tpTicketBtnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tpTicketBtnAdd.Name = "tpTicketBtnAdd";
+            this.tpTicketBtnAdd.Size = new System.Drawing.Size(144, 65);
+            this.tpTicketBtnAdd.TabIndex = 52;
+            this.tpTicketBtnAdd.Text = "Thêm";
+            this.tpTicketBtnAdd.UseVisualStyleBackColor = false;
+            // 
+            // panel51
+            // 
+            this.panel51.Controls.Add(this.label53);
+            this.panel51.Controls.Add(this.tpTicketTxtIDTicket);
+            this.panel51.Location = new System.Drawing.Point(457, 84);
+            this.panel51.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel51.Name = "panel51";
+            this.panel51.Size = new System.Drawing.Size(438, 52);
+            this.panel51.TabIndex = 46;
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(26, 16);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(49, 20);
+            this.label53.TabIndex = 3;
+            this.label53.Text = "Mã vé";
+            // 
+            // tpTicketTxtIDTicket
+            // 
+            this.tpTicketTxtIDTicket.Location = new System.Drawing.Point(144, 12);
+            this.tpTicketTxtIDTicket.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tpTicketTxtIDTicket.Name = "tpTicketTxtIDTicket";
+            this.tpTicketTxtIDTicket.ReadOnly = true;
+            this.tpTicketTxtIDTicket.Size = new System.Drawing.Size(291, 27);
+            this.tpTicketTxtIDTicket.TabIndex = 2;
+            // 
+            // panel52
+            // 
+            this.panel52.Controls.Add(this.tpTicketTxtPrice);
+            this.panel52.Controls.Add(this.label54);
+            this.panel52.Location = new System.Drawing.Point(457, 259);
+            this.panel52.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel52.Name = "panel52";
+            this.panel52.Size = new System.Drawing.Size(438, 52);
+            this.panel52.TabIndex = 47;
+            // 
+            // tpTicketTxtPrice
+            // 
+            this.tpTicketTxtPrice.Location = new System.Drawing.Point(144, 12);
+            this.tpTicketTxtPrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tpTicketTxtPrice.Name = "tpTicketTxtPrice";
+            this.tpTicketTxtPrice.ReadOnly = true;
+            this.tpTicketTxtPrice.Size = new System.Drawing.Size(291, 27);
+            this.tpTicketTxtPrice.TabIndex = 4;
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(26, 16);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(31, 20);
+            this.label54.TabIndex = 3;
+            this.label54.Text = "Giá";
+            // 
+            // tpTicketBtnFind
+            // 
+            this.tpTicketBtnFind.AutoSize = true;
+            this.tpTicketBtnFind.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
+            this.tpTicketBtnFind.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.tpTicketBtnFind.ForeColor = System.Drawing.Color.White;
+            this.tpTicketBtnFind.Location = new System.Drawing.Point(1206, 15);
+            this.tpTicketBtnFind.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tpTicketBtnFind.Name = "tpTicketBtnFind";
+            this.tpTicketBtnFind.Size = new System.Drawing.Size(133, 48);
+            this.tpTicketBtnFind.TabIndex = 51;
+            this.tpTicketBtnFind.Text = "Tìm";
+            this.tpTicketBtnFind.UseVisualStyleBackColor = false;
+            // 
+            // panel53
+            // 
+            this.panel53.Controls.Add(this.tpTicketPurchaseDate);
+            this.panel53.Controls.Add(this.label55);
+            this.panel53.Location = new System.Drawing.Point(901, 84);
+            this.panel53.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel53.Name = "panel53";
+            this.panel53.Size = new System.Drawing.Size(438, 52);
+            this.panel53.TabIndex = 48;
+            // 
+            // tpTicketPurchaseDate
+            // 
+            this.tpTicketPurchaseDate.CustomFormat = "dd/MM/yyyy";
+            this.tpTicketPurchaseDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.tpTicketPurchaseDate.Location = new System.Drawing.Point(143, 11);
+            this.tpTicketPurchaseDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tpTicketPurchaseDate.Name = "tpTicketPurchaseDate";
+            this.tpTicketPurchaseDate.Size = new System.Drawing.Size(293, 27);
+            this.tpTicketPurchaseDate.TabIndex = 4;
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(26, 16);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(96, 20);
+            this.label55.TabIndex = 3;
+            this.label55.Text = "Ngày mua vé";
+            // 
+            // tbTicketTxtFind
+            // 
+            this.tbTicketTxtFind.Location = new System.Drawing.Point(936, 26);
+            this.tbTicketTxtFind.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbTicketTxtFind.Name = "tbTicketTxtFind";
+            this.tbTicketTxtFind.Size = new System.Drawing.Size(253, 27);
+            this.tbTicketTxtFind.TabIndex = 50;
             // 
             // tpCoach
             // 
@@ -2112,8 +2521,9 @@ namespace CoachTicketManagement
             this.tpCoach.Controls.Add(this.panel46);
             this.tpCoach.Controls.Add(this.dataGridViewCoach);
             this.tpCoach.Location = new System.Drawing.Point(4, 29);
+            this.tpCoach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpCoach.Name = "tpCoach";
-            this.tpCoach.Padding = new System.Windows.Forms.Padding(3);
+            this.tpCoach.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpCoach.Size = new System.Drawing.Size(1347, 613);
             this.tpCoach.TabIndex = 7;
             this.tpCoach.Text = "Xe";
@@ -2123,9 +2533,10 @@ namespace CoachTicketManagement
             // 
             this.tpCoachUpdate.AutoSize = true;
             this.tpCoachUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
-            this.tpCoachUpdate.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tpCoachUpdate.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.tpCoachUpdate.ForeColor = System.Drawing.Color.White;
             this.tpCoachUpdate.Location = new System.Drawing.Point(1192, 450);
+            this.tpCoachUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpCoachUpdate.Name = "tpCoachUpdate";
             this.tpCoachUpdate.Size = new System.Drawing.Size(144, 65);
             this.tpCoachUpdate.TabIndex = 66;
@@ -2136,9 +2547,10 @@ namespace CoachTicketManagement
             // 
             this.tpCoachBtnDelete.AutoSize = true;
             this.tpCoachBtnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
-            this.tpCoachBtnDelete.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tpCoachBtnDelete.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.tpCoachBtnDelete.ForeColor = System.Drawing.Color.White;
             this.tpCoachBtnDelete.Location = new System.Drawing.Point(1044, 450);
+            this.tpCoachBtnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpCoachBtnDelete.Name = "tpCoachBtnDelete";
             this.tpCoachBtnDelete.Size = new System.Drawing.Size(144, 65);
             this.tpCoachBtnDelete.TabIndex = 65;
@@ -2149,9 +2561,10 @@ namespace CoachTicketManagement
             // 
             this.tpCoachBtnAdd.AutoSize = true;
             this.tpCoachBtnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
-            this.tpCoachBtnAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tpCoachBtnAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.tpCoachBtnAdd.ForeColor = System.Drawing.Color.White;
             this.tpCoachBtnAdd.Location = new System.Drawing.Point(894, 450);
+            this.tpCoachBtnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpCoachBtnAdd.Name = "tpCoachBtnAdd";
             this.tpCoachBtnAdd.Size = new System.Drawing.Size(144, 65);
             this.tpCoachBtnAdd.TabIndex = 64;
@@ -2162,11 +2575,12 @@ namespace CoachTicketManagement
             // 
             this.tpCoachBtnFind.AutoSize = true;
             this.tpCoachBtnFind.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
-            this.tpCoachBtnFind.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tpCoachBtnFind.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.tpCoachBtnFind.ForeColor = System.Drawing.Color.White;
             this.tpCoachBtnFind.Location = new System.Drawing.Point(1203, 15);
+            this.tpCoachBtnFind.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpCoachBtnFind.Name = "tpCoachBtnFind";
-            this.tpCoachBtnFind.Size = new System.Drawing.Size(133, 47);
+            this.tpCoachBtnFind.Size = new System.Drawing.Size(133, 48);
             this.tpCoachBtnFind.TabIndex = 63;
             this.tpCoachBtnFind.Text = "Tìm";
             this.tpCoachBtnFind.UseVisualStyleBackColor = false;
@@ -2174,6 +2588,7 @@ namespace CoachTicketManagement
             // tpCoachTxtFind
             // 
             this.tpCoachTxtFind.Location = new System.Drawing.Point(919, 26);
+            this.tpCoachTxtFind.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpCoachTxtFind.Name = "tpCoachTxtFind";
             this.tpCoachTxtFind.Size = new System.Drawing.Size(253, 27);
             this.tpCoachTxtFind.TabIndex = 57;
@@ -2183,15 +2598,17 @@ namespace CoachTicketManagement
             this.panel44.Controls.Add(this.tpCoachNumAmountSeat);
             this.panel44.Controls.Add(this.label46);
             this.panel44.Location = new System.Drawing.Point(818, 201);
+            this.panel44.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel44.Name = "panel44";
-            this.panel44.Size = new System.Drawing.Size(524, 53);
+            this.panel44.Size = new System.Drawing.Size(524, 52);
             this.panel44.TabIndex = 58;
             // 
             // tpCoachNumAmountSeat
             // 
-            this.tpCoachNumAmountSeat.Location = new System.Drawing.Point(220, 14);
+            this.tpCoachNumAmountSeat.Location = new System.Drawing.Point(101, 14);
+            this.tpCoachNumAmountSeat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpCoachNumAmountSeat.Name = "tpCoachNumAmountSeat";
-            this.tpCoachNumAmountSeat.Size = new System.Drawing.Size(292, 27);
+            this.tpCoachNumAmountSeat.Size = new System.Drawing.Size(411, 27);
             this.tpCoachNumAmountSeat.TabIndex = 4;
             this.tpCoachNumAmountSeat.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -2209,8 +2626,9 @@ namespace CoachTicketManagement
             this.panel45.Controls.Add(this.label47);
             this.panel45.Controls.Add(this.tpCoachTxtLicensePlate);
             this.panel45.Location = new System.Drawing.Point(818, 142);
+            this.panel45.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel45.Name = "panel45";
-            this.panel45.Size = new System.Drawing.Size(524, 53);
+            this.panel45.Size = new System.Drawing.Size(524, 52);
             this.panel45.TabIndex = 62;
             // 
             // label47
@@ -2224,18 +2642,20 @@ namespace CoachTicketManagement
             // 
             // tpCoachTxtLicensePlate
             // 
-            this.tpCoachTxtLicensePlate.Location = new System.Drawing.Point(221, 13);
+            this.tpCoachTxtLicensePlate.Location = new System.Drawing.Point(102, 12);
+            this.tpCoachTxtLicensePlate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpCoachTxtLicensePlate.Name = "tpCoachTxtLicensePlate";
-            this.tpCoachTxtLicensePlate.Size = new System.Drawing.Size(291, 27);
+            this.tpCoachTxtLicensePlate.Size = new System.Drawing.Size(410, 27);
             this.tpCoachTxtLicensePlate.TabIndex = 2;
             // 
             // panel46
             // 
             this.panel46.Controls.Add(this.label48);
             this.panel46.Controls.Add(this.tpCoachTxtIDCoach);
-            this.panel46.Location = new System.Drawing.Point(817, 83);
+            this.panel46.Location = new System.Drawing.Point(817, 82);
+            this.panel46.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel46.Name = "panel46";
-            this.panel46.Size = new System.Drawing.Size(524, 53);
+            this.panel46.Size = new System.Drawing.Size(524, 52);
             this.panel46.TabIndex = 61;
             // 
             // label48
@@ -2249,10 +2669,11 @@ namespace CoachTicketManagement
             // 
             // tpCoachTxtIDCoach
             // 
-            this.tpCoachTxtIDCoach.Location = new System.Drawing.Point(221, 13);
+            this.tpCoachTxtIDCoach.Location = new System.Drawing.Point(102, 12);
+            this.tpCoachTxtIDCoach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpCoachTxtIDCoach.Name = "tpCoachTxtIDCoach";
             this.tpCoachTxtIDCoach.ReadOnly = true;
-            this.tpCoachTxtIDCoach.Size = new System.Drawing.Size(291, 27);
+            this.tpCoachTxtIDCoach.Size = new System.Drawing.Size(410, 27);
             this.tpCoachTxtIDCoach.TabIndex = 2;
             // 
             // dataGridViewCoach
@@ -2260,266 +2681,12 @@ namespace CoachTicketManagement
             this.dataGridViewCoach.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewCoach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCoach.Location = new System.Drawing.Point(6, 6);
+            this.dataGridViewCoach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewCoach.Name = "dataGridViewCoach";
             this.dataGridViewCoach.RowHeadersWidth = 51;
             this.dataGridViewCoach.RowTemplate.Height = 29;
             this.dataGridViewCoach.Size = new System.Drawing.Size(777, 600);
             this.dataGridViewCoach.TabIndex = 56;
-            // 
-            // panel47
-            // 
-            this.panel47.Controls.Add(this.tpTicketTxtIDTrip);
-            this.panel47.Controls.Add(this.label49);
-            this.panel47.Location = new System.Drawing.Point(901, 143);
-            this.panel47.Name = "panel47";
-            this.panel47.Size = new System.Drawing.Size(438, 53);
-            this.panel47.TabIndex = 42;
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(26, 16);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(99, 20);
-            this.label49.TabIndex = 3;
-            this.label49.Text = "Mã chuyến xe";
-            // 
-            // dataGridViewTicket
-            // 
-            this.dataGridViewTicket.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewTicket.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewTicket.Location = new System.Drawing.Point(7, 6);
-            this.dataGridViewTicket.Name = "dataGridViewTicket";
-            this.dataGridViewTicket.RowHeadersWidth = 51;
-            this.dataGridViewTicket.RowTemplate.Height = 29;
-            this.dataGridViewTicket.Size = new System.Drawing.Size(448, 600);
-            this.dataGridViewTicket.TabIndex = 55;
-            // 
-            // panel48
-            // 
-            this.panel48.Controls.Add(this.tpTicketCboDropOffPoint);
-            this.panel48.Controls.Add(this.label50);
-            this.panel48.Location = new System.Drawing.Point(457, 202);
-            this.panel48.Name = "panel48";
-            this.panel48.Size = new System.Drawing.Size(438, 53);
-            this.panel48.TabIndex = 43;
-            // 
-            // label50
-            // 
-            this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(26, 16);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(106, 20);
-            this.label50.TabIndex = 3;
-            this.label50.Text = "Trạm xuống xe";
-            // 
-            // tpTicketBtnUpdate
-            // 
-            this.tpTicketBtnUpdate.AutoSize = true;
-            this.tpTicketBtnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
-            this.tpTicketBtnUpdate.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.tpTicketBtnUpdate.ForeColor = System.Drawing.Color.White;
-            this.tpTicketBtnUpdate.Location = new System.Drawing.Point(1193, 450);
-            this.tpTicketBtnUpdate.Name = "tpTicketBtnUpdate";
-            this.tpTicketBtnUpdate.Size = new System.Drawing.Size(144, 65);
-            this.tpTicketBtnUpdate.TabIndex = 54;
-            this.tpTicketBtnUpdate.Text = "Cập nhật";
-            this.tpTicketBtnUpdate.UseVisualStyleBackColor = false;
-            // 
-            // panel49
-            // 
-            this.panel49.Controls.Add(this.tpTicketCboPickUpPoint);
-            this.panel49.Controls.Add(this.label51);
-            this.panel49.Location = new System.Drawing.Point(457, 143);
-            this.panel49.Name = "panel49";
-            this.panel49.Size = new System.Drawing.Size(438, 53);
-            this.panel49.TabIndex = 44;
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(26, 16);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(85, 20);
-            this.label51.TabIndex = 3;
-            this.label51.Text = "Trạm lên xe";
-            // 
-            // tpTicketBtnDelete
-            // 
-            this.tpTicketBtnDelete.AutoSize = true;
-            this.tpTicketBtnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
-            this.tpTicketBtnDelete.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.tpTicketBtnDelete.ForeColor = System.Drawing.Color.White;
-            this.tpTicketBtnDelete.Location = new System.Drawing.Point(1045, 450);
-            this.tpTicketBtnDelete.Name = "tpTicketBtnDelete";
-            this.tpTicketBtnDelete.Size = new System.Drawing.Size(144, 65);
-            this.tpTicketBtnDelete.TabIndex = 53;
-            this.tpTicketBtnDelete.Text = "Xóa";
-            this.tpTicketBtnDelete.UseVisualStyleBackColor = false;
-            // 
-            // panel50
-            // 
-            this.panel50.Controls.Add(this.tpTicketTxtIDSeat);
-            this.panel50.Controls.Add(this.label52);
-            this.panel50.Location = new System.Drawing.Point(901, 202);
-            this.panel50.Name = "panel50";
-            this.panel50.Size = new System.Drawing.Size(438, 53);
-            this.panel50.TabIndex = 45;
-            // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(26, 16);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(59, 20);
-            this.label52.TabIndex = 3;
-            this.label52.Text = "Mã ghế";
-            // 
-            // tpTicketBtnAdd
-            // 
-            this.tpTicketBtnAdd.AutoSize = true;
-            this.tpTicketBtnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
-            this.tpTicketBtnAdd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.tpTicketBtnAdd.ForeColor = System.Drawing.Color.White;
-            this.tpTicketBtnAdd.Location = new System.Drawing.Point(895, 450);
-            this.tpTicketBtnAdd.Name = "tpTicketBtnAdd";
-            this.tpTicketBtnAdd.Size = new System.Drawing.Size(144, 65);
-            this.tpTicketBtnAdd.TabIndex = 52;
-            this.tpTicketBtnAdd.Text = "Thêm";
-            this.tpTicketBtnAdd.UseVisualStyleBackColor = false;
-            // 
-            // panel51
-            // 
-            this.panel51.Controls.Add(this.label53);
-            this.panel51.Controls.Add(this.tpTicketTxtIDTicket);
-            this.panel51.Location = new System.Drawing.Point(457, 84);
-            this.panel51.Name = "panel51";
-            this.panel51.Size = new System.Drawing.Size(438, 53);
-            this.panel51.TabIndex = 46;
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(26, 16);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(49, 20);
-            this.label53.TabIndex = 3;
-            this.label53.Text = "Mã vé";
-            // 
-            // tpTicketTxtIDTicket
-            // 
-            this.tpTicketTxtIDTicket.Location = new System.Drawing.Point(144, 13);
-            this.tpTicketTxtIDTicket.Name = "tpTicketTxtIDTicket";
-            this.tpTicketTxtIDTicket.ReadOnly = true;
-            this.tpTicketTxtIDTicket.Size = new System.Drawing.Size(291, 27);
-            this.tpTicketTxtIDTicket.TabIndex = 2;
-            // 
-            // panel52
-            // 
-            this.panel52.Controls.Add(this.tpTicketTxtPrice);
-            this.panel52.Controls.Add(this.label54);
-            this.panel52.Location = new System.Drawing.Point(457, 259);
-            this.panel52.Name = "panel52";
-            this.panel52.Size = new System.Drawing.Size(438, 53);
-            this.panel52.TabIndex = 47;
-            // 
-            // label54
-            // 
-            this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(26, 16);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(31, 20);
-            this.label54.TabIndex = 3;
-            this.label54.Text = "Giá";
-            // 
-            // tpTicketBtnFind
-            // 
-            this.tpTicketBtnFind.AutoSize = true;
-            this.tpTicketBtnFind.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
-            this.tpTicketBtnFind.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.tpTicketBtnFind.ForeColor = System.Drawing.Color.White;
-            this.tpTicketBtnFind.Location = new System.Drawing.Point(1206, 15);
-            this.tpTicketBtnFind.Name = "tpTicketBtnFind";
-            this.tpTicketBtnFind.Size = new System.Drawing.Size(133, 47);
-            this.tpTicketBtnFind.TabIndex = 51;
-            this.tpTicketBtnFind.Text = "Tìm";
-            this.tpTicketBtnFind.UseVisualStyleBackColor = false;
-            // 
-            // panel53
-            // 
-            this.panel53.Controls.Add(this.tpTicketPurchaseDate);
-            this.panel53.Controls.Add(this.label55);
-            this.panel53.Location = new System.Drawing.Point(901, 84);
-            this.panel53.Name = "panel53";
-            this.panel53.Size = new System.Drawing.Size(438, 53);
-            this.panel53.TabIndex = 48;
-            // 
-            // label55
-            // 
-            this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(26, 16);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(96, 20);
-            this.label55.TabIndex = 3;
-            this.label55.Text = "Ngày mua vé";
-            // 
-            // tbTicketTxtFind
-            // 
-            this.tbTicketTxtFind.Location = new System.Drawing.Point(936, 26);
-            this.tbTicketTxtFind.Name = "tbTicketTxtFind";
-            this.tbTicketTxtFind.Size = new System.Drawing.Size(253, 27);
-            this.tbTicketTxtFind.TabIndex = 50;
-            // 
-            // tpTicketCboPickUpPoint
-            // 
-            this.tpTicketCboPickUpPoint.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.tpTicketCboPickUpPoint.FormattingEnabled = true;
-            this.tpTicketCboPickUpPoint.Location = new System.Drawing.Point(144, 13);
-            this.tpTicketCboPickUpPoint.Name = "tpTicketCboPickUpPoint";
-            this.tpTicketCboPickUpPoint.Size = new System.Drawing.Size(291, 28);
-            this.tpTicketCboPickUpPoint.TabIndex = 4;
-            // 
-            // tpTicketCboDropOffPoint
-            // 
-            this.tpTicketCboDropOffPoint.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.tpTicketCboDropOffPoint.FormattingEnabled = true;
-            this.tpTicketCboDropOffPoint.Location = new System.Drawing.Point(144, 13);
-            this.tpTicketCboDropOffPoint.Name = "tpTicketCboDropOffPoint";
-            this.tpTicketCboDropOffPoint.Size = new System.Drawing.Size(291, 28);
-            this.tpTicketCboDropOffPoint.TabIndex = 4;
-            // 
-            // tpTicketTxtPrice
-            // 
-            this.tpTicketTxtPrice.Location = new System.Drawing.Point(144, 13);
-            this.tpTicketTxtPrice.Name = "tpTicketTxtPrice";
-            this.tpTicketTxtPrice.ReadOnly = true;
-            this.tpTicketTxtPrice.Size = new System.Drawing.Size(291, 27);
-            this.tpTicketTxtPrice.TabIndex = 4;
-            // 
-            // tpTicketPurchaseDate
-            // 
-            this.tpTicketPurchaseDate.CustomFormat = "dd/MM/yyyy";
-            this.tpTicketPurchaseDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.tpTicketPurchaseDate.Location = new System.Drawing.Point(143, 11);
-            this.tpTicketPurchaseDate.Name = "tpTicketPurchaseDate";
-            this.tpTicketPurchaseDate.Size = new System.Drawing.Size(293, 27);
-            this.tpTicketPurchaseDate.TabIndex = 4;
-            // 
-            // tpTicketTxtIDTrip
-            // 
-            this.tpTicketTxtIDTrip.Location = new System.Drawing.Point(143, 13);
-            this.tpTicketTxtIDTrip.Name = "tpTicketTxtIDTrip";
-            this.tpTicketTxtIDTrip.ReadOnly = true;
-            this.tpTicketTxtIDTrip.Size = new System.Drawing.Size(291, 27);
-            this.tpTicketTxtIDTrip.TabIndex = 4;
-            // 
-            // tpTicketTxtIDSeat
-            // 
-            this.tpTicketTxtIDSeat.Location = new System.Drawing.Point(143, 13);
-            this.tpTicketTxtIDSeat.Name = "tpTicketTxtIDSeat";
-            this.tpTicketTxtIDSeat.ReadOnly = true;
-            this.tpTicketTxtIDSeat.Size = new System.Drawing.Size(291, 27);
-            this.tpTicketTxtIDSeat.TabIndex = 4;
             // 
             // fAdmin
             // 
@@ -2527,6 +2694,9 @@ namespace CoachTicketManagement
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1360, 654);
             this.Controls.Add(this.tabControlAdmin);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "fAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin";
@@ -2639,16 +2809,6 @@ namespace CoachTicketManagement
             this.panel43.PerformLayout();
             this.tpTicket.ResumeLayout(false);
             this.tpTicket.PerformLayout();
-            this.tpCoach.ResumeLayout(false);
-            this.tpCoach.PerformLayout();
-            this.panel44.ResumeLayout(false);
-            this.panel44.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tpCoachNumAmountSeat)).EndInit();
-            this.panel45.ResumeLayout(false);
-            this.panel45.PerformLayout();
-            this.panel46.ResumeLayout(false);
-            this.panel46.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCoach)).EndInit();
             this.panel47.ResumeLayout(false);
             this.panel47.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTicket)).EndInit();
@@ -2664,6 +2824,16 @@ namespace CoachTicketManagement
             this.panel52.PerformLayout();
             this.panel53.ResumeLayout(false);
             this.panel53.PerformLayout();
+            this.tpCoach.ResumeLayout(false);
+            this.tpCoach.PerformLayout();
+            this.panel44.ResumeLayout(false);
+            this.panel44.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tpCoachNumAmountSeat)).EndInit();
+            this.panel45.ResumeLayout(false);
+            this.panel45.PerformLayout();
+            this.panel46.ResumeLayout(false);
+            this.panel46.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCoach)).EndInit();
             this.ResumeLayout(false);
 
         }
