@@ -17,6 +17,7 @@ namespace CoachTicketManagement
         public fAuthenticate()
         {
             InitializeComponent();
+            pictureBoxEyePassword.Image = imageListEye.Images[0];
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -43,6 +44,20 @@ namespace CoachTicketManagement
             DialogResult r = MessageBox.Show("Bạn có chắc chắn muốn thoát?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (r == DialogResult.No)
                 e.Cancel = true;
+        }
+
+        private void pictureBoxEyePassword_Click(object sender, EventArgs e)
+        {
+            if (txtPassword.PasswordChar != '\0')
+            {
+                txtPassword.PasswordChar = '\0';
+                pictureBoxEyePassword.Image = imageListEye.Images[1];
+            }    
+            else
+            {
+                txtPassword.PasswordChar = '*';
+                pictureBoxEyePassword.Image = imageListEye.Images[0];
+            }
         }
     }
 }

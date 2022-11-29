@@ -11,9 +11,6 @@ C:\Users\HP\Máy tính\CoachTicketManagement\CoachTicketManagement\obj\Debug\Coa
 C:\Users\HP\Máy tính\CoachTicketManagement\CoachTicketManagement\obj\Debug\CoachTicketManagement.csproj.CoreCompileInputs.cache
 C:\Users\HP\Máy tính\CoachTicketManagement\CoachTicketManagement\obj\Debug\CoachTicketManagement.exe
 C:\Users\HP\Máy tính\CoachTicketManagement\CoachTicketManagement\obj\Debug\CoachTicketManagement.pdb
-C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\bin\Debug\CoachTicketManagement.exe.config
-C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\bin\Debug\CoachTicketManagement.exe
-C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\bin\Debug\CoachTicketManagement.pdb
 C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\obj\Debug\CoachTicketManagement.fAccountInfo.resources
 C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\obj\Debug\CoachTicketManagement.fAdmin.resources
 C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\obj\Debug\CoachTicketManagement.fAuthenticate.resources
@@ -21,8 +18,9 @@ C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\Co
 C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\obj\Debug\CoachTicketManagement.Properties.Resources.resources
 C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\obj\Debug\CoachTicketManagement.csproj.GenerateResource.cache
 C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\obj\Debug\CoachTicketManagement.csproj.CoreCompileInputs.cache
-C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\obj\Debug\CoachTicketManagement.exe
-C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\obj\Debug\CoachTicketManagement.pdb
+C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\bin\Debug\CoachTicketManagement.exe.config
+C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\bin\Debug\CoachTicketManagement.exe
+C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\bin\Debug\CoachTicketManagement.pdb
 C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\bin\Debug\Antlr3.Runtime.dll
 C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\bin\Debug\FluentNHibernate.dll
 C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\bin\Debug\Iesi.Collections.dll
@@ -37,4 +35,6 @@ C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\Co
 C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\bin\Debug\Remotion.Linq.xml
 C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\bin\Debug\Remotion.Linq.EagerFetching.xml
 C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\obj\Debug\CoachTicketManagement.csproj.CopyComplete
+C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\obj\Debug\CoachTicketManagement.exe
+C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\obj\Debug\CoachTicketManagement.pdb
 C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\obj\Debug\CoachTicketManagement.csproj.AssemblyReference.cache

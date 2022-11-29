@@ -12,16 +12,17 @@ namespace CoachTicketManagement.Data.Map
     {
         public EmployeeMap()
         {
-            Id(x => x.Id);
-            Map(x => x.Name);
-            Map(x => x.DateOfBirth);
-            Map(x => x.Gender);
-            Map(x => x.IdentityCart);
-            Map(x => x.Phone);
-            Map(x => x.Email);
+            Id(x => x.Id, "IDEMPLOYEE");
+            Map(x => x.Name, "NAMEEMPLOYEE");
+            Map(x => x.DateOfBirth, "DATEOFBIRTHEMPLOYEE");
+            Map(x => x.Gender, "GENDEREMPLOYEE");
+            Map(x => x.IdentityCard, "IDENTITYCARDEMPLOYEE");
+            Map(x => x.Phone, "PHONEEMPLOYEE");
+            Map(x => x.Email, "EMAILEMPLOYEE");
             Map(x => x.IdWard);
-            Map(x => x.IdTypeOfEmployee);
+            Map(x => x.IdTypeOfEmployee, "IDTYPE");
             Map(x => x.IdPermissionGroup);
+            Map(x => x.IdAccount);
             Table("tbl_Employee");
         }
     }

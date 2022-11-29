@@ -40,7 +40,6 @@ namespace CoachTicketManagement
             picBoxEmpty.Image = imageListSeat.Images[0];
             picBoxNo.Image = imageListSeat.Images[1];
             picBoxChoose.Image = imageListSeat.Images[2];
-            //picBoxChoose.Tag = 2;
         }
 
         void showSeat()
@@ -109,7 +108,7 @@ namespace CoachTicketManagement
 
         private void ToolStripAdmin_Click(object sender, EventArgs e)
         {
-            fAdmin admin = new fAdmin();
+            fAdmin admin = new fAdmin(this._curEmployee);
             this.Hide();
             admin.ShowDialog();
             this.Show();

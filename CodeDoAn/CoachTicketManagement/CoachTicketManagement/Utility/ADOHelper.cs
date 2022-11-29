@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data.SqlClient;
 using System.Reflection;
+using System.Data;
 
 namespace CoachTicketManagement.Utility
 {
@@ -129,6 +130,21 @@ namespace CoachTicketManagement.Utility
             }
             return rowEffect;
         }
+
+        public DataTable ExecuteReader(string query, params object[] obj)
+        {
+            using(SqlConnection connection = new SqlConnection(ConnectionString.Instance.getConnectionString()))
+            {
+                SqlCommand cmd = new SqlCommand(query, connection);
+                if (obj.Length > 0)
+                    AddParameters(ref cmd, obj);
+                DataTable dataTable = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dataTable);
+                return dataTable;
+            }    
+        }
+
         #endregion
     }
 }

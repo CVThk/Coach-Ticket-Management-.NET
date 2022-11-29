@@ -16,5 +16,6 @@ namespace CoachTicketManagement.Models
         //public virtual int IdWard { get; set; }
         public virtual int IdTypeOfEmployee { get; set; }
         public virtual int IdPermissionGroup { get; set; }
+        public virtual int IdAccount { get; set; }
     }
 }

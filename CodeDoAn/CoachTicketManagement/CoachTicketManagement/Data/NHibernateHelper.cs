@@ -28,7 +28,7 @@ namespace CoachTicketManagement.Data
             _sessionFactory = Fluently.Configure()
 
              .Database(MsSqlConfiguration.MsSql2012.ConnectionString(
-                @"Data Source=.;Initial Catalog=CoachTicketManagement;Integrated Security=True").ShowSql())
+                @"Data Source=.;Initial Catalog=CoachTicketManagementCNPM;Integrated Security=True").ShowSql())
 
              .Mappings(m => m.FluentMappings
                  .AddFromAssemblyOf<Account>()

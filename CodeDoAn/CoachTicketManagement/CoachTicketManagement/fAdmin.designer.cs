@@ -78,8 +78,8 @@ namespace CoachTicketManagement
             this.dataGridViewAccount = new System.Windows.Forms.DataGridView();
             this.grBoxInfoAccount = new System.Windows.Forms.GroupBox();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.tpAccountCboTypeAccount = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.tpAccountTxtTypeAccount = new System.Windows.Forms.TextBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.tpAccountTxtUsername = new System.Windows.Forms.TextBox();
@@ -356,13 +356,13 @@ namespace CoachTicketManagement
             // 
             // dataGridViewEmployee
             // 
-            this.dataGridViewEmployee.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewEmployee.Location = new System.Drawing.Point(6, 6);
             this.dataGridViewEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewEmployee.Name = "dataGridViewEmployee";
             this.dataGridViewEmployee.RowHeadersWidth = 51;
             this.dataGridViewEmployee.RowTemplate.Height = 29;
+            this.dataGridViewEmployee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewEmployee.Size = new System.Drawing.Size(448, 600);
             this.dataGridViewEmployee.TabIndex = 12;
             // 
@@ -442,7 +442,7 @@ namespace CoachTicketManagement
             // 
             // tpEmployeeDtpDateOfBirth
             // 
-            this.tpEmployeeDtpDateOfBirth.CustomFormat = "yyyy";
+            this.tpEmployeeDtpDateOfBirth.CustomFormat = "dd/MM/yyyy";
             this.tpEmployeeDtpDateOfBirth.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.tpEmployeeDtpDateOfBirth.Location = new System.Drawing.Point(143, 16);
             this.tpEmployeeDtpDateOfBirth.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -784,6 +784,7 @@ namespace CoachTicketManagement
             this.tabControlAdmin.SelectedIndex = 0;
             this.tabControlAdmin.Size = new System.Drawing.Size(1355, 646);
             this.tabControlAdmin.TabIndex = 0;
+            this.tabControlAdmin.SelectedIndexChanged += new System.EventHandler(this.tabControlAdmin_SelectedIndexChanged);
             // 
             // tpAccount
             // 
@@ -808,11 +809,12 @@ namespace CoachTicketManagement
             // 
             this.dataGridViewAccount.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewAccount.Location = new System.Drawing.Point(3, 138);
-            this.dataGridViewAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridViewAccount.Location = new System.Drawing.Point(3, 135);
             this.dataGridViewAccount.Name = "dataGridViewAccount";
+            this.dataGridViewAccount.ReadOnly = true;
             this.dataGridViewAccount.RowHeadersWidth = 51;
-            this.dataGridViewAccount.RowTemplate.Height = 29;
+            this.dataGridViewAccount.RowTemplate.Height = 24;
+            this.dataGridViewAccount.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewAccount.Size = new System.Drawing.Size(1184, 472);
             this.dataGridViewAccount.TabIndex = 14;
             // 
@@ -833,13 +835,22 @@ namespace CoachTicketManagement
             // 
             // panel9
             // 
+            this.panel9.Controls.Add(this.tpAccountCboTypeAccount);
             this.panel9.Controls.Add(this.label5);
-            this.panel9.Controls.Add(this.tpAccountTxtTypeAccount);
             this.panel9.Location = new System.Drawing.Point(482, 72);
             this.panel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(438, 52);
             this.panel9.TabIndex = 21;
+            // 
+            // tpAccountCboTypeAccount
+            // 
+            this.tpAccountCboTypeAccount.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tpAccountCboTypeAccount.FormattingEnabled = true;
+            this.tpAccountCboTypeAccount.Location = new System.Drawing.Point(143, 11);
+            this.tpAccountCboTypeAccount.Name = "tpAccountCboTypeAccount";
+            this.tpAccountCboTypeAccount.Size = new System.Drawing.Size(291, 28);
+            this.tpAccountCboTypeAccount.TabIndex = 4;
             // 
             // label5
             // 
@@ -849,15 +860,6 @@ namespace CoachTicketManagement
             this.label5.Size = new System.Drawing.Size(102, 20);
             this.label5.TabIndex = 3;
             this.label5.Text = "Loại tài khoản";
-            // 
-            // tpAccountTxtTypeAccount
-            // 
-            this.tpAccountTxtTypeAccount.Location = new System.Drawing.Point(144, 12);
-            this.tpAccountTxtTypeAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tpAccountTxtTypeAccount.Name = "tpAccountTxtTypeAccount";
-            this.tpAccountTxtTypeAccount.ReadOnly = true;
-            this.tpAccountTxtTypeAccount.Size = new System.Drawing.Size(291, 27);
-            this.tpAccountTxtTypeAccount.TabIndex = 2;
             // 
             // panel8
             // 
@@ -910,6 +912,7 @@ namespace CoachTicketManagement
             this.tpAccountTxtIdEmployee.Location = new System.Drawing.Point(144, 12);
             this.tpAccountTxtIdEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpAccountTxtIdEmployee.Name = "tpAccountTxtIdEmployee";
+            this.tpAccountTxtIdEmployee.ReadOnly = true;
             this.tpAccountTxtIdEmployee.Size = new System.Drawing.Size(291, 27);
             this.tpAccountTxtIdEmployee.TabIndex = 2;
             // 
@@ -1048,7 +1051,6 @@ namespace CoachTicketManagement
             // 
             // dataGridViewDriver
             // 
-            this.dataGridViewDriver.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewDriver.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDriver.Location = new System.Drawing.Point(6, 6);
             this.dataGridViewDriver.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1071,7 +1073,6 @@ namespace CoachTicketManagement
             this.tpDriverBtnUpdate.TabIndex = 29;
             this.tpDriverBtnUpdate.Text = "Cập nhật";
             this.tpDriverBtnUpdate.UseVisualStyleBackColor = false;
-            this.tpDriverBtnUpdate.Click += new System.EventHandler(this.tpDriverBtnUpdate_Click);
             // 
             // tpDriverBtnDelete
             // 
@@ -1086,7 +1087,6 @@ namespace CoachTicketManagement
             this.tpDriverBtnDelete.TabIndex = 28;
             this.tpDriverBtnDelete.Text = "Xóa";
             this.tpDriverBtnDelete.UseVisualStyleBackColor = false;
-            this.tpDriverBtnDelete.Click += new System.EventHandler(this.tpDriverBtnDelete_Click);
             // 
             // tpDriverBtnAdd
             // 
@@ -1101,7 +1101,6 @@ namespace CoachTicketManagement
             this.tpDriverBtnAdd.TabIndex = 27;
             this.tpDriverBtnAdd.Text = "Thêm";
             this.tpDriverBtnAdd.UseVisualStyleBackColor = false;
-            this.tpDriverBtnAdd.Click += new System.EventHandler(this.tpDriverBtnAdd_Click);
             // 
             // tpDriverBtnFind
             // 
@@ -2700,6 +2699,7 @@ namespace CoachTicketManagement
             this.Name = "fAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin";
+            this.Load += new System.EventHandler(this.fAdmin_Load);
             this.tpEmployee.ResumeLayout(false);
             this.tpEmployee.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployee)).EndInit();
@@ -2965,7 +2965,6 @@ namespace CoachTicketManagement
         private System.Windows.Forms.Panel panel35;
         private System.Windows.Forms.ComboBox tpBusLineCboListPickUpPoint;
         private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.DataGridView dataGridViewAccount;
         private System.Windows.Forms.DataGridView dataGridViewEmployee;
         private System.Windows.Forms.DataGridView dataGridViewDriver;
         private System.Windows.Forms.DataGridView dataGridViewBusLine;
@@ -3019,7 +3018,6 @@ namespace CoachTicketManagement
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.ComboBox tpTripCboIDEmployee;
         private System.Windows.Forms.ComboBox tpTripIDCoach;
-        private System.Windows.Forms.TextBox tpAccountTxtTypeAccount;
         private System.Windows.Forms.Button tpCoachUpdate;
         private System.Windows.Forms.Button tpCoachBtnDelete;
         private System.Windows.Forms.Button tpCoachBtnAdd;
@@ -3062,5 +3060,7 @@ namespace CoachTicketManagement
         private System.Windows.Forms.DateTimePicker tpTicketPurchaseDate;
         private System.Windows.Forms.Label label55;
         private System.Windows.Forms.TextBox tbTicketTxtFind;
+        private System.Windows.Forms.ComboBox tpAccountCboTypeAccount;
+        private System.Windows.Forms.DataGridView dataGridViewAccount;
     }
 }

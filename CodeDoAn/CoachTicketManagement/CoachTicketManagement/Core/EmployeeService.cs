@@ -34,7 +34,7 @@ namespace CoachTicketManagement.Core
         {
             using(var session = NHibernateHelper.OpenSession())
             {
-                return session.CreateSQLQuery("select pg.Name from tbl_Employee e, tbl_PermissionGroup pg where e.ID = :idEmployee and e.IDPermissionGroup = pg.ID").SetParameter("idEmployee", idEmployee).UniqueResult<string>();
+                return session.CreateSQLQuery("select pg.NAMEGROUP from tbl_Employee e, tbl_PermissionGroup pg where e.IDEMPLOYEE = :idEmployee and e.IDPermissionGroup = pg.IDPERMISSIONGROUP").SetParameter("idEmployee", idEmployee).UniqueResult<string>();
             }    
         }
     }

@@ -29,6 +29,7 @@ namespace CoachTicketManagement
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fAuthenticate));
             this.label1 = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
@@ -37,6 +38,9 @@ namespace CoachTicketManagement
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.pictureBoxEyePassword = new System.Windows.Forms.PictureBox();
+            this.imageListEye = new System.Windows.Forms.ImageList(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEyePassword)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -57,6 +61,7 @@ namespace CoachTicketManagement
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(517, 30);
             this.txtUsername.TabIndex = 0;
+            this.txtUsername.Text = "thinhae2@gmail.com";
             // 
             // label2
             // 
@@ -87,6 +92,7 @@ namespace CoachTicketManagement
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(517, 30);
             this.txtPassword.TabIndex = 1;
+            this.txtPassword.Text = "employee123";
             // 
             // btnClose
             // 
@@ -120,11 +126,30 @@ namespace CoachTicketManagement
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
+            // pictureBoxEyePassword
+            // 
+            this.pictureBoxEyePassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBoxEyePassword.Location = new System.Drawing.Point(676, 152);
+            this.pictureBoxEyePassword.Name = "pictureBoxEyePassword";
+            this.pictureBoxEyePassword.Size = new System.Drawing.Size(34, 22);
+            this.pictureBoxEyePassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxEyePassword.TabIndex = 4;
+            this.pictureBoxEyePassword.TabStop = false;
+            this.pictureBoxEyePassword.Click += new System.EventHandler(this.pictureBoxEyePassword_Click);
+            // 
+            // imageListEye
+            // 
+            this.imageListEye.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListEye.ImageStream")));
+            this.imageListEye.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListEye.Images.SetKeyName(0, "eye.png");
+            this.imageListEye.Images.SetKeyName(1, "eye2.png");
+            // 
             // fAuthenticate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 270);
+            this.Controls.Add(this.pictureBoxEyePassword);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.txtPassword);
@@ -139,6 +164,7 @@ namespace CoachTicketManagement
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng Nhập";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fAuthenticate_FormClosing);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEyePassword)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -153,5 +179,7 @@ namespace CoachTicketManagement
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.PictureBox pictureBoxEyePassword;
+        private System.Windows.Forms.ImageList imageListEye;
     }
 }

@@ -12,7 +12,7 @@ namespace CoachTicketManagement.Data.Map
     {
         public AccountMap()
         {
-            Id(x => x.Id);
+            Id(x => x.Id, "IDACCOUNT");
             Map(x => x.UserName);
             Map(x => x.Password);
             Map(x => x.IdEmployee);
