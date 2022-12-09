@@ -46,20 +46,20 @@ namespace CoachTicketManagement
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label1.Location = new System.Drawing.Point(55, 99);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(63, 93);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(124, 23);
+            this.label1.Size = new System.Drawing.Size(140, 28);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên đăng nhập";
             // 
             // txtUsername
             // 
-            this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.txtUsername.Location = new System.Drawing.Point(195, 96);
+            this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.Location = new System.Drawing.Point(209, 90);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(517, 30);
+            this.txtUsername.Size = new System.Drawing.Size(517, 34);
             this.txtUsername.TabIndex = 0;
             this.txtUsername.Text = "thinhae2@gmail.com";
             // 
@@ -67,30 +67,31 @@ namespace CoachTicketManagement
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(224, 19);
+            this.label2.Location = new System.Drawing.Point(247, 19);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(340, 38);
             this.label2.TabIndex = 0;
             this.label2.Text = "ĐĂNG NHẬP HỆ THỐNG";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label3.Location = new System.Drawing.Point(55, 152);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(63, 146);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 23);
+            this.label3.Size = new System.Drawing.Size(94, 28);
             this.label3.TabIndex = 0;
             this.label3.Text = "Mật khẩu";
             // 
             // txtPassword
             // 
-            this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.txtPassword.Location = new System.Drawing.Point(195, 150);
+            this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Location = new System.Drawing.Point(208, 143);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(517, 30);
+            this.txtPassword.Size = new System.Drawing.Size(517, 34);
             this.txtPassword.TabIndex = 1;
             this.txtPassword.Text = "employee123";
             // 
@@ -128,11 +129,12 @@ namespace CoachTicketManagement
             // 
             // pictureBoxEyePassword
             // 
-            this.pictureBoxEyePassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBoxEyePassword.Location = new System.Drawing.Point(676, 152);
+            this.pictureBoxEyePassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxEyePassword.Location = new System.Drawing.Point(698, 145);
+            this.pictureBoxEyePassword.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBoxEyePassword.Name = "pictureBoxEyePassword";
-            this.pictureBoxEyePassword.Size = new System.Drawing.Size(34, 22);
-            this.pictureBoxEyePassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxEyePassword.Size = new System.Drawing.Size(24, 24);
+            this.pictureBoxEyePassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBoxEyePassword.TabIndex = 4;
             this.pictureBoxEyePassword.TabStop = false;
             this.pictureBoxEyePassword.Click += new System.EventHandler(this.pictureBoxEyePassword_Click);
@@ -141,8 +143,9 @@ namespace CoachTicketManagement
             // 
             this.imageListEye.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListEye.ImageStream")));
             this.imageListEye.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageListEye.Images.SetKeyName(0, "eye.png");
-            this.imageListEye.Images.SetKeyName(1, "eye2.png");
+            this.imageListEye.Images.SetKeyName(0, "eye_hd17c4e5g53a.ico");
+            this.imageListEye.Images.SetKeyName(1, "eye_tl300uxpflw3.ico");
+            this.imageListEye.Images.SetKeyName(2, "eye_ldlzjt267jib.ico");
             // 
             // fAuthenticate
             // 

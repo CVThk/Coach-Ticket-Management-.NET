@@ -99,11 +99,8 @@ namespace CoachTicketManagement
 
         private void ToolStripInfoAccount_Click(object sender, EventArgs e)
         {
-            Employee employee = new Employee();
-            employee.Name = "zzz";
-            fAccountInfo accountInfo = new fAccountInfo(employee);
+            fAccountInfo accountInfo = new fAccountInfo(_curEmployee);
             accountInfo.ShowDialog();
-            
         }
 
         private void ToolStripAdmin_Click(object sender, EventArgs e)
@@ -117,6 +114,14 @@ namespace CoachTicketManagement
         private void btnFindTicket_Click(object sender, EventArgs e)
         {
             panelSeat.Enabled = true;
+        }
+
+        private void ToolStripBill_Click(object sender, EventArgs e)
+        {
+            fBill f = new fBill();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
         }
     }
 }

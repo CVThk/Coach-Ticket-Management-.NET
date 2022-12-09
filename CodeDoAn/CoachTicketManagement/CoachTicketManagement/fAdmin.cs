@@ -19,46 +19,11 @@ namespace CoachTicketManagement
             this._curEmployee = cur;
             
         }
-
-        void loadTypeAccount(ComboBox combo)
-        {
-            combo.DataSource = ADOHelper.Instance.ExecuteReader("select * from TBL_PERMISSIONGROUP");
-            combo.DisplayMember = "NameGroup";
-            combo.ValueMember = "IDPERMISSIONGROUP";
-        }
-        void loadCity(ComboBox combo)
-        {
-            combo.DataSource = ADOHelper.Instance.ExecuteReader("select * from tbl_City");
-            combo.DisplayMember = "NameCity";
-            combo.ValueMember = "IDCity";
-        }
-        void loadDistrict(ComboBox combo)
-        {
-            combo.DataSource = ADOHelper.Instance.ExecuteReader("select * from tbl_District");
-            combo.DisplayMember = "NameDistrict";
-            combo.ValueMember = "IDDistrict";
-        }
-        void loadWard(ComboBox combo)
-        {
-            combo.DataSource = ADOHelper.Instance.ExecuteReader("select * from tbl_Ward");
-            combo.DisplayMember = "NameWard";
-            combo.ValueMember = "IDWard";
-        }
-        void loadTypeEmployee(ComboBox combo)
-        {
-            combo.DataSource = ADOHelper.Instance.ExecuteReader("select * from TBL_TYPEOFEMPLOYEE");
-            combo.DisplayMember = "NameType";
-            combo.ValueMember = "IDType";
-        }
-        void loadGender(ComboBox combo)
-        {
-            combo.DataSource = new string[] { "Nam", "Nữ" };
-        }
-
-
+        
+        
         private void fAdmin_Load(object sender, EventArgs e)
         {
-            loadTypeAccount(tpAccountCboTypeAccount);
+            ControlHelper.Instance.loadTypeAccount(tpAccountCboTypeAccount);
             loadAccount();
         }
         private void tabControlAdmin_SelectedIndexChanged(object sender, EventArgs e)
@@ -66,23 +31,32 @@ namespace CoachTicketManagement
             switch (tabControlAdmin.SelectedIndex)
             {
                 case 0:
-                    loadTypeAccount(tpAccountCboTypeAccount);
+                    ControlHelper.Instance.loadTypeAccount(tpAccountCboTypeAccount);
                     loadAccount();
                     break;
                 case 1:
-                    loadCity(tpEmployeeCboCity);
-                    loadDistrict(tpEmployeeCboDistrict);
-                    loadWard(tpEmployeeCboWard);
-                    loadTypeEmployee(tpEmployeeCboTypeOfEmployee);
-                    loadGender(tpEmployeeCboGender);
+                    ControlHelper.Instance.loadCity(tpEmployeeCboCity);
+                    ControlHelper.Instance.loadDistrict(tpEmployeeCboDistrict);
+                    ControlHelper.Instance.loadWard(tpEmployeeCboWard);
+                    ControlHelper.Instance.loadTypeEmployee(tpEmployeeCboTypeOfEmployee);
+                    ControlHelper.Instance.loadGender(tpEmployeeCboGender);
                     loadEmployee();
                     break;
                 case 2:
-                    loadCity(tpDriverCboCity);
-                    loadDistrict(tpDriverCboDistrict);
-                    loadWard(tpDriverCboWard);
-                    loadGender(tpDriverCboGender);
+                    ControlHelper.Instance.loadCity(tpDriverCboCity);
+                    ControlHelper.Instance.loadDistrict(tpDriverCboDistrict);
+                    ControlHelper.Instance.loadWard(tpDriverCboWard);
+                    ControlHelper.Instance.loadGender(tpDriverCboGender);
                     loadDriver();
+                    break;
+                case 3:
+                    loadBusLine();
+                    break;
+                case 4:
+                    loadTimeBusLine();
+                    break;
+                case 5:
+                    loadTrip();
                     break;
             }
         }
@@ -238,6 +212,121 @@ namespace CoachTicketManagement
             tpDriverTxtEmail.DataBindings.Add("Text", data, "EMAILDRIVER", true, DataSourceUpdateMode.Never);
 
         }
+        #endregion
+
+        #region Busline
+        void loadBusLine()
+        {
+            dataGridViewBusLine.Columns.Clear();
+            dataGridViewBusLine.Columns.Add("IDBUSLINE", "Mã Tuyến Xe");
+            dataGridViewBusLine.Columns[0].DataPropertyName = "IDBUSLINE";
+            dataGridViewBusLine.Columns.Add("DEPARTURESTATION", "Điểm Khởi Hành");
+            dataGridViewBusLine.Columns[1].DataPropertyName = "DEPARTURESTATION";
+            dataGridViewBusLine.Columns.Add("DESTINATIONSTATION", "Điểm Đến");
+            dataGridViewBusLine.Columns[2].DataPropertyName = "DESTINATIONSTATION";
+
+            tpBusLineIdBusLine.DataBindings.Clear();
+            tpBusLineTxtDepartureStation.DataBindings.Clear();
+            tpBusLineTxtDestinationStation.DataBindings.Clear();
+
+            DataTable data = ADOHelper.Instance.ExecuteReader("select * from TBL_BUSLINE");
+            dataGridViewBusLine.DataSource = data;
+
+            tpBusLineIdBusLine.DataBindings.Add("Text", data, "IDBUSLINE", true, DataSourceUpdateMode.Never);
+            tpBusLineTxtDepartureStation.DataBindings.Add("Text", data, "DEPARTURESTATION", true, DataSourceUpdateMode.Never);
+            tpBusLineTxtDestinationStation.DataBindings.Add("Text", data, "DESTINATIONSTATION", true, DataSourceUpdateMode.Never);
+        }
+        private void tpBusLineIdBusLine_TextChanged(object sender, EventArgs e)
+        {
+            tpBusLineCboListPickUpPoint.DataSource = ADOHelper.Instance.ExecuteReader("select s.NAMESTATION from TBL_PICKUP p, TBL_STATION s where @para_0 = p.IDBUSLINE and p.IDSTATION = s.IDSTATION", new object[] { tpBusLineIdBusLine.Text });
+            tpBusLineCboListPickUpPoint.DisplayMember = "NameStation";
+            tpBusLineCboListDropOffPoint.DataSource = ADOHelper.Instance.ExecuteReader("select s.NAMESTATION from TBL_DROPOFF d, TBL_STATION s where @para_0 = d.IDBUSLINE and d.IDSTATION = s.IDSTATION", new object[] { tpBusLineIdBusLine.Text });
+            tpBusLineCboListDropOffPoint.DisplayMember = "NameStation";
+        }
+        #endregion
+
+        #region Time BusLine
+        void loadTimeBusLine()
+        {
+            dataGridViewTimeBusLine.Columns.Clear();
+            dataGridViewTimeBusLine.Columns.Add("IDTIME", "Mã Thời Gian");
+            dataGridViewTimeBusLine.Columns[0].DataPropertyName = "IDTIME";
+            dataGridViewTimeBusLine.Columns.Add("STARTTIME", "Thời Gian Bắt Đầu");
+            dataGridViewTimeBusLine.Columns[1].DataPropertyName = "STARTTIME";
+            dataGridViewTimeBusLine.Columns.Add("FINISHTIME", "Thời Gian Kết Thúc");
+            dataGridViewTimeBusLine.Columns[2].DataPropertyName = "FINISHTIME";
+
+            tpTimeBusLineTxtIDTime.DataBindings.Clear();
+            tpTimeBusLineDtpStarTime.DataBindings.Clear();
+            tpTimeBusLineDtpFinishTime.DataBindings.Clear();
+
+            DataTable data = ADOHelper.Instance.ExecuteReader("select * from TBL_TIMEBUSLINE");
+            dataGridViewTimeBusLine.DataSource = data;
+
+            tpTimeBusLineTxtIDTime.DataBindings.Add("Text", data, "IDTIME", true, DataSourceUpdateMode.Never);
+            tpTimeBusLineDtpStarTime.DataBindings.Add("Text", data, "STARTTIME", true, DataSourceUpdateMode.Never);
+            tpTimeBusLineDtpFinishTime.DataBindings.Add("Text", data, "FINISHTIME", true, DataSourceUpdateMode.Never);
+        }
+        private void tpTimeBusLineDtpFinishTime_ValueChanged(object sender, EventArgs e)
+        {
+            tpTimeBusLineTxtTotalTime.Text = Utilities.Instance.MinusTime(tpTimeBusLineDtpStarTime.Value, tpTimeBusLineDtpFinishTime.Value).ToString("HH:mm:ss");
+        }
+
+        private void tpTimeBusLineDtpStarTime_ValueChanged(object sender, EventArgs e)
+        {
+            tpTimeBusLineTxtTotalTime.Text = Utilities.Instance.MinusTime(tpTimeBusLineDtpStarTime.Value, tpTimeBusLineDtpFinishTime.Value).ToString("HH:mm:ss");
+        }
+        #endregion
+
+        #region Trip
+        void loadTrip()
+        {
+            tpTripDataGridViewTrip.Columns.Clear();
+            tpTripDataGridViewTrip.Columns.Add("IDTRIP", "Mã Chuyến Xe");
+            tpTripDataGridViewTrip.Columns[0].DataPropertyName = "IDTRIP";
+            tpTripDataGridViewTrip.Columns.Add("Time", "Thời Gian");
+            tpTripDataGridViewTrip.Columns[1].DataPropertyName = "Time";
+            tpTripDataGridViewTrip.Columns.Add("BUSLINE", "Tuyến Xe");
+            tpTripDataGridViewTrip.Columns[2].DataPropertyName = "BUSLINE";
+            tpTripDataGridViewTrip.Columns.Add("NAMEEMPLOYEE", "Tên Nhân Viên");
+            tpTripDataGridViewTrip.Columns[3].DataPropertyName = "NAMEEMPLOYEE";
+            tpTripDataGridViewTrip.Columns.Add("LICENSEPLATE", "Biển Số");
+            tpTripDataGridViewTrip.Columns[4].DataPropertyName = "LICENSEPLATE";
+            tpTripDataGridViewTrip.Columns.Add("NAMEDRIVER", "Tên Tài Xế");
+            tpTripDataGridViewTrip.Columns[5].DataPropertyName = "NAMEDRIVER";
+            tpTripDataGridViewTrip.Columns.Add("DEPARTUREDAY", "Ngày Khởi Hành");
+            tpTripDataGridViewTrip.Columns[6].DataPropertyName = "DEPARTUREDAY";
+            tpTripDataGridViewTrip.Columns.Add("AMOUNTEMPTYSEAT", "Số Ghế Trống");
+            tpTripDataGridViewTrip.Columns[7].DataPropertyName = "AMOUNTEMPTYSEAT";
+
+            tpTripTxtIDTrip.DataBindings.Clear();
+            tpTripCboIDTimeBusLine.DataBindings.Clear();
+            tpTripIDBusLine.DataBindings.Clear();
+            tpTripCboIDEmployee.DataBindings.Clear();
+            tpTripIDCoach.DataBindings.Clear();
+            tpTripIDDriver.DataBindings.Clear();
+            tpTripDepartureDay.DataBindings.Clear();
+            tpTripAmountSeat.DataBindings.Clear();
+
+            ControlHelper.Instance.loadCboEmployee(tpTripCboIDEmployee, "Lơ xe");
+            ControlHelper.Instance.loadCboDriver(tpTripIDDriver);
+            ControlHelper.Instance.loadCboBusLine(tpTripIDBusLine);
+            ControlHelper.Instance.loadCboCoach(tpTripIDCoach);
+            ControlHelper.Instance.loadCboTime(tpTripCboIDTimeBusLine);
+
+            DataTable data = ADOHelper.Instance.ExecuteReader("select * from view_trip");
+            tpTripDataGridViewTrip.DataSource = data;
+
+            tpTripTxtIDTrip.DataBindings.Add("Text", data, "IDTRIP", true, DataSourceUpdateMode.Never);
+            tpTripCboIDTimeBusLine.DataBindings.Add("Text", data, "Time", true, DataSourceUpdateMode.Never);
+            tpTripIDBusLine.DataBindings.Add("Text", data, "BUSLINE", true, DataSourceUpdateMode.Never);
+            tpTripCboIDEmployee.DataBindings.Add("Text", data, "NAMEEMPLOYEE", true, DataSourceUpdateMode.Never);
+            tpTripIDCoach.DataBindings.Add("Text", data, "LICENSEPLATE", true, DataSourceUpdateMode.Never);
+            tpTripIDDriver.DataBindings.Add("Text", data, "NAMEDRIVER", true, DataSourceUpdateMode.Never);
+            tpTripDepartureDay.DataBindings.Add("Text", data, "DEPARTUREDAY", true, DataSourceUpdateMode.Never);
+            tpTripAmountSeat.DataBindings.Add("Text", data, "AMOUNTEMPTYSEAT", true, DataSourceUpdateMode.Never);
+        }
+
         #endregion
 
     }

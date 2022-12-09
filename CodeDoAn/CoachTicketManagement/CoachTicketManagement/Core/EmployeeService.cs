@@ -37,5 +37,6 @@ namespace CoachTicketManagement.Core
                 return session.CreateSQLQuery("select pg.NAMEGROUP from tbl_Employee e, tbl_PermissionGroup pg where e.IDEMPLOYEE = :idEmployee and e.IDPermissionGroup = pg.IDPERMISSIONGROUP").SetParameter("idEmployee", idEmployee).UniqueResult<string>();
             }    
         }
+
     }
 }

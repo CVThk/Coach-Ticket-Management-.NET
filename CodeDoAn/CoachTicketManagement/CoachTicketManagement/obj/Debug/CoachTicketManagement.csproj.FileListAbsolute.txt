@@ -37,4 +37,4 @@ C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\Co
 C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\obj\Debug\CoachTicketManagement.csproj.CopyComplete
 C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\obj\Debug\CoachTicketManagement.exe
 C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\obj\Debug\CoachTicketManagement.pdb
-C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\obj\Debug\CoachTicketManagement.csproj.AssemblyReference.cache
+C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\obj\Debug\CoachTicketManagement.fBill.resources

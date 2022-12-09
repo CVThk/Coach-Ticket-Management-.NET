@@ -49,15 +49,14 @@ namespace CoachTicketManagement
             this.btnFindTicket = new System.Windows.Forms.Button();
             this.dateTimePickerChoose = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cboDestinationStation = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cboDepartureStation = new System.Windows.Forms.ComboBox();
+            this.cboBusLine = new System.Windows.Forms.ComboBox();
             this.ToolStripAdmin = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripAccount = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripInfoAccount = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripLogOut = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripManagement = new System.Windows.Forms.MenuStrip();
+            this.ToolStripBill = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxEmpty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxNo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxChoose)).BeginInit();
@@ -137,7 +136,7 @@ namespace CoachTicketManagement
             this.flowLayoutPanelA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanelA.Name = "flowLayoutPanelA";
             this.flowLayoutPanelA.Size = new System.Drawing.Size(180, 383);
-            this.flowLayoutPanelA.TabIndex = 26;
+            this.flowLayoutPanelA.TabIndex = 6;
             // 
             // flowLayoutPanelB
             // 
@@ -146,7 +145,7 @@ namespace CoachTicketManagement
             this.flowLayoutPanelB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanelB.Name = "flowLayoutPanelB";
             this.flowLayoutPanelB.Size = new System.Drawing.Size(180, 383);
-            this.flowLayoutPanelB.TabIndex = 25;
+            this.flowLayoutPanelB.TabIndex = 7;
             // 
             // label7
             // 
@@ -195,7 +194,7 @@ namespace CoachTicketManagement
             this.btnStartChooseSeat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnStartChooseSeat.Name = "btnStartChooseSeat";
             this.btnStartChooseSeat.Size = new System.Drawing.Size(189, 51);
-            this.btnStartChooseSeat.TabIndex = 3;
+            this.btnStartChooseSeat.TabIndex = 5;
             this.btnStartChooseSeat.Text = "Bắt đầu chọn ghế";
             this.btnStartChooseSeat.UseVisualStyleBackColor = false;
             this.btnStartChooseSeat.Click += new System.EventHandler(this.btnFindTicket_Click);
@@ -218,7 +217,7 @@ namespace CoachTicketManagement
             this.dataGridViewEmployee.RowHeadersWidth = 51;
             this.dataGridViewEmployee.RowTemplate.Height = 29;
             this.dataGridViewEmployee.Size = new System.Drawing.Size(688, 522);
-            this.dataGridViewEmployee.TabIndex = 13;
+            this.dataGridViewEmployee.TabIndex = 4;
             // 
             // btnFindTicket
             // 
@@ -240,58 +239,39 @@ namespace CoachTicketManagement
             // 
             this.dateTimePickerChoose.CustomFormat = "dd/MM/yyyy";
             this.dateTimePickerChoose.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerChoose.Location = new System.Drawing.Point(739, 79);
+            this.dateTimePickerChoose.Location = new System.Drawing.Point(705, 79);
             this.dateTimePickerChoose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePickerChoose.Name = "dateTimePickerChoose";
             this.dateTimePickerChoose.Size = new System.Drawing.Size(216, 27);
-            this.dateTimePickerChoose.TabIndex = 2;
+            this.dateTimePickerChoose.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(709, 49);
+            this.label3.Location = new System.Drawing.Point(675, 49);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 20);
             this.label3.TabIndex = 1;
             this.label3.Text = "Chọn ngày";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(451, 49);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Điểm đến";
-            // 
-            // cboDestinationStation
-            // 
-            this.cboDestinationStation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboDestinationStation.FormattingEnabled = true;
-            this.cboDestinationStation.Location = new System.Drawing.Point(479, 81);
-            this.cboDestinationStation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cboDestinationStation.Name = "cboDestinationStation";
-            this.cboDestinationStation.Size = new System.Drawing.Size(216, 28);
-            this.cboDestinationStation.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(194, 49);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 20);
+            this.label1.Size = new System.Drawing.Size(48, 20);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Điểm đi";
+            this.label1.Text = "Tuyến";
             // 
-            // cboDepartureStation
+            // cboBusLine
             // 
-            this.cboDepartureStation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboDepartureStation.FormattingEnabled = true;
-            this.cboDepartureStation.Location = new System.Drawing.Point(222, 81);
-            this.cboDepartureStation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cboDepartureStation.Name = "cboDepartureStation";
-            this.cboDepartureStation.Size = new System.Drawing.Size(216, 28);
-            this.cboDepartureStation.TabIndex = 0;
+            this.cboBusLine.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboBusLine.FormattingEnabled = true;
+            this.cboBusLine.Location = new System.Drawing.Point(222, 81);
+            this.cboBusLine.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cboBusLine.Name = "cboBusLine";
+            this.cboBusLine.Size = new System.Drawing.Size(379, 28);
+            this.cboBusLine.TabIndex = 0;
             // 
             // ToolStripAdmin
             // 
@@ -330,12 +310,20 @@ namespace CoachTicketManagement
             this.menuStripManagement.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStripManagement.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripAdmin,
-            this.ToolStripAccount});
+            this.ToolStripAccount,
+            this.ToolStripBill});
             this.menuStripManagement.Location = new System.Drawing.Point(0, 0);
             this.menuStripManagement.Name = "menuStripManagement";
             this.menuStripManagement.Size = new System.Drawing.Size(1360, 28);
             this.menuStripManagement.TabIndex = 0;
             this.menuStripManagement.Text = "menuStrip1";
+            // 
+            // ToolStripBill
+            // 
+            this.ToolStripBill.Name = "ToolStripBill";
+            this.ToolStripBill.Size = new System.Drawing.Size(82, 24);
+            this.ToolStripBill.Text = "Hóa đơn";
+            this.ToolStripBill.Click += new System.EventHandler(this.ToolStripBill_Click);
             // 
             // fManagement
             // 
@@ -350,10 +338,8 @@ namespace CoachTicketManagement
             this.Controls.Add(this.btnFindTicket);
             this.Controls.Add(this.dateTimePickerChoose);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.cboDestinationStation);
-            this.Controls.Add(this.cboDepartureStation);
+            this.Controls.Add(this.cboBusLine);
             this.Controls.Add(this.menuStripManagement);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Black;
@@ -397,14 +383,13 @@ namespace CoachTicketManagement
         private System.Windows.Forms.Button btnFindTicket;
         private System.Windows.Forms.DateTimePicker dateTimePickerChoose;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cboDestinationStation;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cboDepartureStation;
+        private System.Windows.Forms.ComboBox cboBusLine;
         private System.Windows.Forms.ToolStripMenuItem ToolStripAdmin;
         private System.Windows.Forms.ToolStripMenuItem ToolStripAccount;
         private System.Windows.Forms.ToolStripMenuItem ToolStripInfoAccount;
         private System.Windows.Forms.ToolStripMenuItem ToolStripLogOut;
         private System.Windows.Forms.MenuStrip menuStripManagement;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripBill;
     }
 }
