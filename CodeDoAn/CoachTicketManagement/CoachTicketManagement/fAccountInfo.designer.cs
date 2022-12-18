@@ -494,6 +494,7 @@ namespace CoachTicketManagement
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(927, 457);
+            this.ControlBox = false;
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnUpdate);

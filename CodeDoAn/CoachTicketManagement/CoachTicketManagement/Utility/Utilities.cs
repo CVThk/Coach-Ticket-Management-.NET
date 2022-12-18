@@ -21,6 +21,8 @@ namespace CoachTicketManagement.Utility
         #region Cons
         public int _DangChon = 2, _Trong = 0, _KhongBan = 1;
         public int _WidthSeat = 40, _HeightSeat = 40;
+        public int _Downstairs_RowOfSeats = 8;
+        public int _Upstairs_RowOfSeats = 7;
         #endregion
 
         public void AutoResizeListView(ListView lsv)
@@ -40,7 +42,13 @@ namespace CoachTicketManagement.Utility
         }
         public bool CheckPhone(string phone)
         {
-            if (new Regex(@"^([0-9]{10,11})$").IsMatch(phone))
+            if (new Regex(@"^(0[0-9]{9,10})$").IsMatch(phone))
+                return true;
+            return false;
+        }
+        public bool CheckIdentityCard(string identityCard)
+        {
+            if (new Regex(@"^[0-9]{9,12}$").IsMatch(identityCard))
                 return true;
             return false;
         }

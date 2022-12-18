@@ -5,8 +5,11 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using CoachTicketManagement.Core;
 using CoachTicketManagement.Models;
 using CoachTicketManagement.Utility;
+using System.Linq;
+using System.Data.SqlClient;
 
 namespace CoachTicketManagement
 {
@@ -17,10 +20,7 @@ namespace CoachTicketManagement
         {
             InitializeComponent();
             this._curEmployee = cur;
-            
         }
-        
-        
         private void fAdmin_Load(object sender, EventArgs e)
         {
             ControlHelper.Instance.loadTypeAccount(tpAccountCboTypeAccount);
@@ -62,13 +62,25 @@ namespace CoachTicketManagement
         }
 
         #region Account
+        bool check_tpAccountAdd = false;
+        void lockDefaultAccount()
+        {
+            tpAccountTxtIdAccount.Enabled = tpAccountTxtIdEmployee.Enabled = false;
+            tpAccountTxtUsername.ReadOnly = true;
+            tpAccountBtnSave.Enabled = false;
+            check_tpAccountAdd = true;
+        }
         void loadAccount()
         {
+            lockDefaultAccount();
+
             dataGridViewAccount.Columns.Clear();
             dataGridViewAccount.Columns.Add("IDAccount", "Mã Tài Khoản");
             dataGridViewAccount.Columns[0].DataPropertyName = "IDAccount";
+            dataGridViewAccount.Columns[0].ReadOnly = true;
             dataGridViewAccount.Columns.Add("IDEmployee", "Mã Nhân Viên");
             dataGridViewAccount.Columns[1].DataPropertyName = "IDEmployee";
+            dataGridViewAccount.Columns[1].ReadOnly = true;
             dataGridViewAccount.Columns.Add("Username", "Tên Đăng Nhập");
             dataGridViewAccount.Columns[2].DataPropertyName = "Username";
             dataGridViewAccount.Columns.Add("NameGroup", "Loại Tài Khoản");
@@ -80,10 +92,221 @@ namespace CoachTicketManagement
             tpAccountCboTypeAccount.DataBindings.Clear();
             DataTable data = ADOHelper.Instance.ExecuteReader("select a.IDACCOUNT, a.IDEMPLOYEE, a.USERNAME, p.NAMEGROUP from TBL_ACCOUNT a, TBL_EMPLOYEE e, TBL_PERMISSIONGROUP p where a.IDEMPLOYEE = e.IDEMPLOYEE and e.IDPERMISSIONGROUP = p.IDPERMISSIONGROUP");
             dataGridViewAccount.DataSource = data;
+            dataGridViewAccount.ClearSelection();
+
             tpAccountTxtIdAccount.DataBindings.Add("Text", data, "IDAccount", true, DataSourceUpdateMode.Never);
             tpAccountTxtIdEmployee.DataBindings.Add("Text", data, "IDEmployee", true, DataSourceUpdateMode.Never);
             tpAccountTxtUsername.DataBindings.Add("Text", data, "Username", true, DataSourceUpdateMode.Never);
             tpAccountCboTypeAccount.DataBindings.Add("Text", data, "NameGroup", true, DataSourceUpdateMode.Never);
+        }
+        private void tpAccountBtnAdd_Click(object sender, EventArgs e)
+        {
+            check_tpAccountAdd = true;
+            tpAccountBtnSave.Enabled = true;
+            tpAccountTxtIdAccount.Clear();
+            tpAccountTxtIdEmployee.Clear();
+            tpAccountTxtUsername.Clear();
+            tpAccountTxtIdEmployee.ReadOnly = tpAccountTxtUsername.ReadOnly = false;
+            tpAccountTxtIdEmployee.Enabled = tpAccountTxtUsername.Enabled = true;
+            tpAccountTxtIdEmployee.Focus();
+        }
+
+        private void dataGridViewAccount_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                tpAccountBtnSave.Enabled = false;
+            }
+            lockDefaultAccount();
+        }
+
+        private void tpAccountBtnDelete_Click(object sender, EventArgs e)
+        {
+            int idEmployee;
+            if (int.TryParse(tpAccountTxtIdEmployee.Text, out idEmployee))
+            {
+                if (idEmployee == _curEmployee.Id)
+                {
+                    MessageBox.Show("Không nên xóa bạn chứ !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                Employee employee = EmployeeService.Instance.GetEmployee(idEmployee);
+                if (employee != null)
+                {
+                    DialogResult r = MessageBox.Show("Bạn có chắc chắn muốn xóa tài khoản của " + employee.Name + "\nUsername: " + tpAccountTxtUsername.Text, "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (r == DialogResult.Yes)
+                    {
+                        int row = dataGridViewAccount.Rows.GetFirstRow(DataGridViewElementStates.Selected);
+                        dataGridViewAccount.Rows.RemoveAt(row);
+                        ADOHelper.Instance.ExecuteNonQuery("exec sp_DeleteAccount @idAccount=@para_0", new object[] { employee.IdAccount });
+                        MessageBox.Show("Xóa tài khoản thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+        }
+
+        private void tpAccountBtnUpdate_Click(object sender, EventArgs e)
+        {
+            int row = dataGridViewAccount.Rows.GetFirstRow(DataGridViewElementStates.Selected);
+            if(row >= 0)
+            {
+                check_tpAccountAdd = false;
+                tpAccountBtnSave.Enabled = true;
+                tpAccountTxtIdEmployee.ReadOnly = true;
+                tpAccountTxtIdEmployee.Enabled = false;
+                tpAccountTxtUsername.ReadOnly = false;
+                tpAccountTxtUsername.Enabled = true;
+                tpAccountTxtUsername.Focus();
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn đối tượng nhân viên trong bảng trước khi cập nhật !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+        }
+
+        private void tpAccountBtnFind_Click(object sender, EventArgs e)
+        {
+            string textFind = tpAccountTxtFind.Text;
+            List<Account> accounts = AccountService.Instance.GetAccounts();
+            Account account = accounts.FirstOrDefault(x => x.Id.ToString() == textFind || x.IdEmployee.ToString() == textFind || x.UserName == textFind);
+            if (account == null)
+            {
+                MessageBox.Show("Không tìm thấy thông tin phù hợp !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                tpAccountTxtFind.Clear();
+            }
+            else
+            {
+                int row = -1;
+                int i = 0;
+                foreach (DataGridViewRow item in dataGridViewAccount.Rows)
+                {
+                    if (item.Cells[0].Value.ToString() == account.Id.ToString())
+                    {
+                        row = i;
+                        break;
+                    }
+                    i++;
+                }
+                if (row != -1)
+                {
+                    dataGridViewAccount.ClearSelection();
+                    dataGridViewAccount.Rows[row].Selected = true;
+                    tpAccountTxtIdAccount.Text = dataGridViewAccount.Rows[row].Cells[0].Value.ToString();
+                    tpAccountTxtIdEmployee.Text = dataGridViewAccount.Rows[row].Cells[1].Value.ToString();
+                    tpAccountTxtUsername.Text = dataGridViewAccount.Rows[row].Cells[2].Value.ToString();
+                    tpAccountCboTypeAccount.Text = dataGridViewAccount.Rows[row].Cells[3].Value.ToString();
+                    tpAccountTxtFind.Clear();
+                }
+            }
+        }
+        private void tpAccountBtnSave_Click(object sender, EventArgs e)
+        {
+            int idEmployee;
+            string userName, typeAccount;
+            if(!int.TryParse(tpAccountTxtIdEmployee.Text, out idEmployee))
+            {
+                MessageBox.Show("Mã nhân viên không phù hợp !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            Employee employee = EmployeeService.Instance.GetEmployee(idEmployee);
+            if(employee == null)
+            {
+                MessageBox.Show("Nhân viên không tồn tại !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+                
+            userName = tpAccountTxtUsername.Text;
+            if(string.IsNullOrEmpty(userName) || userName.Length < 5)
+            {
+                MessageBox.Show("Vui lòng nhập tên đăng nhập, ít nhất 5 ký tự!!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (!string.IsNullOrEmpty(tpAccountCboTypeAccount.Text))
+                typeAccount = tpAccountCboTypeAccount.Text;
+            else
+            {
+                MessageBox.Show("Vui lòng chọn loại tài khoản!!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if(check_tpAccountAdd) // thêm
+            {
+                if (employee.IdAccount != 0)
+                {
+                    MessageBox.Show("Nhân viên đã có tài khoản !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if(AccountService.Instance.GetAccounts().SingleOrDefault(x => x.UserName == userName) != null)
+                {
+                    MessageBox.Show("Tên đăng nhập đã tồn tại !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                string result;
+                using (SqlConnection connection = new SqlConnection(ConnectionString.Instance.getConnectionString()))
+                {
+                    try
+                    {
+                        SqlCommand cmd = new SqlCommand(@"declare @strResult nvarchar(max)
+                            exec sp_InsertAccount @idEmployee=@para_0,@userName=@para_1,@typeAccount=@para_2,@strResult=@strResult output
+                            select @strResult", connection);
+                        cmd.Parameters.AddWithValue("@para_0", idEmployee);
+                        cmd.Parameters.AddWithValue("@para_1", userName);
+                        cmd.Parameters.AddWithValue("@para_2", typeAccount);
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        DataTable data = new DataTable();
+                        adapter.Fill(data);
+                        result = data.Rows[0][0].ToString();
+                    }
+                    catch
+                    {
+                        result = "Thất bại !!!";
+                    }
+                }
+                if(result == "Thành công.")
+                    MessageBox.Show("Thêm tài khoản cho nhân viên " + employee.Name + " thành công.\nUsername: " + userName, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else MessageBox.Show("Thêm tài khoản thất bại !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                loadAccount();
+            }
+            else // cập nhật
+            {
+                int idAccount;
+                if(!int.TryParse(tpAccountTxtIdAccount.Text, out idAccount))
+                {
+                    MessageBox.Show("Mã tài khoản không đúng !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }    
+                if(employee.IdAccount != idAccount)
+                {
+                    MessageBox.Show("Tài khoản không đồng nhất với mã nhân viên !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                string result;
+                using (SqlConnection connection = new SqlConnection(ConnectionString.Instance.getConnectionString()))
+                {
+                    try
+                    {
+                        SqlCommand cmd = new SqlCommand(@"declare @strResult nvarchar(max)
+                            exec sp_UpdateAccount @idEmployee=@para_0, @idAccount=@para_1, @userName=@para_2,@typeAccount=@para_3,@strResult=@strResult output
+                            select @strResult", connection);
+                        cmd.Parameters.AddWithValue("@para_0", idEmployee);
+                        cmd.Parameters.AddWithValue("@para_1", idAccount);
+                        cmd.Parameters.AddWithValue("@para_2", userName);
+                        cmd.Parameters.AddWithValue("@para_3", typeAccount);
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        DataTable data = new DataTable();
+                        adapter.Fill(data);
+                        result = data.Rows[0][0].ToString();
+                    }
+                    catch
+                    {
+                        result = "Thất bại !!!";
+                    }
+                }
+                if (result == "Thành công.")
+                    MessageBox.Show("Cập nhật tài khoản cho nhân viên " + employee.Name + " thành công.\nUsername: " + userName, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else MessageBox.Show("Cập nhật tài khoản thất bại !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                loadAccount();
+            }    
         }
         #endregion
 
@@ -238,10 +461,8 @@ namespace CoachTicketManagement
         }
         private void tpBusLineIdBusLine_TextChanged(object sender, EventArgs e)
         {
-            tpBusLineCboListPickUpPoint.DataSource = ADOHelper.Instance.ExecuteReader("select s.NAMESTATION from TBL_PICKUP p, TBL_STATION s where @para_0 = p.IDBUSLINE and p.IDSTATION = s.IDSTATION", new object[] { tpBusLineIdBusLine.Text });
-            tpBusLineCboListPickUpPoint.DisplayMember = "NameStation";
-            tpBusLineCboListDropOffPoint.DataSource = ADOHelper.Instance.ExecuteReader("select s.NAMESTATION from TBL_DROPOFF d, TBL_STATION s where @para_0 = d.IDBUSLINE and d.IDSTATION = s.IDSTATION", new object[] { tpBusLineIdBusLine.Text });
-            tpBusLineCboListDropOffPoint.DisplayMember = "NameStation";
+            ControlHelper.Instance.loadCboPickUpPoint(tpBusLineCboListPickUpPoint, int.Parse(tpBusLineIdBusLine.Text));
+            ControlHelper.Instance.loadCboDropOffPoint(tpBusLineCboListDropOffPoint, int.Parse(tpBusLineIdBusLine.Text));
         }
         #endregion
 
@@ -327,7 +548,8 @@ namespace CoachTicketManagement
             tpTripAmountSeat.DataBindings.Add("Text", data, "AMOUNTEMPTYSEAT", true, DataSourceUpdateMode.Never);
         }
 
-        #endregion
 
+
+        #endregion
     }
 }

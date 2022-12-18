@@ -57,6 +57,7 @@ namespace CoachTicketManagement
         {
             panelMain.Enabled = btnSave.Enabled = true;
             CboTypeOfEmployee.Enabled = false;
+            TxtName.Focus();
         }
 
         private void btnSave_Click(object sender, EventArgs e)

@@ -33,6 +33,7 @@ namespace CoachTicketManagement.Data
              .Mappings(m => m.FluentMappings
                  .AddFromAssemblyOf<Account>()
                  .AddFromAssemblyOf<Employee>()
+                 .AddFromAssemblyOf<Client>()
              )
              .ExposeConfiguration(cfg => new SchemaExport(cfg)
              .Create(false, false))

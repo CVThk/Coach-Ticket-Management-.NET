@@ -30,6 +30,10 @@ namespace CoachTicketManagement.Core
             }    
             return employees;
         }
+        public Employee GetEmployee(int idEmployee)
+        {
+            return GetEmployees().SingleOrDefault(x => x.Id == idEmployee);
+        }
         public string CheckPermissionByID(int idEmployee)
         {
             using(var session = NHibernateHelper.OpenSession())
