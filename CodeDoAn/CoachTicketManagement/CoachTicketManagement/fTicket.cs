@@ -14,6 +14,13 @@ namespace CoachTicketManagement
     public partial class fTicket : Form
     {
         int idBill;
+        public fTicket()
+        {
+            InitializeComponent();
+            cboIDBill.DisplayMember = "IDBILL";
+            cboIDBill.ValueMember = "IDBILL";
+            cboIDBill.DataSource = ADOHelper.Instance.ExecuteReader("select IDBILL from TBL_BILL");
+        }
         public fTicket(int idBill)
         {
             InitializeComponent();

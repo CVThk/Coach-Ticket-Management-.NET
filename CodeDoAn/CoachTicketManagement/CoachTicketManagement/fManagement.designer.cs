@@ -53,13 +53,13 @@ namespace CoachTicketManagement
             this.menuStripManagement = new System.Windows.Forms.MenuStrip();
             this.ToolStripBill = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripTicket = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripBaoCao = new System.Windows.Forms.ToolStripMenuItem();
             this.cboBusLine = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dateTimePickerChoose = new System.Windows.Forms.DateTimePicker();
             this.btnFindTrip = new System.Windows.Forms.Button();
             this.btnPayment = new System.Windows.Forms.Button();
-            this.ToolStripDoanhThu = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxEmpty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxNo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxChoose)).BeginInit();
@@ -266,7 +266,7 @@ namespace CoachTicketManagement
             this.ToolStripAdmin,
             this.ToolStripBill,
             this.ToolStripTicket,
-            this.ToolStripDoanhThu,
+            this.ToolStripBaoCao,
             this.ToolStripAccount});
             this.menuStripManagement.Location = new System.Drawing.Point(0, 0);
             this.menuStripManagement.Name = "menuStripManagement";
@@ -289,6 +289,15 @@ namespace CoachTicketManagement
             this.ToolStripTicket.Size = new System.Drawing.Size(56, 24);
             this.ToolStripTicket.Text = "In vé";
             this.ToolStripTicket.Visible = false;
+            this.ToolStripTicket.Click += new System.EventHandler(this.ToolStripTicket_Click);
+            // 
+            // ToolStripBaoCao
+            // 
+            this.ToolStripBaoCao.Name = "ToolStripBaoCao";
+            this.ToolStripBaoCao.Size = new System.Drawing.Size(77, 24);
+            this.ToolStripBaoCao.Text = "Báo cáo";
+            this.ToolStripBaoCao.Visible = false;
+            this.ToolStripBaoCao.Click += new System.EventHandler(this.ToolStripBaoCao_Click);
             // 
             // cboBusLine
             // 
@@ -362,13 +371,6 @@ namespace CoachTicketManagement
             this.btnPayment.UseVisualStyleBackColor = false;
             this.btnPayment.Click += new System.EventHandler(this.btnPayment_Click);
             // 
-            // ToolStripDoanhThu
-            // 
-            this.ToolStripDoanhThu.Name = "ToolStripDoanhThu";
-            this.ToolStripDoanhThu.Size = new System.Drawing.Size(96, 24);
-            this.ToolStripDoanhThu.Text = "Doanh thu";
-            this.ToolStripDoanhThu.Visible = false;
-            // 
             // fManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
@@ -439,6 +441,6 @@ namespace CoachTicketManagement
         private System.Windows.Forms.Button btnPayment;
         private System.Windows.Forms.ToolStripMenuItem ToolStripBill;
         private System.Windows.Forms.ToolStripMenuItem ToolStripTicket;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripDoanhThu;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripBaoCao;
     }
 }

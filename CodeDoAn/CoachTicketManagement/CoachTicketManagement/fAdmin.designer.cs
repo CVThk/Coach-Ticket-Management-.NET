@@ -108,7 +108,7 @@ namespace CoachTicketManagement
             this.tpBusLineCboListPickUpPoint = new System.Windows.Forms.ComboBox();
             this.label35 = new System.Windows.Forms.Label();
             this.tpDriver = new System.Windows.Forms.TabPage();
-            this.tpDriverBtnUpdatetpDriverBtnSave = new System.Windows.Forms.Button();
+            this.tpDriverBtnSave = new System.Windows.Forms.Button();
             this.dataGridViewDriver = new System.Windows.Forms.DataGridView();
             this.tpDriverBtnUpdate = new System.Windows.Forms.Button();
             this.tpDriverBtnDelete = new System.Windows.Forms.Button();
@@ -1142,7 +1142,7 @@ namespace CoachTicketManagement
             // 
             // tpDriver
             // 
-            this.tpDriver.Controls.Add(this.tpDriverBtnUpdatetpDriverBtnSave);
+            this.tpDriver.Controls.Add(this.tpDriverBtnSave);
             this.tpDriver.Controls.Add(this.dataGridViewDriver);
             this.tpDriver.Controls.Add(this.tpDriverBtnUpdate);
             this.tpDriver.Controls.Add(this.tpDriverBtnDelete);
@@ -1168,22 +1168,25 @@ namespace CoachTicketManagement
             this.tpDriver.Text = "Tài xế";
             this.tpDriver.UseVisualStyleBackColor = true;
             // 
-            // tpDriverBtnUpdatetpDriverBtnSave
+            // tpDriverBtnSave
             // 
-            this.tpDriverBtnUpdatetpDriverBtnSave.AutoSize = true;
-            this.tpDriverBtnUpdatetpDriverBtnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
-            this.tpDriverBtnUpdatetpDriverBtnSave.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.tpDriverBtnUpdatetpDriverBtnSave.ForeColor = System.Drawing.Color.White;
-            this.tpDriverBtnUpdatetpDriverBtnSave.Location = new System.Drawing.Point(1194, 450);
-            this.tpDriverBtnUpdatetpDriverBtnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tpDriverBtnUpdatetpDriverBtnSave.Name = "tpDriverBtnUpdatetpDriverBtnSave";
-            this.tpDriverBtnUpdatetpDriverBtnSave.Size = new System.Drawing.Size(144, 65);
-            this.tpDriverBtnUpdatetpDriverBtnSave.TabIndex = 13;
-            this.tpDriverBtnUpdatetpDriverBtnSave.Text = "Lưu";
-            this.tpDriverBtnUpdatetpDriverBtnSave.UseVisualStyleBackColor = false;
+            this.tpDriverBtnSave.AutoSize = true;
+            this.tpDriverBtnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
+            this.tpDriverBtnSave.Enabled = false;
+            this.tpDriverBtnSave.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.tpDriverBtnSave.ForeColor = System.Drawing.Color.White;
+            this.tpDriverBtnSave.Location = new System.Drawing.Point(1194, 450);
+            this.tpDriverBtnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tpDriverBtnSave.Name = "tpDriverBtnSave";
+            this.tpDriverBtnSave.Size = new System.Drawing.Size(144, 65);
+            this.tpDriverBtnSave.TabIndex = 13;
+            this.tpDriverBtnSave.Text = "Lưu";
+            this.tpDriverBtnSave.UseVisualStyleBackColor = false;
+            this.tpDriverBtnSave.Click += new System.EventHandler(this.tpDriverBtnSave_Click);
             // 
             // dataGridViewDriver
             // 
+            this.dataGridViewDriver.AllowUserToAddRows = false;
             this.dataGridViewDriver.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dataGridViewDriver.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDriver.Location = new System.Drawing.Point(6, 6);
@@ -1195,6 +1198,7 @@ namespace CoachTicketManagement
             this.dataGridViewDriver.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewDriver.Size = new System.Drawing.Size(448, 600);
             this.dataGridViewDriver.TabIndex = 14;
+            this.dataGridViewDriver.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDriver_CellClick);
             // 
             // tpDriverBtnUpdate
             // 
@@ -1209,6 +1213,7 @@ namespace CoachTicketManagement
             this.tpDriverBtnUpdate.TabIndex = 11;
             this.tpDriverBtnUpdate.Text = "Cập nhật";
             this.tpDriverBtnUpdate.UseVisualStyleBackColor = false;
+            this.tpDriverBtnUpdate.Click += new System.EventHandler(this.tpDriverBtnUpdate_Click);
             // 
             // tpDriverBtnDelete
             // 
@@ -1223,6 +1228,7 @@ namespace CoachTicketManagement
             this.tpDriverBtnDelete.TabIndex = 10;
             this.tpDriverBtnDelete.Text = "Xóa";
             this.tpDriverBtnDelete.UseVisualStyleBackColor = false;
+            this.tpDriverBtnDelete.Click += new System.EventHandler(this.tpDriverBtnDelete_Click);
             // 
             // tpDriverBtnAdd
             // 
@@ -1237,6 +1243,7 @@ namespace CoachTicketManagement
             this.tpDriverBtnAdd.TabIndex = 9;
             this.tpDriverBtnAdd.Text = "Thêm";
             this.tpDriverBtnAdd.UseVisualStyleBackColor = false;
+            this.tpDriverBtnAdd.Click += new System.EventHandler(this.tpDriverBtnAdd_Click);
             // 
             // tpDriverBtnFind
             // 
@@ -1251,6 +1258,7 @@ namespace CoachTicketManagement
             this.tpDriverBtnFind.TabIndex = 15;
             this.tpDriverBtnFind.Text = "Tìm";
             this.tpDriverBtnFind.UseVisualStyleBackColor = false;
+            this.tpDriverBtnFind.Click += new System.EventHandler(this.tpDriverBtnFind_Click);
             // 
             // tpDriverTxtFind
             // 
@@ -1449,6 +1457,7 @@ namespace CoachTicketManagement
             this.tpDriverCboDistrict.Name = "tpDriverCboDistrict";
             this.tpDriverCboDistrict.Size = new System.Drawing.Size(291, 28);
             this.tpDriverCboDistrict.TabIndex = 4;
+            this.tpDriverCboDistrict.SelectedIndexChanged += new System.EventHandler(this.tpDriverCboDistrict_SelectedIndexChanged);
             // 
             // label24
             // 
@@ -1478,6 +1487,7 @@ namespace CoachTicketManagement
             this.tpDriverCboCity.Name = "tpDriverCboCity";
             this.tpDriverCboCity.Size = new System.Drawing.Size(291, 28);
             this.tpDriverCboCity.TabIndex = 4;
+            this.tpDriverCboCity.SelectedIndexChanged += new System.EventHandler(this.tpDriverCboCity_SelectedIndexChanged);
             // 
             // label25
             // 
@@ -1541,6 +1551,8 @@ namespace CoachTicketManagement
             this.tpDriverTxtIdentityCard.Name = "tpDriverTxtIdentityCard";
             this.tpDriverTxtIdentityCard.Size = new System.Drawing.Size(291, 27);
             this.tpDriverTxtIdentityCard.TabIndex = 2;
+            this.tpDriverTxtIdentityCard.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tpDriverTxtIdentityCard_KeyPress);
+            this.tpDriverTxtIdentityCard.Leave += new System.EventHandler(this.tpDriverTxtIdentityCard_Leave);
             // 
             // tpEmployee
             // 
@@ -1585,6 +1597,7 @@ namespace CoachTicketManagement
             this.dataGridViewEmployee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewEmployee.Size = new System.Drawing.Size(448, 600);
             this.dataGridViewEmployee.TabIndex = 16;
+            this.dataGridViewEmployee.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEmployee_CellClick);
             // 
             // tpEmployeeBtnUpdate
             // 
@@ -1599,6 +1612,7 @@ namespace CoachTicketManagement
             this.tpEmployeeBtnUpdate.TabIndex = 13;
             this.tpEmployeeBtnUpdate.Text = "Cập nhật";
             this.tpEmployeeBtnUpdate.UseVisualStyleBackColor = false;
+            this.tpEmployeeBtnUpdate.Click += new System.EventHandler(this.tpEmployeeBtnUpdate_Click);
             // 
             // tpEmployeeBtnDelete
             // 
@@ -1613,6 +1627,7 @@ namespace CoachTicketManagement
             this.tpEmployeeBtnDelete.TabIndex = 12;
             this.tpEmployeeBtnDelete.Text = "Xóa";
             this.tpEmployeeBtnDelete.UseVisualStyleBackColor = false;
+            this.tpEmployeeBtnDelete.Click += new System.EventHandler(this.tpEmployeeBtnDelete_Click);
             // 
             // tpEmployeeBtnSave
             // 
@@ -1627,6 +1642,7 @@ namespace CoachTicketManagement
             this.tpEmployeeBtnSave.TabIndex = 14;
             this.tpEmployeeBtnSave.Text = "Lưu";
             this.tpEmployeeBtnSave.UseVisualStyleBackColor = false;
+            this.tpEmployeeBtnSave.Click += new System.EventHandler(this.tpEmployeeBtnSave_Click);
             // 
             // tpEmployeeBtnAdd
             // 
@@ -1641,6 +1657,7 @@ namespace CoachTicketManagement
             this.tpEmployeeBtnAdd.TabIndex = 11;
             this.tpEmployeeBtnAdd.Text = "Thêm";
             this.tpEmployeeBtnAdd.UseVisualStyleBackColor = false;
+            this.tpEmployeeBtnAdd.Click += new System.EventHandler(this.tpEmployeeBtnAdd_Click);
             // 
             // tpEmployeeBtnFind
             // 
@@ -1655,6 +1672,7 @@ namespace CoachTicketManagement
             this.tpEmployeeBtnFind.TabIndex = 16;
             this.tpEmployeeBtnFind.Text = "Tìm";
             this.tpEmployeeBtnFind.UseVisualStyleBackColor = false;
+            this.tpEmployeeBtnFind.Click += new System.EventHandler(this.tpEmployeeBtnFind_Click);
             // 
             // tpEmployeeTxtFind
             // 
@@ -1719,6 +1737,7 @@ namespace CoachTicketManagement
             this.tpEmployeeTxtEmail.Name = "tpEmployeeTxtEmail";
             this.tpEmployeeTxtEmail.Size = new System.Drawing.Size(291, 27);
             this.tpEmployeeTxtEmail.TabIndex = 2;
+            this.tpEmployeeTxtEmail.Leave += new System.EventHandler(this.tpEmployeeTxtEmail_Leave);
             // 
             // panel11
             // 
@@ -1882,6 +1901,7 @@ namespace CoachTicketManagement
             this.tpEmployeeCboDistrict.Name = "tpEmployeeCboDistrict";
             this.tpEmployeeCboDistrict.Size = new System.Drawing.Size(291, 28);
             this.tpEmployeeCboDistrict.TabIndex = 4;
+            this.tpEmployeeCboDistrict.SelectedIndexChanged += new System.EventHandler(this.tpEmployeeCboDistrict_SelectedIndexChanged);
             // 
             // label19
             // 
@@ -1911,6 +1931,7 @@ namespace CoachTicketManagement
             this.tpEmployeeCboCity.Name = "tpEmployeeCboCity";
             this.tpEmployeeCboCity.Size = new System.Drawing.Size(291, 28);
             this.tpEmployeeCboCity.TabIndex = 1;
+            this.tpEmployeeCboCity.SelectedIndexChanged += new System.EventHandler(this.tpEmployeeCboCity_SelectedIndexChanged);
             // 
             // label18
             // 
@@ -1976,6 +1997,8 @@ namespace CoachTicketManagement
             this.tpEmployeeTxtPhone.Name = "tpEmployeeTxtPhone";
             this.tpEmployeeTxtPhone.Size = new System.Drawing.Size(291, 27);
             this.tpEmployeeTxtPhone.TabIndex = 2;
+            this.tpEmployeeTxtPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tpEmployeeTxtPhone_KeyPress);
+            this.tpEmployeeTxtPhone.Leave += new System.EventHandler(this.tpEmployeeTxtPhone_Leave);
             // 
             // panel26
             // 
@@ -2003,6 +2026,8 @@ namespace CoachTicketManagement
             this.tpEmployeeTxtIdentityCard.Name = "tpEmployeeTxtIdentityCard";
             this.tpEmployeeTxtIdentityCard.Size = new System.Drawing.Size(291, 27);
             this.tpEmployeeTxtIdentityCard.TabIndex = 2;
+            this.tpEmployeeTxtIdentityCard.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tpEmployeeTxtIdentityCard_KeyPress);
+            this.tpEmployeeTxtIdentityCard.Leave += new System.EventHandler(this.tpEmployeeTxtIdentityCard_Leave);
             // 
             // tpAccount
             // 
@@ -2646,7 +2671,7 @@ namespace CoachTicketManagement
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.NumericUpDown tpCoachNumAmountSeat;
         private System.Windows.Forms.Button tpEmployeeBtnSave;
-        private System.Windows.Forms.Button tpDriverBtnUpdatetpDriverBtnSave;
+        private System.Windows.Forms.Button tpDriverBtnSave;
         private System.Windows.Forms.Button tpBusLineBtnSave;
         private System.Windows.Forms.Button tpTimeBusLineBtnSave;
         private System.Windows.Forms.Button tpTripBtnSave;

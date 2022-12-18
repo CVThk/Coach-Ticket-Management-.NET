@@ -33,6 +33,10 @@ namespace CoachTicketManagement
             this.groupBoxBill = new System.Windows.Forms.GroupBox();
             this.panel17 = new System.Windows.Forms.Panel();
             this.label21 = new System.Windows.Forms.Label();
+            this.txtNameClient = new System.Windows.Forms.TextBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.dateTimePickerNSKH = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.dtpPurchaseDate = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
@@ -50,8 +54,10 @@ namespace CoachTicketManagement
             this.txtNameTrip = new System.Windows.Forms.TextBox();
             this.label49 = new System.Windows.Forms.Label();
             this.panel48 = new System.Windows.Forms.Panel();
+            this.txtDropoffPoint = new System.Windows.Forms.TextBox();
             this.label50 = new System.Windows.Forms.Label();
             this.panel49 = new System.Windows.Forms.Panel();
+            this.txtPickupPoint = new System.Windows.Forms.TextBox();
             this.label51 = new System.Windows.Forms.Label();
             this.panel50 = new System.Windows.Forms.Panel();
             this.TxtSeatPosition = new System.Windows.Forms.TextBox();
@@ -65,17 +71,12 @@ namespace CoachTicketManagement
             this.dgvTicket = new System.Windows.Forms.DataGridView();
             this.groupBoxBills = new System.Windows.Forms.GroupBox();
             this.dgvBill = new System.Windows.Forms.DataGridView();
-            this.tpAccountTxtFind = new System.Windows.Forms.TextBox();
+            this.TxtFind = new System.Windows.Forms.TextBox();
             this.tpAccountBtnFind = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.dateTimePickerNSKH = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtNameClient = new System.Windows.Forms.TextBox();
-            this.txtPickupPoint = new System.Windows.Forms.TextBox();
-            this.txtDropoffPoint = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnHuyVe = new System.Windows.Forms.Button();
             this.groupBoxBill.SuspendLayout();
             this.panel17.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -90,7 +91,6 @@ namespace CoachTicketManagement
             ((System.ComponentModel.ISupportInitialize)(this.dgvTicket)).BeginInit();
             this.groupBoxBills.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBill)).BeginInit();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxBill
@@ -128,6 +128,46 @@ namespace CoachTicketManagement
             this.label21.Size = new System.Drawing.Size(86, 20);
             this.label21.TabIndex = 3;
             this.label21.Text = "Khách hàng";
+            // 
+            // txtNameClient
+            // 
+            this.txtNameClient.Enabled = false;
+            this.txtNameClient.Location = new System.Drawing.Point(148, 12);
+            this.txtNameClient.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNameClient.Name = "txtNameClient";
+            this.txtNameClient.ReadOnly = true;
+            this.txtNameClient.Size = new System.Drawing.Size(287, 27);
+            this.txtNameClient.TabIndex = 2;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.dateTimePickerNSKH);
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Location = new System.Drawing.Point(6, 138);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(438, 52);
+            this.panel3.TabIndex = 27;
+            // 
+            // dateTimePickerNSKH
+            // 
+            this.dateTimePickerNSKH.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePickerNSKH.Enabled = false;
+            this.dateTimePickerNSKH.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerNSKH.Location = new System.Drawing.Point(147, 10);
+            this.dateTimePickerNSKH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateTimePickerNSKH.Name = "dateTimePickerNSKH";
+            this.dateTimePickerNSKH.Size = new System.Drawing.Size(288, 27);
+            this.dateTimePickerNSKH.TabIndex = 4;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(26, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(98, 20);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Ngày sinh KH";
             // 
             // panel5
             // 
@@ -301,6 +341,15 @@ namespace CoachTicketManagement
             this.panel48.Size = new System.Drawing.Size(438, 52);
             this.panel48.TabIndex = 52;
             // 
+            // txtDropoffPoint
+            // 
+            this.txtDropoffPoint.Location = new System.Drawing.Point(145, 12);
+            this.txtDropoffPoint.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtDropoffPoint.Name = "txtDropoffPoint";
+            this.txtDropoffPoint.ReadOnly = true;
+            this.txtDropoffPoint.Size = new System.Drawing.Size(291, 27);
+            this.txtDropoffPoint.TabIndex = 4;
+            // 
             // label50
             // 
             this.label50.AutoSize = true;
@@ -319,6 +368,15 @@ namespace CoachTicketManagement
             this.panel49.Name = "panel49";
             this.panel49.Size = new System.Drawing.Size(438, 52);
             this.panel49.TabIndex = 51;
+            // 
+            // txtPickupPoint
+            // 
+            this.txtPickupPoint.Location = new System.Drawing.Point(143, 13);
+            this.txtPickupPoint.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPickupPoint.Name = "txtPickupPoint";
+            this.txtPickupPoint.ReadOnly = true;
+            this.txtPickupPoint.Size = new System.Drawing.Size(291, 27);
+            this.txtPickupPoint.TabIndex = 4;
             // 
             // label51
             // 
@@ -452,14 +510,14 @@ namespace CoachTicketManagement
             this.dgvBill.Size = new System.Drawing.Size(598, 693);
             this.dgvBill.TabIndex = 6;
             // 
-            // tpAccountTxtFind
+            // TxtFind
             // 
-            this.tpAccountTxtFind.Location = new System.Drawing.Point(1116, 23);
-            this.tpAccountTxtFind.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tpAccountTxtFind.Name = "tpAccountTxtFind";
-            this.tpAccountTxtFind.Size = new System.Drawing.Size(253, 27);
-            this.tpAccountTxtFind.TabIndex = 7;
-            this.tpAccountTxtFind.Text = "Mã vé....";
+            this.TxtFind.Location = new System.Drawing.Point(1116, 23);
+            this.TxtFind.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TxtFind.Name = "TxtFind";
+            this.TxtFind.Size = new System.Drawing.Size(253, 27);
+            this.TxtFind.TabIndex = 7;
+            this.TxtFind.Text = "Mã vé....";
             // 
             // tpAccountBtnFind
             // 
@@ -474,86 +532,30 @@ namespace CoachTicketManagement
             this.tpAccountBtnFind.TabIndex = 8;
             this.tpAccountBtnFind.Text = "Tìm";
             this.tpAccountBtnFind.UseVisualStyleBackColor = false;
+            this.tpAccountBtnFind.Click += new System.EventHandler(this.tpAccountBtnFind_Click);
             // 
-            // panel3
+            // btnHuyVe
             // 
-            this.panel3.Controls.Add(this.dateTimePickerNSKH);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Location = new System.Drawing.Point(6, 138);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(438, 52);
-            this.panel3.TabIndex = 27;
-            // 
-            // dateTimePickerNSKH
-            // 
-            this.dateTimePickerNSKH.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePickerNSKH.Enabled = false;
-            this.dateTimePickerNSKH.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerNSKH.Location = new System.Drawing.Point(147, 10);
-            this.dateTimePickerNSKH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dateTimePickerNSKH.Name = "dateTimePickerNSKH";
-            this.dateTimePickerNSKH.Size = new System.Drawing.Size(288, 27);
-            this.dateTimePickerNSKH.TabIndex = 4;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 20);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Ngày sinh KH";
-            // 
-            // txtNameClient
-            // 
-            this.txtNameClient.Enabled = false;
-            this.txtNameClient.Location = new System.Drawing.Point(148, 12);
-            this.txtNameClient.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtNameClient.Name = "txtNameClient";
-            this.txtNameClient.ReadOnly = true;
-            this.txtNameClient.Size = new System.Drawing.Size(287, 27);
-            this.txtNameClient.TabIndex = 2;
-            // 
-            // txtPickupPoint
-            // 
-            this.txtPickupPoint.Location = new System.Drawing.Point(143, 13);
-            this.txtPickupPoint.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtPickupPoint.Name = "txtPickupPoint";
-            this.txtPickupPoint.ReadOnly = true;
-            this.txtPickupPoint.Size = new System.Drawing.Size(291, 27);
-            this.txtPickupPoint.TabIndex = 4;
-            // 
-            // txtDropoffPoint
-            // 
-            this.txtDropoffPoint.Location = new System.Drawing.Point(145, 12);
-            this.txtDropoffPoint.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtDropoffPoint.Name = "txtDropoffPoint";
-            this.txtDropoffPoint.ReadOnly = true;
-            this.txtDropoffPoint.Size = new System.Drawing.Size(291, 27);
-            this.txtDropoffPoint.TabIndex = 4;
-            // 
-            // button1
-            // 
-            this.button1.AutoSize = true;
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(18, 11);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(143, 48);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Tìm";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnHuyVe.AutoSize = true;
+            this.btnHuyVe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(92)))), ((int)(((byte)(101)))));
+            this.btnHuyVe.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btnHuyVe.ForeColor = System.Drawing.Color.White;
+            this.btnHuyVe.Location = new System.Drawing.Point(18, 11);
+            this.btnHuyVe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnHuyVe.Name = "btnHuyVe";
+            this.btnHuyVe.Size = new System.Drawing.Size(143, 48);
+            this.btnHuyVe.TabIndex = 8;
+            this.btnHuyVe.Text = "Hủy vé";
+            this.btnHuyVe.UseVisualStyleBackColor = false;
+            this.btnHuyVe.Click += new System.EventHandler(this.btnHuyVe_Click);
             // 
             // fBill
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1536, 801);
-            this.Controls.Add(this.tpAccountTxtFind);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.TxtFind);
+            this.Controls.Add(this.btnHuyVe);
             this.Controls.Add(this.tpAccountBtnFind);
             this.Controls.Add(this.groupBoxBills);
             this.Controls.Add(this.groupBoxBillDetails);
@@ -569,6 +571,8 @@ namespace CoachTicketManagement
             this.groupBoxBill.ResumeLayout(false);
             this.panel17.ResumeLayout(false);
             this.panel17.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -593,8 +597,6 @@ namespace CoachTicketManagement
             ((System.ComponentModel.ISupportInitialize)(this.dgvTicket)).EndInit();
             this.groupBoxBills.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBill)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -637,7 +639,6 @@ namespace CoachTicketManagement
         private System.Windows.Forms.Label label54;
         private System.Windows.Forms.GroupBox groupBoxBills;
         private System.Windows.Forms.DataGridView dgvBill;
-        private System.Windows.Forms.TextBox tpAccountTxtFind;
         private System.Windows.Forms.Button tpAccountBtnFind;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DateTimePicker dateTimePickerNSKH;
@@ -645,6 +646,7 @@ namespace CoachTicketManagement
         private System.Windows.Forms.TextBox txtNameClient;
         private System.Windows.Forms.TextBox txtDropoffPoint;
         private System.Windows.Forms.TextBox txtPickupPoint;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnHuyVe;
+        private System.Windows.Forms.TextBox TxtFind;
     }
 }

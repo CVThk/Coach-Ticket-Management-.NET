@@ -1,4 +1,5 @@
 ﻿using CoachTicketManagement.Models;
+using CoachTicketManagement.Utility;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
@@ -27,13 +28,13 @@ namespace CoachTicketManagement.Data
         {
             _sessionFactory = Fluently.Configure()
 
-             .Database(MsSqlConfiguration.MsSql2012.ConnectionString(
-                @"Data Source=.;Initial Catalog=CoachTicketManagementCNPM;Integrated Security=True").ShowSql())
+             .Database(MsSqlConfiguration.MsSql2012.ConnectionString(ConnectionString.Instance.getConnectionString()).ShowSql())
 
              .Mappings(m => m.FluentMappings
                  .AddFromAssemblyOf<Account>()
                  .AddFromAssemblyOf<Employee>()
                  .AddFromAssemblyOf<Client>()
+                 .AddFromAssemblyOf<Driver>()
              )
              .ExposeConfiguration(cfg => new SchemaExport(cfg)
              .Create(false, false))

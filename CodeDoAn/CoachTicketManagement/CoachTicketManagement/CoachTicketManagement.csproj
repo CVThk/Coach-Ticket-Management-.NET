@@ -76,9 +76,11 @@
     <Compile Include="Core\AccountService.cs" />
     <Compile Include="Core\DataService.cs" />
     <Compile Include="Core\ClientService.cs" />
+    <Compile Include="Core\DriverService.cs" />
     <Compile Include="Core\EmployeeService.cs" />
     <Compile Include="Data\Map\AccountMap.cs" />
     <Compile Include="Data\Map\ClientMap.cs" />
+    <Compile Include="Data\Map\DriverMap.cs" />
     <Compile Include="Data\Map\EmployeeMap.cs" />
     <Compile Include="Data\NHibernateHelper.cs" />
     <Compile Include="fAccountInfo.cs">
@@ -133,6 +135,7 @@
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\District.cs" />
+    <Compile Include="Models\Driver.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Seat.cs" />

@@ -1381,6 +1381,11 @@ alter table TBL_EMPLOYEE
       references TBL_WARD (IDWARD)
 go
 
+AlTER TABLE TBL_EMPLOYEE
+ADD CONSTRAINT UNI_IDENTITYCARDEMPLOYEE UNIQUE (IDENTITYCARDEMPLOYEE)
+go
+
+
 alter table TBL_PICKUP
    add constraint FK_TBL_PICK_TBL_PICKU_TBL_STAT foreign key (IDSTATION)
       references TBL_STATION (IDSTATION)
@@ -1638,6 +1643,17 @@ BEGIN
 	where IDBILL = @idBill
 END
 GO
+CREATE TRIGGER tr_DeleteBillDetails ON tbl_BillDetails
+AFTER DELETE
+AS
+BEGIN
+	declare @idBill int
+	set @idBill = (select IDBILL from deleted d)
+	update TBL_BILL
+	set TOTALMONEY = TOTALMONEY - (select p.PRICE from deleted d, TBL_TICKET t, TBL_PRICE p where d.IDTICKET = t.IDTICKET and t.IDPRICE = p.IDPRICE)
+	where IDBILL = @idBill
+END
+GO
 
 --select e.ID, e.Name, e.Email, p.Describe from tbl_Employee e, tbl_PermissionGroup pg, tbl_GrantPermission_Group gg, tbl_Permission p where e.IDPermissionGroup = pg.ID and pg.ID = gg.IDPermissionGroup and gg.IDPermission = p.ID
 CREATE TRIGGER tr_InsertEmployee ON tbl_Employee
@@ -1662,6 +1678,16 @@ BEGIN
 	set @idTrip = (select i.IDTRIP from inserted i)
 	update TBL_TRIP
 	set AMOUNTEMPTYSEAT = AMOUNTEMPTYSEAT - 1
+	where IDTRIP = @idTrip
+END
+CREATE TRIGGER tr_UpdateAmountSeatEmptyTrip_Delete ON tbl_Booked
+AFTER DELETE
+AS
+BEGIN
+	declare @idTrip int
+	set @idTrip = (select d.IDTRIP from deleted d)
+	update TBL_TRIP
+	set AMOUNTEMPTYSEAT = AMOUNTEMPTYSEAT + 1
 	where IDTRIP = @idTrip
 END
 
@@ -2015,6 +2041,180 @@ GO
 --declare @strResult nvarchar(max)
 --exec sp_UpdateAccount @idEmployee=1, @idAccount=1, @userName='',@typeAccount='',@strResult=@strResult output
 --select @strResult
+CREATE PROC sp_GetIDBill @idTicket int
+AS
+BEGIN
+	declare @id int = 0
+	if exists (select * from TBL_BILLDETAILS where IDTICKET = @idTicket)
+		set @id = (select b.IDBILL from TBL_BILL b, TBL_BILLDETAILS bd where b.IDBILL = bd.IDBILL and bd.IDTICKET = @idTicket)
+	return @id
+END
+GO
+--declare @idBill int
+--exec @idBill = sp_GetIDBill @idTicket = 1
+--select @idBill
+alter PROC sp_DeleteTicket @idTicket int, @result nvarchar(max) output
+AS
+BEGIN
+	set @result = N'Không thể hủy vé !!!'
+	if exists (select * from TBL_TICKET where IDTICKET = @idTicket)
+	begin
+		declare @date datetime = GETDATE()
+		if exists(select * from TBL_TRIP t, TBL_TICKET tic, TBL_TIMEBUSLINE ti where tic.IDTICKET = @idTicket and tic.IDTRIP = t.IDTRIP and t.IDTIME = ti.IDTIME and (DATEDIFF(D, @date, DEPARTUREDAY) < 0)
+			or (DATEDIFF(D, convert(date, @date, 103), convert(date, DEPARTUREDAY, 103)) = 0  and convert(time(0), @date) >= ti.STARTTIME))
+		begin
+			return
+		end
+		declare @idBill int
+		if exists (select * from TBL_BILLDETAILS where IDTICKET = @idTicket)
+		begin
+			select @idBill = IDBILL from TBL_BILLDETAILS where IDTICKET = @idTicket
+			delete TBL_BILLDETAILS where IDTICKET = @idTicket
+			exec sp_DeteleBill @idBill
+			delete TBL_BOOKED where IDTRIP = (select tic.IDTRIP from TBL_TICKET tic where tic.IDTICKET = @idTicket) and IDSEAT = (select tic.IDSEAT from TBL_TICKET tic where tic.IDTICKET = @idTicket)
+			delete TBL_TICKET where IDTICKET = @idTicket
+			set @result = N'Thành công.'
+			return
+		end
+	end
+END
+GO
+--declare @result nvarchar(max)
+--exec sp_DeleteTicket @idTicket=1, @result=@result output
+--select @result
+
+------------------------------------------------------------------------------- HOÀNG THỊ MỸ HẠNH
+------------------DRIVER-----------------------
+-----------------------update driver----------------------
+CREATE PROC sp_UpdateDriver @IDDRIVER int,
+							@IDWARD int,
+							@NAMEDRIVER nvarchar(MAX),
+							@DATEOFBIRTHDRIVER varchar(max),
+							@GENDERDRIVER nvarchar(MAX), 
+							@IDENTITYCARDDRIVER varchar(12),
+							@PHONEDRIVER varchar(10),
+							@EMAILDRIVER varchar(200)			
+AS 
+	BEGIN 
+		
+		UPDATE TBL_DRIVER
+			SET NAMEDRIVER = @NAMEDRIVER , IDWARD = @IDWARD, DATEOFBIRTHDRIVER  = convert(date, @DATEOFBIRTHDRIVER),
+			GENDERDRIVER = @GENDERDRIVER, IDENTITYCARDDRIVER = @IDENTITYCARDDRIVER, PHONEDRIVER  =@PHONEDRIVER,
+			EMAILDRIVER = @EMAILDRIVER, DEGREE = 'E' 
+		WHERE IDDRIVER = @IDDRIVER 
+		
+	END
+GO
+-------------------delete driver-----------------------------------------
+CREATE PROC sp_deleteDriver @idDriver int
+AS
+	if not exists (select * from TBL_TRIP where IDDRIVER = @idDriver)
+	begin
+		--update TBL_TRIP
+		--set	IDDRIVER = null
+		--where IDDRIVER = @idDriver
+		delete TBL_DRIVER where IDDRIVER = @idDriver
+	end
+GO
+--------------------------insert driver-------------------------------
+CREATE PROC sp_InsertDriver @IDWARD int, 
+							@NAME nvarchar(max),
+						    @DATEOFBIRTH date, 
+							@GENDER nvarchar(4), 
+							@IDENTITYCARD varchar(12),
+							@PHONE varchar(10),
+							@EMAIL varchar(200)	
+AS 
+	BEGIN 
+		INSERT INTO TBL_DRIVER(IDWARD, NAMEDRIVER, DATEOFBIRTHDRIVER, GENDERDRIVER, IDENTITYCARDDRIVER,PHONEDRIVER, EMAILDRIVER)
+		VALUES (@IDWARD, @NAME, @DATEOFBIRTH, @GENDER, @IDENTITYCARD, @PHONE, @EMAIL)
+	END
+--------------------------------------------------------------------------------------------------		
+
+------------------------------------------------------------------------------- MAI TRUNG TIẾN
+
+CREATE PROC sp_UpdateEMPLOYEE @IDEMPLOYEE int,
+							@IDWARD int,
+							@IDTYPE int,
+							@IDPERMISSIONGROUP int,
+							@NAMEEMPLOYEE nvarchar(max),
+							@DATEOFBIRTHEMPLOYEE date, 
+							@GENDEREMPLOYEE nvarchar(4),
+							@IDENTITYCARDEMPLOYEE varchar(12),
+							@PHONEEMPLOYEE varchar(10),
+							@EMAILEMPLOYEE varchar(200)					
+AS 
+	BEGIN 
+		UPDATE TBL_EMPLOYEE 
+			SET NAMEEMPLOYEE = @NAMEEMPLOYEE , IDWARD = @IDWARD, DATEOFBIRTHEMPLOYEE = @DATEOFBIRTHEMPLOYEE ,
+			GENDEREMPLOYEE = @GENDEREMPLOYEE, IDENTITYCARDEMPLOYEE = @IDENTITYCARDEMPLOYEE, PHONEEMPLOYEE =@PHONEEMPLOYEE,
+			EMAILEMPLOYEE = @EMAILEMPLOYEE, IDTYPE = @IDTYPE 
+		WHERE IDEMPLOYEE = @IDEMPLOYEE 
+		
+	END
+go
+
+
+CREATE PROC sp_DeleteEMPLOYEE @IDEMPLOYEE int							
+AS 
+	BEGIN 
+		IF NOT EXISTS(SELECT * FROM TBL_ACCOUNT WHERE IDEMPLOYEE = @IDEMPLOYEE)
+			BEGIN 
+				IF EXISTS(SELECT * FROM TBL_EMPLOYEE WHERE IDEMPLOYEE = @IDEMPLOYEE)
+				DELETE FROM TBL_EMPLOYEE WHERE @IDEMPLOYEE = IDEMPLOYEE
+				RETURN
+			END
+		
+		--
+		IF  EXISTS (SELECT * FROM TBL_BILL WHERE @IDEMPLOYEE = IDEMPLOYEE )
+		BEGIN  
+			DELETE FROM TBL_EMPLOYEE WHERE  IDEMPLOYEE= @IDEMPLOYEE 
+			RETURN
+		END
+		IF EXISTS (SELECT * FROM TBL_TRIP WHERE @IDEMPLOYEE = IDEMPLOYEE)
+		BEGIN 
+			DELETE FROM TBL_EMPLOYEE WHERE  IDEMPLOYEE= @IDEMPLOYEE 
+			RETURN
+		END
+		IF EXISTS (SELECT * FROM TBL_SERVICE WHERE @IDEMPLOYEE = IDEMPLOYEE)
+		BEGIN
+			DELETE FROM TBL_EMPLOYEE WHERE  IDEMPLOYEE= @IDEMPLOYEE
+			RETURN
+		END
+		--
+		IF EXISTS(SELECT * FROM TBL_ACCOUNT WHERE IDEMPLOYEE = @IDEMPLOYEE)
+		BEGIN 
+			IF EXISTS(SELECT * FROM TBL_EMPLOYEE WHERE IDEMPLOYEE = @IDEMPLOYEE)
+			BEGIN
+				DECLARE @IDACCOUNT INT
+				SET @IDACCOUNT = (SELECT IDACCOUNT FROM TBL_ACCOUNT  WHERE IDEMPLOYEE = @IDEMPLOYEE)
+				UPDATE TBL_EMPLOYEE 
+				SET IDACCOUNT = NULL
+				WHERE IDEMPLOYEE = (SELECT IDEMPLOYEE FROM TBL_EMPLOYEE WHERE  IDACCOUNT = @IDACCOUNT )
+				DELETE FROM  TBL_ACCOUNT WHERE IDEMPLOYEE = @IDEMPLOYEE
+				DELETE FROM TBL_EMPLOYEE WHERE  IDEMPLOYEE= @IDEMPLOYEE   
+			END
+		END
+		
+	END
+
+
+CREATE PROC sp_InsertEMPLOYEE @IDWARD int, @IDTYPE int, @IDPERMISSIONGROUP int,
+							@NAMEEMPLOYEE nvarchar(max), @DATEOFBIRTHEMPLOYEE date, 
+							@GENDEREMPLOYEE nvarchar(4), @IDENTITYCARDEMPLOYEE varchar(12),
+							@PHONEEMPLOYEE varchar(10),@EMAILEMPLOYEE varchar(200)	
+
+AS 
+	BEGIN 
+		INSERT INTO TBL_EMPLOYEE (IDWARD,IDTYPE,IDPERMISSIONGROUP,NAMEEMPLOYEE,DATEOFBIRTHEMPLOYEE,
+									GENDEREMPLOYEE,IDENTITYCARDEMPLOYEE,PHONEEMPLOYEE,EMAILEMPLOYEE)
+			VALUES (@IDWARD, @IDTYPE, @IDPERMISSIONGROUP, @NAMEEMPLOYEE, @DATEOFBIRTHEMPLOYEE, 
+							@GENDEREMPLOYEE, @IDENTITYCARDEMPLOYEE,@PHONEEMPLOYEE, @EMAILEMPLOYEE)
+	END
+GO
+--- End MAI TRUNG TIẾN
+
+
 
 /*==========================================================================================================================*/
 /*                                                          FUNCTION                                                        */

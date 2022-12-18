@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CoachTicketManagement.Data;
 using CoachTicketManagement.Models;
 using CoachTicketManagement.Utility;
 
@@ -137,7 +138,86 @@ namespace CoachTicketManagement
             loadBillDetails(idBill);
         }
 
+        private void tpAccountBtnFind_Click(object sender, EventArgs e)
+        {
+            int idTicket;
+            if(!int.TryParse(TxtFind.Text, out idTicket))
+            {
+                MessageBox.Show("Mã vé không thể tìm !!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            int idBill;
+            using(var session = NHibernateHelper.OpenSession())
+            {
+                idBill = session.CreateSQLQuery(@"declare @idBill int
+                                                    exec @idBill = sp_GetIDBill @idTicket = :idTicket
+                                                    select @idBill").SetParameter("idTicket", idTicket).UniqueResult<int>();
+            }    
+            if(idBill == 0)
+            {
+                MessageBox.Show("Vé không nằm trong hóa đơn nào !!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            int row = 0;
+            foreach (DataGridViewRow item in dgvBill.Rows)
+            {
+                if (item.Cells["IDBILL"].Value.ToString() == idBill.ToString())
+                    break;
+                row++;
+            }
+            if(row < dgvBill.Rows.Count)
+            {
+                dgvBill.Rows[row].Selected = true;
+                loadBillDetails(int.Parse(dgvBill.Rows[row].Cells["IDBILL"].Value.ToString()));
+                int rowBD = 0;
+                foreach (DataGridViewRow item in dgvTicket.Rows)
+                {
+                    if (item.Cells["IDTICKET"].Value.ToString() == idTicket.ToString())
+                        break;
+                    rowBD++;
+                }
+                if(rowBD < dgvTicket.Rows.Count)
+                {
+                    dgvTicket.ClearSelection();
+                    dgvTicket.Rows[rowBD].Selected = true;
+                    TxtIDTicket.Text = dgvTicket.Rows[rowBD].Cells["IDTICKET"].Value.ToString();
+                    txtNameTrip.Text = dgvTicket.Rows[rowBD].Cells["BUSLINE"].Value.ToString();
+                    TxtSeatPosition.Text = dgvTicket.Rows[rowBD].Cells["SEATPOSITION"].Value.ToString();
+                    txtPickupPoint.Text = dgvTicket.Rows[rowBD].Cells["PICKUPPOINT"].Value.ToString();
+                    txtDropoffPoint.Text = dgvTicket.Rows[rowBD].Cells["DROPOFFPOINT"].Value.ToString();
+                    TxtPrice.Text = dgvTicket.Rows[rowBD].Cells["PRICE"].Value.ToString();
+                }    
+            }    
+        }
 
-
+        private void btnHuyVe_Click(object sender, EventArgs e)
+        {
+            int row = dgvTicket.Rows.GetFirstRow(DataGridViewElementStates.Selected);
+            if(row >= 0)
+            {
+                int idTicket = (int)dgvTicket.Rows[row].Cells["IDTICKET"].Value;
+                DialogResult r = MessageBox.Show("Bạn có chắc chắc muốn hủy vé: " + idTicket.ToString() + " ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if(r == DialogResult.Yes)
+                {
+                    string result;
+                    using(var session = NHibernateHelper.OpenSession())
+                    {
+                        result = session.CreateSQLQuery(@"declare @result nvarchar(max)
+                                exec sp_DeleteTicket :idTicket, @result output
+                                select @result").SetParameter("idTicket", idTicket).UniqueResult<string>();
+                    }
+                    if(result == "Thành công.")
+                    {
+                        dgvTicket.Rows.RemoveAt(row);
+                        loadBill();
+                        MessageBox.Show("Hủy vé " + idTicket.ToString() + " thành công.", "Thông báo", MessageBoxButtons.OK);
+                    }    
+                    else
+                    {
+                        MessageBox.Show("Không thể hủy vé !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }    
+                }    
+            }    
+        }
     }
 }

@@ -204,6 +204,7 @@ namespace CoachTicketManagement
             this.TxtEmail.Name = "TxtEmail";
             this.TxtEmail.Size = new System.Drawing.Size(291, 27);
             this.TxtEmail.TabIndex = 2;
+            this.TxtEmail.Leave += new System.EventHandler(this.TxtEmail_Leave);
             // 
             // panel11
             // 
@@ -367,6 +368,7 @@ namespace CoachTicketManagement
             this.CboDistrict.Name = "CboDistrict";
             this.CboDistrict.Size = new System.Drawing.Size(291, 28);
             this.CboDistrict.TabIndex = 2;
+            this.CboDistrict.SelectedIndexChanged += new System.EventHandler(this.CboDistrict_SelectedIndexChanged);
             // 
             // label19
             // 
@@ -396,6 +398,7 @@ namespace CoachTicketManagement
             this.CboCity.Name = "CboCity";
             this.CboCity.Size = new System.Drawing.Size(291, 28);
             this.CboCity.TabIndex = 1;
+            this.CboCity.SelectedIndexChanged += new System.EventHandler(this.CboCity_SelectedIndexChanged);
             // 
             // label18
             // 
@@ -461,6 +464,7 @@ namespace CoachTicketManagement
             this.TxtPhone.Name = "TxtPhone";
             this.TxtPhone.Size = new System.Drawing.Size(291, 27);
             this.TxtPhone.TabIndex = 7;
+            this.TxtPhone.Leave += new System.EventHandler(this.TxtPhone_Leave);
             // 
             // panel26
             // 
@@ -488,6 +492,8 @@ namespace CoachTicketManagement
             this.TxtIdentityCard.Name = "TxtIdentityCard";
             this.TxtIdentityCard.Size = new System.Drawing.Size(291, 27);
             this.TxtIdentityCard.TabIndex = 6;
+            this.TxtIdentityCard.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtIdentityCard_KeyPress);
+            this.TxtIdentityCard.Leave += new System.EventHandler(this.TxtIdentityCard_Leave);
             // 
             // fAccountInfo
             // 

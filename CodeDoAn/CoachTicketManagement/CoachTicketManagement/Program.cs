@@ -16,8 +16,7 @@ namespace CoachTicketManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new fAuthenticate());
-            Application.Run(new fBaoCao());
+            Application.Run(new fAuthenticate());
         }
     }
 }

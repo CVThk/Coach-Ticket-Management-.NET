@@ -310,12 +310,61 @@ namespace CoachTicketManagement
         }
         #endregion
 
-        #region Employee
+
+        //----------------------------------------------EMPLOYEE-------------------------------------------------------
+        #region Employee - Mai Trung Tiến
+        // enabel
+        private void MoNut()
+        {
+
+            tpEmployeeTxtName.Enabled = true;
+            tpEmployeeCboCity.Enabled = true;
+            tpEmployeeCboDistrict.Enabled = true;
+            tpEmployeeCboWard.Enabled = true;
+            tpEmployeeCboTypeOfEmployee.Enabled = true;
+            tpEmployeeCboGender.Enabled = true;
+            tpEmployeeDtpDateOfBirth.Enabled = true;
+            tpEmployeeTxtIdentityCard.Enabled = true;
+            tpEmployeeTxtPhone.Enabled = true;
+            tpEmployeeTxtEmail.Enabled = true;
+        }
+        private void DongNut()
+        {
+
+            tpEmployeeTxtName.Enabled = false;
+            tpEmployeeCboCity.Enabled = false;
+            tpEmployeeCboDistrict.Enabled = false;
+            tpEmployeeCboWard.Enabled = false;
+            tpEmployeeCboTypeOfEmployee.Enabled = false;
+            tpEmployeeCboGender.Enabled = false;
+            tpEmployeeDtpDateOfBirth.Enabled = false;
+            tpEmployeeTxtIdentityCard.Enabled = false;
+            tpEmployeeTxtPhone.Enabled = false;
+            tpEmployeeTxtEmail.Enabled = false;
+        }
+        private bool check_tpEmployeeADD = false;
+        void lockDefaulttpEmployee()
+        {
+            tpEmployeeTxtIdAccount.Enabled = tpEmployeeTxtIdEmployee.Enabled = false;
+            tpEmployeeBtnSave.Enabled = false;
+            check_tpEmployeeADD = true;
+        }
+        private void dataGridViewEmployee_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                tpEmployeeBtnSave.Enabled = false;
+            }
+            lockDefaulttpEmployee();
+            DongNut();
+        }
         void loadEmployee()
         {
             // add header datagridview
+            lockDefaulttpEmployee();
+            DongNut();
             dataGridViewEmployee.Columns.Clear();
-            dataGridViewEmployee.Columns.Add("IDAccount", "Mã Tài Khoản");
+            dataGridViewEmployee.Columns.Add("IDAccount", "Mã Tàihoản");
             dataGridViewEmployee.Columns[0].DataPropertyName = "IDAccount";
             dataGridViewEmployee.Columns.Add("IDEmployee", "Mã Nhân Viên");
             dataGridViewEmployee.Columns[1].DataPropertyName = "IDEmployee";
@@ -374,11 +423,367 @@ namespace CoachTicketManagement
             tpEmployeeTxtPhone.DataBindings.Add("Text", data, "PhoneEmployee", true, DataSourceUpdateMode.Never);
             tpEmployeeTxtEmail.DataBindings.Add("Text", data, "EmailEmployee", true, DataSourceUpdateMode.Never);
 
+
+
         }
 
+        private void tpEmployeeBtnAdd_Click(object sender, EventArgs e)
+        {
+            check_tpEmployeeADD = true;
+            MoNut();
+            tpEmployeeBtnSave.Enabled = true;
+            tpEmployeeTxtIdAccount.Clear();
+            tpEmployeeTxtIdEmployee.Clear();
+            tpEmployeeTxtName.Clear();
+            tpEmployeeTxtName.Focus();
+            tpEmployeeTxtIdentityCard.Clear();
+            tpEmployeeTxtPhone.Clear();
+            tpEmployeeTxtEmail.Clear();
+            tpEmployeeDtpDateOfBirth.Text = "01-01-2023";
+            tpEmployeeCboWard.SelectedIndex = 1;
+            tpEmployeeCboCity.SelectedIndex = 1;
+            tpEmployeeCboDistrict.SelectedIndex = 1;
+            tpEmployeeCboGender.Text = "Nam";
+            tpEmployeeCboTypeOfEmployee.SelectedIndex = 1;
+        }
+
+        private void tpEmployeeBtnDelete_Click(object sender, EventArgs e)
+        {
+            int idEmployee;
+            try
+            {
+                if (int.TryParse(tpEmployeeTxtIdEmployee.Text, out idEmployee))
+                {
+                    Employee employee = EmployeeService.Instance.GetEmployee(idEmployee);
+                    if (employee != null)
+                    {
+                        DialogResult r = MessageBox.Show("Bạn có chắc muốn xóa Nhân Viên?", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Stop);
+                        if (r == DialogResult.Yes)
+                        {
+
+                            using (SqlConnection connection = new SqlConnection(ConnectionString.Instance.getConnectionString()))
+                            {
+                                string query = string.Format(@"DECLARE @XUATID NVARCHAR(MAX)
+                                                                exec sp_DeleteEMPLOYEE {0}", idEmployee);
+                                connection.Open();
+                                SqlCommand cmd = new SqlCommand(query, connection);
+                                if (query != null)
+                                {
+
+                                    cmd.ExecuteNonQuery();
+                                    MessageBox.Show("Xóa Nhân Viên Thành Công!!!", "Hoàn Thành", MessageBoxButtons.OK);
+                                    int row = dataGridViewEmployee.Rows.GetFirstRow(DataGridViewElementStates.Selected);
+                                    dataGridViewEmployee.Rows.RemoveAt(row);
+                                }
+                                connection.Close();
+
+                            }
+                        }
+                    }
+
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Không Thể Xóa !!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            DongNut();
+        }
+
+        private void tpEmployeeBtnUpdate_Click(object sender, EventArgs e)
+        {
+            MoNut();
+            int row = dataGridViewEmployee.Rows.GetFirstRow(DataGridViewElementStates.Selected);
+            if (row >= 0)
+            {
+                check_tpEmployeeADD = false;
+                tpEmployeeBtnSave.Enabled = true;
+                tpEmployeeTxtName.Focus();
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn đối tượng nhân viên trong bảng trước khi cập nhật !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+        }
+
+        private void tpEmployeeBtnSave_Click(object sender, EventArgs e)
+        {
+            int idEmployee;
+            int.TryParse(tpEmployeeTxtIdEmployee.Text, out idEmployee);
+
+            Employee __Employee = EmployeeService.Instance.GetEmployee(idEmployee);
+            if (string.IsNullOrEmpty(tpEmployeeTxtName.Text))
+            {
+                MessageBox.Show("Không được bỏ trống tên !!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (string.IsNullOrEmpty(tpEmployeeTxtIdentityCard.Text))
+            {
+                MessageBox.Show("Không được bỏ trống CMND!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (string.IsNullOrEmpty(tpEmployeeTxtPhone.Text))
+            {
+                MessageBox.Show("Không được bỏ trống SĐT !!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (string.IsNullOrEmpty(tpEmployeeTxtEmail.Text))
+            {
+                MessageBox.Show("Không được bỏ trống MAIL !!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (DateTime.Now.Year - tpEmployeeDtpDateOfBirth.Value.Year < 15)
+            {
+                MessageBox.Show("Tuổi không đủ !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
+            if (tpEmployeeCboCity.SelectedItem == null)
+            {
+                MessageBox.Show("Vui lòng chọn Tỉnh/Thành Phố !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
+            if (tpEmployeeCboDistrict.SelectedItem == null)
+            {
+                MessageBox.Show("Vui lòng chọn quận huyện !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
+            if (tpEmployeeCboWard.SelectedItem == null)
+            {
+                MessageBox.Show("Vui lòng chọn phường/xã !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
+
+            ///---------------
+            if (check_tpEmployeeADD == false)
+            {
+
+                if (__Employee == null)
+                {
+                    MessageBox.Show("Chưa load được dữ liệu nhân viên!!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+                else
+                {
+                    if (tpEmployeeTxtName.Text != __Employee.Name || (int)tpEmployeeCboWard.SelectedValue != __Employee.IdWard ||
+                        tpEmployeeCboGender.SelectedItem.ToString() != __Employee.Gender || tpEmployeeDtpDateOfBirth.Value != __Employee.DateOfBirth ||
+                        (int)tpEmployeeCboTypeOfEmployee.SelectedValue != __Employee.IdTypeOfEmployee || tpEmployeeTxtIdentityCard.Text != __Employee.IdentityCard ||
+                        tpEmployeeTxtPhone.Text != __Employee.Phone || tpEmployeeTxtEmail.Text != __Employee.Email
+                        )
+                    {
+                        DialogResult r = MessageBox.Show("Thông tin có sự thay đổi. Bạn có muốn cập nhật lại dữ liệu?", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Stop);
+                        if (r == DialogResult.Yes)
+                        {
+                            try
+                            {
+                                using (SqlConnection connection = new SqlConnection(ConnectionString.Instance.getConnectionString()))
+                                {
+                                    string query = string.Format(@"SET DATEFORMAT DMY exec sp_UpdateEMPLOYEE {0},{1},{2},{3},N'{4}','{5}',N'{6}','{7}','{8}','{9}'",
+                                                      __Employee.Id, (int)tpEmployeeCboWard.SelectedValue, tpEmployeeCboTypeOfEmployee.SelectedValue, __Employee.IdPermissionGroup,
+                                                       tpEmployeeTxtName.Text, tpEmployeeDtpDateOfBirth.Value, tpEmployeeCboGender.Text,
+                                                        tpEmployeeTxtIdentityCard.Text, tpEmployeeTxtPhone.Text, tpEmployeeTxtEmail.Text);
+                                    connection.Open();
+                                    SqlCommand cmd = new SqlCommand(query, connection);
+                                    if (query != null)
+                                    {
+                                        cmd.ExecuteNonQuery();
+                                        MessageBox.Show("Cập Nhật Thành Công!!!", "Hoàn Thành", MessageBoxButtons.OK);
+
+                                    }
+                                    connection.Close();
+                                    loadEmployee();
+                                }
+
+                            }
+                            catch
+                            {
+                                MessageBox.Show("Thông tin bị trùng !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                            }
+                        }
+                    }
+
+                }
+            }
+            else // insert
+            {
+                DialogResult r = MessageBox.Show(" Bạn có muốn thêm nhân viên?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Stop);
+                if (r == DialogResult.Yes)
+                {
+                    try
+                    {
+                        using (SqlConnection connection = new SqlConnection(ConnectionString.Instance.getConnectionString()))
+                        {
+                            string query = string.Format(@"SET DATEFORMAT DMY exec sp_InsertEMPLOYEE {0},{1},{2},N'{3}','{4}',N'{5}','{7}','{7}','{8}'",
+                                              (int)tpEmployeeCboWard.SelectedValue, tpEmployeeCboTypeOfEmployee.SelectedValue, Convert.ToInt32(3),
+                                               tpEmployeeTxtName.Text, tpEmployeeDtpDateOfBirth.Value, tpEmployeeCboGender.Text,
+                                                tpEmployeeTxtIdentityCard.Text, tpEmployeeTxtPhone.Text, tpEmployeeTxtEmail.Text);
+                            connection.Open();
+                            SqlCommand cmd = new SqlCommand(query, connection);
+                            if (query != null)
+                            {
+                                cmd.ExecuteNonQuery();
+                                MessageBox.Show("Thêm Thành Công!!!", "Hoàn Thành", MessageBoxButtons.OK);
+
+                            }
+                            connection.Close();
+                            loadEmployee();
+                        }
+
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Thông tin bị trùng !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    }
+                }
+            }
+        }
+        private void tpEmployeeBtnFind_Click(object sender, EventArgs e)
+        {
+            string textFind = tpEmployeeTxtFind.Text;
+            List<Employee> employees = EmployeeService.Instance.GetEmployees();
+            Employee emp = employees.FirstOrDefault(x => x.Id.ToString() == textFind || x.Phone.ToString() == textFind || x.Name == textFind || x.IdentityCard == textFind || x.Email.ToString() == textFind);
+            if (emp == null)
+            {
+                MessageBox.Show("Không tìm thấy thông tin phù hợp !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                tpEmployeeTxtFind.Clear();
+            }
+            else
+            {
+                int row = -1;
+                int i = 0;
+                foreach (DataGridViewRow item in dataGridViewEmployee.Rows)
+                {
+                    if (item.Cells[1].Value.ToString() == emp.Id.ToString())
+                    {
+                        row = i;
+                        break;
+                    }
+                    i++;
+                }
+                if (row != -1)
+                {
+
+                    dataGridViewEmployee.ClearSelection();
+                    dataGridViewEmployee.Rows[row].Selected = true;
+
+                    tpEmployeeTxtIdAccount.Text = dataGridViewEmployee.Rows[row].Cells[0].Value.ToString();
+                    tpEmployeeTxtIdEmployee.Text = dataGridViewEmployee.Rows[row].Cells[1].Value.ToString();
+                    tpEmployeeTxtName.Text = dataGridViewEmployee.Rows[row].Cells[2].Value.ToString();
+
+                    tpEmployeeDtpDateOfBirth.Value = DateTime.Parse(dataGridViewEmployee.Rows[row].Cells[3].Value.ToString());
+
+                    tpEmployeeCboGender.Text = dataGridViewEmployee.Rows[row].Cells[4].Value.ToString();
+                    tpEmployeeTxtIdentityCard.Text = dataGridViewEmployee.Rows[row].Cells[5].Value.ToString();
+                    tpEmployeeTxtPhone.Text = dataGridViewEmployee.Rows[row].Cells[6].Value.ToString();
+                    tpEmployeeTxtEmail.Text = dataGridViewEmployee.Rows[row].Cells[7].Value.ToString();
+                    tpEmployeeCboTypeOfEmployee.Text = dataGridViewEmployee.Rows[row].Cells[8].Value.ToString();
+
+                    tpEmployeeCboWard.Text = dataGridViewEmployee.Rows[row].Cells[9].Value.ToString();
+                    tpEmployeeCboDistrict.Text = dataGridViewEmployee.Rows[row].Cells[10].Value.ToString();
+                    tpEmployeeCboCity.Text = dataGridViewEmployee.Rows[row].Cells[11].Value.ToString();
+
+                    tpEmployeeTxtFind.Clear();
+                }
+            }
+        }
+        // Check các điểu kiện!!!
+        private void tpEmployeeCboCity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox control = (ComboBox)sender;
+            if (control.SelectedValue != null)
+            {
+                ControlHelper.Instance.loadDistrict(tpEmployeeCboDistrict, (int)control.SelectedValue);
+            }
+            int idEmployee;
+            if (int.TryParse(tpEmployeeTxtIdEmployee.Text, out idEmployee))
+            {
+                Employee __Employee = EmployeeService.Instance.GetEmployee(idEmployee);
+            }
+        }
+        private void tpEmployeeCboDistrict_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox control = (ComboBox)sender;
+            if (control.SelectedValue != null)
+            {
+                ControlHelper.Instance.loadWard(tpEmployeeCboWard, (int)control.SelectedValue);
+            }
+        }
+        private void tpEmployeeTxtEmail_Leave(object sender, EventArgs e)
+        {
+            if (!Utilities.Instance.CheckGmail(tpEmployeeTxtEmail.Text))
+            {
+                MessageBox.Show("Mail không đúng định dạng!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                tpEmployeeTxtEmail.Focus();
+                return;
+            }
+            string mail = tpEmployeeTxtEmail.Text;
+            List<Employee> employees = EmployeeService.Instance.GetEmployees();
+            Employee employee = employees.SingleOrDefault(x => x.Email == mail);
+
+            if (employee != null)
+            {
+                MessageBox.Show("Mail bị trùng!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                tpEmployeeTxtEmail.Focus();
+                return;
+            }
+        }
+
+        private void tpEmployeeTxtPhone_Leave(object sender, EventArgs e)
+        {
+            if (!Utilities.Instance.CheckPhone(tpEmployeeTxtPhone.Text))
+            {
+                MessageBox.Show("SDT không đúng định dạng!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                tpEmployeeTxtPhone.Focus();
+                return;
+            }
+            string phone = tpEmployeeTxtPhone.Text;
+            List<Employee> employees = EmployeeService.Instance.GetEmployees();
+            Employee employee = employees.SingleOrDefault(x => x.Phone == phone);
+
+            if (employee != null)
+            {
+                MessageBox.Show("SĐT bị trùng!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                tpEmployeeTxtPhone.Focus();
+                return;
+            }
+        }
+
+        private void tpEmployeeTxtIdentityCard_Leave(object sender, EventArgs e)
+        {
+            if (!Utilities.Instance.CheckIdentityCard(tpEmployeeTxtIdentityCard.Text))
+            {
+                MessageBox.Show("CMND/CCCD không đúng định dạng!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                tpEmployeeTxtIdentityCard.Focus();
+                return;
+            }
+
+            string IDCard = tpEmployeeTxtIdentityCard.Text;
+            List<Employee> employees = EmployeeService.Instance.GetEmployees();
+            Employee employee = employees.SingleOrDefault(x => x.IdentityCard == IDCard);
+
+            if (employee != null)
+            {
+                MessageBox.Show("CMND/CCCD bị trùng!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                tpEmployeeTxtIdentityCard.Focus();
+                return;
+            }
+        }
+        private void tpEmployeeTxtIdentityCard_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Control ctr = (Control)sender;
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void tpEmployeeTxtPhone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Control ctr = (Control)sender;
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
         #endregion
 
-        #region Driver
+
+        #region Driver Hạnh
+        bool check_tpDriverAdd = false;
         void loadDriver()
         {
             // add header datagridview
@@ -435,6 +840,296 @@ namespace CoachTicketManagement
             tpDriverTxtEmail.DataBindings.Add("Text", data, "EMAILDRIVER", true, DataSourceUpdateMode.Never);
 
         }
+        private void tpDriverBtnDelete_Click(object sender, EventArgs e)
+        {
+            int idDriver;
+            if (int.TryParse(tpDriverTxtIdDriver.Text, out idDriver))
+            {
+                Driver driver = DriverService.Instance.GetDriver(idDriver);
+                if (driver != null)
+                {
+
+                    int rowDriver = ADOHelper.Instance.ExecuteScalar(@"select count(*) from TBL_TRIP where IDDRIVER = @para_0", new object[] { idDriver });
+                    if (rowDriver > 0)
+                    {
+                        MessageBox.Show("Chưa thể xóa vì lịch sử tài xế " + driver.Name + " đã lái xe trong hệ thống!!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+
+                    DialogResult r = MessageBox.Show("Bạn có chắc chắn muốn xóa tài xế " + tpDriverTxtName.Text + " ?", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (r == DialogResult.Yes)
+                    {
+                        int row = dataGridViewDriver.Rows.GetFirstRow(DataGridViewElementStates.Selected);
+                        dataGridViewDriver.Rows.RemoveAt(row);
+                        ADOHelper.Instance.ExecuteNonQuery("sp_deleteDriver @idDriver=@para_0", new object[] { driver.Id });
+                        MessageBox.Show("Xóa tài khoản thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+        }
+
+        private void tpDriverBtnSave_Click(object sender, EventArgs e)
+        {
+
+            if (string.IsNullOrEmpty(tpDriverTxtName.Text))
+            {
+                MessageBox.Show("Không được bỏ trống tên !!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (string.IsNullOrEmpty(tpDriverTxtIdentityCard.Text))
+            {
+                MessageBox.Show("Không được bỏ trống CMND!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (string.IsNullOrEmpty(tpDriverTxtPhone.Text))
+            {
+                MessageBox.Show("Không được bỏ trống SĐT !!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (string.IsNullOrEmpty(tpDriverTxtEmail.Text))
+            {
+                MessageBox.Show("Không được bỏ trống MAIL !!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (DateTime.Now.Year - tpDriverDtpDateOfBirth.Value.Year < 27)
+            {
+                MessageBox.Show("Tuổi không đủ !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (tpDriverCboCity.SelectedItem == null)
+            {
+                MessageBox.Show("Vui lòng chọn Tỉnh/Thành Phố !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (tpDriverCboDistrict.SelectedItem == null)
+            {
+                MessageBox.Show("Vui lòng chọn quận huyện !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (tpDriverCboWard.SelectedItem == null)
+            {
+                MessageBox.Show("Vui lòng chọn phường/xã !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (string.IsNullOrEmpty(tpDriverCboGender.Text))
+            {
+                MessageBox.Show("Vui lòng chọn giới tính !!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            List<Employee> employees = EmployeeService.Instance.GetEmployees();
+            if(employees.SingleOrDefault(x => x.Phone == tpDriverTxtPhone.Text) != null)
+            {
+                MessageBox.Show("Số điện thoại này đã tồn tại trong hệ thống !!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (employees.SingleOrDefault(x => x.IdentityCard == tpDriverTxtIdentityCard.Text) != null)
+            {
+                MessageBox.Show("CMND/CCCD này đã tồn tại trong hệ thống !!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (employees.SingleOrDefault(x => x.Email == tpDriverTxtEmail.Text) != null)
+            {
+                MessageBox.Show("Email này đã tồn tại trong hệ thống !!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (check_tpDriverAdd == false)
+            {
+                DialogResult r = MessageBox.Show("Thông tin có sự thay đổi. Bạn có muốn cập nhật lại dữ liệu?", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (r == DialogResult.Yes)
+                {
+                    try
+                    {
+                        using (SqlConnection connection = new SqlConnection(ConnectionString.Instance.getConnectionString()))
+                        {
+                            string query = string.Format(@"SET DATEFORMAT DMY exec sp_UpdateDriver {0},{1},N'{2}','{3}',N'{4}','{5}','{6}','{7}'",
+                                              int.Parse(tpDriverTxtIdDriver.Text), (int)tpDriverCboWard.SelectedValue, tpDriverTxtName.Text, tpDriverDtpDateOfBirth.Value.ToString("dd/MM/yyyy"), tpDriverCboGender.Text, tpDriverTxtIdentityCard.Text, tpDriverTxtPhone.Text, tpDriverTxtEmail.Text);
+                            connection.Open();
+                            SqlCommand cmd = new SqlCommand(query, connection);
+                            if (query != null)
+                            {
+                                cmd.ExecuteNonQuery();
+                                MessageBox.Show("Cập Nhật Thành Công!!!", "Hoàn Thành", MessageBoxButtons.OK);
+
+                            }
+                            connection.Close();
+                            loadDriver();
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Thông tin bị trùng !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    }
+                }
+            }
+            else // insert
+            {
+                DialogResult r = MessageBox.Show(" Bạn có muốn thêm nhân viên?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (r == DialogResult.Yes)
+                {
+                    try
+                    {
+                        List<Driver> drivers = DriverService.Instance.GetDrivers();
+                        if (drivers.SingleOrDefault(x => x.Phone == tpDriverTxtPhone.Text) != null || drivers.SingleOrDefault(x => x.IdentityCard == tpDriverTxtIdentityCard.Text) != null)
+                        {
+                            MessageBox.Show("Thông tin tài xế đã tồn tại trong hệ thống !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                            return;
+                        }
+                        if (!Utilities.Instance.CheckPhone(tpDriverTxtPhone.Text))
+                        {
+                            MessageBox.Show("Số điện thoại không đúng định dạng !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                            return;
+                        }
+                        if (!Utilities.Instance.CheckIdentityCard(tpDriverTxtIdentityCard.Text))
+                        {
+                            MessageBox.Show("CMND/CCCD không đúng định dạng !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                            return;
+                        }
+                        if (tpDriverTxtEmail.Text != "" && !Utilities.Instance.CheckGmail(tpDriverTxtEmail.Text))
+                        {
+                            MessageBox.Show("Email không đúng định dạng !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                            return;
+                        }
+                        using (SqlConnection connection = new SqlConnection(ConnectionString.Instance.getConnectionString()))
+                        {
+                            string query = string.Format(@"SET DATEFORMAT DMY INSERT INTO TBL_DRIVER(IDWARD, NAMEDRIVER, DATEOFBIRTHDRIVER, GENDERDRIVER, IDENTITYCARDDRIVER,PHONEDRIVER, EMAILDRIVER) values({0},N'{1}','{2}',N'{3}','{4}','{5}','{6}')",
+                                              (int)tpDriverCboWard.SelectedValue, tpDriverTxtName.Text, tpDriverDtpDateOfBirth.Value.ToString("dd/MM/yyyy"), tpDriverCboGender.Text,
+                                                tpDriverTxtIdentityCard.Text, tpDriverTxtPhone.Text, tpDriverTxtEmail.Text);
+                            connection.Open();
+                            SqlCommand cmd = new SqlCommand(query, connection);
+                            if (query != null)
+                            {
+                                cmd.ExecuteNonQuery();
+                                MessageBox.Show("Thêm Thành Công!!!", "Hoàn Thành", MessageBoxButtons.OK);
+
+                            }
+                            connection.Close();
+                            loadDriver();
+                        }
+
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Thông tin bị trùng !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    }
+                }
+            }
+
+        }
+
+
+        private void tpDriverBtnUpdate_Click(object sender, EventArgs e)
+        {
+            int row = dataGridViewDriver.Rows.GetFirstRow(DataGridViewElementStates.Selected);
+            if (row >= 0)
+            {
+                check_tpDriverAdd = false;
+                tpDriverBtnSave.Enabled = true;
+                tpDriverTxtName.Focus();
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn đối tượng tài xế trong bảng trước khi cập nhật !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+
+        }
+
+        private void tpDriverBtnAdd_Click(object sender, EventArgs e)
+        {
+            tpDriverBtnSave.Enabled = true;
+            check_tpDriverAdd = true;
+            tpDriverTxtIdDriver.Clear();
+            tpDriverTxtName.Clear();
+            tpDriverTxtPhone.Clear();
+            tpDriverTxtEmail.Clear();
+            tpDriverTxtIdentityCard.Clear();
+            tpDriverTxtName.Focus();
+        }
+        private void tpDriverBtnFind_Click(object sender, EventArgs e)
+        {
+            string textFind = tpDriverTxtFind.Text;
+            List<Driver> drivers = DriverService.Instance.GetDrivers();
+            Driver driver = drivers.FirstOrDefault(x => x.Id.ToString() == textFind || x.IdentityCard.ToString() == textFind || x.Phone.ToString() == textFind || x.Email.ToString() == textFind);
+            if (driver == null)
+            {
+                MessageBox.Show("Không tìm thấy thông tin phù hợp !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                tpAccountTxtFind.Clear();
+            }
+            else
+            {
+                int row = -1;
+                int i = 0;
+                foreach (DataGridViewRow item in dataGridViewDriver.Rows)
+                {
+                    if (item.Cells[0].Value.ToString() == driver.Id.ToString())
+                    {
+                        row = i;
+                        break;
+                    }
+                    i++;
+                }
+                if (row != -1)
+                {
+                    //DateTime t = DateTime.Parse(tpDriverDtpDateOfBirth.ToString());
+                    dataGridViewDriver.ClearSelection();
+                    dataGridViewDriver.Rows[row].Selected = true;
+                    tpDriverTxtIdDriver.Text = dataGridViewDriver.Rows[row].Cells[0].Value.ToString();
+                    tpDriverTxtName.Text = dataGridViewDriver.Rows[row].Cells[1].Value.ToString();
+                    tpDriverDtpDateOfBirth.Value = DateTime.Parse(dataGridViewDriver.Rows[row].Cells[2].Value.ToString());
+                    tpDriverCboGender.Text = dataGridViewDriver.Rows[row].Cells[3].Value.ToString();
+                    tpDriverTxtIdentityCard.Text = dataGridViewDriver.Rows[row].Cells[4].Value.ToString();
+                    tpDriverTxtPhone.Text = dataGridViewDriver.Rows[row].Cells[5].Value.ToString();
+                    tpDriverTxtEmail.Text = dataGridViewDriver.Rows[row].Cells[6].Value.ToString();
+                    tpDriverCboWard.Text = dataGridViewDriver.Rows[row].Cells[7].Value.ToString();
+                    tpDriverCboDistrict.Text = dataGridViewDriver.Rows[row].Cells[8].Value.ToString();
+
+                    tpDriverCboCity.Text = dataGridViewDriver.Rows[row].Cells[9].Value.ToString();
+                    tpDriverTxtFind.Clear();
+                }
+            }
+        }
+        private void dataGridViewDriver_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                tpDriverBtnSave.Enabled = false;
+            }
+        }
+
+        private void tpDriverCboCity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox control = (ComboBox)sender;
+            if (control.SelectedValue != null)
+            {
+                ControlHelper.Instance.loadDistrict(tpDriverCboDistrict, (int)control.SelectedValue);
+            }
+        }
+
+        private void tpDriverCboDistrict_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox control = (ComboBox)sender;
+            if (control.SelectedValue != null)
+            {
+                ControlHelper.Instance.loadWard(tpDriverCboWard, (int)control.SelectedValue);
+            }
+        }
+
+        private void tpDriverTxtIdentityCard_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Control control = (Control)sender;
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void tpDriverTxtIdentityCard_Leave(object sender, EventArgs e)
+        {
+            if (!Utilities.Instance.CheckIdentityCard(tpDriverTxtIdentityCard.Text))
+            {
+                MessageBox.Show("CMND/CCCD không đúng định dạng!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                tpDriverTxtIdentityCard.Focus();
+                return;
+            }
+        }
+
         #endregion
 
         #region Busline

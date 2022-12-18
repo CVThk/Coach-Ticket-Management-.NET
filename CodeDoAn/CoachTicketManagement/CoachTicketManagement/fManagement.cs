@@ -89,12 +89,12 @@ namespace CoachTicketManagement
                 ToolStripAdmin.Visible = true;
                 ToolStripBill.Visible = true;
                 ToolStripTicket.Visible = true;
-                ToolStripDoanhThu.Visible = true;
+                ToolStripBaoCao.Visible = true;
             }    
             else if (String.Compare(EmployeeService.Instance.CheckPermissionByID(_curEmployee.Id), "Kế Toán", true) == 0)
             {
                 ToolStripBill.Visible = true;
-                ToolStripDoanhThu.Visible = true;
+                ToolStripBaoCao.Visible = true;
                 btnFindTrip.Enabled = false;
             }
             else if (String.Compare(EmployeeService.Instance.CheckPermissionByID(_curEmployee.Id), "Bán Vé", true) == 0)
@@ -361,6 +361,22 @@ namespace CoachTicketManagement
         private void ToolStripBill_Click(object sender, EventArgs e)
         {
             fBill f = new fBill(_curEmployee);
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
+
+        private void ToolStripBaoCao_Click(object sender, EventArgs e)
+        {
+            fBaoCao f = new fBaoCao();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
+
+        private void ToolStripTicket_Click(object sender, EventArgs e)
+        {
+            fTicket f = new fTicket();
             this.Hide();
             f.ShowDialog();
             this.Show();
