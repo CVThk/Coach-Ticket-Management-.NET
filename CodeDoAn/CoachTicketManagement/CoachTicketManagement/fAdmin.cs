@@ -10,6 +10,7 @@ using CoachTicketManagement.Models;
 using CoachTicketManagement.Utility;
 using System.Linq;
 using System.Data.SqlClient;
+using CoachTicketManagement.Data;
 
 namespace CoachTicketManagement
 {
@@ -50,18 +51,18 @@ namespace CoachTicketManagement
                     loadDriver();
                     break;
                 case 3:
-                    loadBusLine();
-                    break;
-                case 4:
                     loadTimeBusLine();
                     break;
-                case 5:
+                case 4:
                     loadTrip();
+                    break;
+                case 5:
+                    loadBusLine();
                     break;
             }
         }
 
-        #region Account
+        #region Account - Châu Văn Thịnh
         bool check_tpAccountAdd = false;
         void lockDefaultAccount()
         {
@@ -137,9 +138,19 @@ namespace CoachTicketManagement
                     if (r == DialogResult.Yes)
                     {
                         int row = dataGridViewAccount.Rows.GetFirstRow(DataGridViewElementStates.Selected);
-                        dataGridViewAccount.Rows.RemoveAt(row);
-                        ADOHelper.Instance.ExecuteNonQuery("exec sp_DeleteAccount @idAccount=@para_0", new object[] { employee.IdAccount });
-                        MessageBox.Show("Xóa tài khoản thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        string result;
+                        using (var session = NHibernateHelper.OpenSession())
+                        {
+                            result = session.CreateSQLQuery(@"declare @result nvarchar(max)
+                                                                exec sp_DeleteAccount @idAccount=:idAccount,@result=@result output
+                                                                select @result").SetParameter("idAccount", employee.IdAccount).UniqueResult<string>();
+                        }
+                        if (result == "Thành công.")
+                        {
+                            dataGridViewAccount.Rows.RemoveAt(row);
+                            MessageBox.Show("Xóa tài khoản thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else MessageBox.Show(result, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
             }
@@ -148,7 +159,7 @@ namespace CoachTicketManagement
         private void tpAccountBtnUpdate_Click(object sender, EventArgs e)
         {
             int row = dataGridViewAccount.Rows.GetFirstRow(DataGridViewElementStates.Selected);
-            if(row >= 0)
+            if (row >= 0)
             {
                 check_tpAccountAdd = false;
                 tpAccountBtnSave.Enabled = true;
@@ -203,20 +214,20 @@ namespace CoachTicketManagement
         {
             int idEmployee;
             string userName, typeAccount;
-            if(!int.TryParse(tpAccountTxtIdEmployee.Text, out idEmployee))
+            if (!int.TryParse(tpAccountTxtIdEmployee.Text, out idEmployee))
             {
                 MessageBox.Show("Mã nhân viên không phù hợp !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             Employee employee = EmployeeService.Instance.GetEmployee(idEmployee);
-            if(employee == null)
+            if (employee == null)
             {
                 MessageBox.Show("Nhân viên không tồn tại !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-                
+
             userName = tpAccountTxtUsername.Text;
-            if(string.IsNullOrEmpty(userName) || userName.Length < 5)
+            if (string.IsNullOrEmpty(userName) || userName.Length < 5)
             {
                 MessageBox.Show("Vui lòng nhập tên đăng nhập, ít nhất 5 ký tự!!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -229,14 +240,14 @@ namespace CoachTicketManagement
                 return;
             }
 
-            if(check_tpAccountAdd) // thêm
+            if (check_tpAccountAdd) // thêm
             {
                 if (employee.IdAccount != 0)
                 {
                     MessageBox.Show("Nhân viên đã có tài khoản !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                if(AccountService.Instance.GetAccounts().SingleOrDefault(x => x.UserName == userName) != null)
+                if (AccountService.Instance.GetAccounts().SingleOrDefault(x => x.UserName == userName) != null)
                 {
                     MessageBox.Show("Tên đăng nhập đã tồn tại !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
@@ -262,7 +273,7 @@ namespace CoachTicketManagement
                         result = "Thất bại !!!";
                     }
                 }
-                if(result == "Thành công.")
+                if (result == "Thành công.")
                     MessageBox.Show("Thêm tài khoản cho nhân viên " + employee.Name + " thành công.\nUsername: " + userName, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else MessageBox.Show("Thêm tài khoản thất bại !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 loadAccount();
@@ -270,12 +281,12 @@ namespace CoachTicketManagement
             else // cập nhật
             {
                 int idAccount;
-                if(!int.TryParse(tpAccountTxtIdAccount.Text, out idAccount))
+                if (!int.TryParse(tpAccountTxtIdAccount.Text, out idAccount))
                 {
                     MessageBox.Show("Mã tài khoản không đúng !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
-                }    
-                if(employee.IdAccount != idAccount)
+                }
+                if (employee.IdAccount != idAccount)
                 {
                     MessageBox.Show("Tài khoản không đồng nhất với mã nhân viên !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
@@ -306,17 +317,56 @@ namespace CoachTicketManagement
                     MessageBox.Show("Cập nhật tài khoản cho nhân viên " + employee.Name + " thành công.\nUsername: " + userName, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else MessageBox.Show("Cập nhật tài khoản thất bại !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 loadAccount();
+            }
+        }
+        private void tpAccountBtnResetPassword_Click(object sender, EventArgs e)
+        {
+            if(string.IsNullOrEmpty(tpAccountTxtIdAccount.Text))
+            {
+                MessageBox.Show("Vui lòng chọn tài khoản reset !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }    
+            Account account = AccountService.Instance.GetAccounts().SingleOrDefault(x => x.IdEmployee.ToString() == tpAccountTxtIdAccount.Text);
+            if(account == null)
+            {
+                MessageBox.Show("Vui lòng chọn tài khoản reset !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            try
+            {
+                SqlConnection con = new SqlConnection(ConnectionString.Instance.getConnectionString());
+                SqlCommand cmd = new SqlCommand("sp_Change_Password", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@username", account.UserName);
+                cmd.Parameters.AddWithValue("@old_pwd", account.Password);
+                cmd.Parameters.AddWithValue("@new_pwd", "employee123");
+                cmd.Parameters.Add("@Status", SqlDbType.Int);
+                cmd.Parameters["@Status"].Direction = ParameterDirection.Output;
+                con.Open();
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+                con.Close();
+                int retVal = Convert.ToInt32(cmd.Parameters["@Status"].Value);
+                if (retVal == 1)
+                {
+                    MessageBox.Show("Mật khẩu đã được thay đổi thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Tên người dùng hoặc mật khẩu cũ sai. Vui lòng nhập lại!!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Hệ thống đã sảy ra sự cố vui lòng thực hiện lại thao tác!!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
         }
         #endregion
 
-
-        //----------------------------------------------EMPLOYEE-------------------------------------------------------
         #region Employee - Mai Trung Tiến
         // enabel
         private void MoNut()
         {
-
             tpEmployeeTxtName.Enabled = true;
             tpEmployeeCboCity.Enabled = true;
             tpEmployeeCboDistrict.Enabled = true;
@@ -330,7 +380,6 @@ namespace CoachTicketManagement
         }
         private void DongNut()
         {
-
             tpEmployeeTxtName.Enabled = false;
             tpEmployeeCboCity.Enabled = false;
             tpEmployeeCboDistrict.Enabled = false;
@@ -353,6 +402,7 @@ namespace CoachTicketManagement
         {
             if (e.RowIndex < 0)
             {
+
                 tpEmployeeBtnSave.Enabled = false;
             }
             lockDefaulttpEmployee();
@@ -426,7 +476,6 @@ namespace CoachTicketManagement
 
 
         }
-
         private void tpEmployeeBtnAdd_Click(object sender, EventArgs e)
         {
             check_tpEmployeeADD = true;
@@ -457,7 +506,7 @@ namespace CoachTicketManagement
                     Employee employee = EmployeeService.Instance.GetEmployee(idEmployee);
                     if (employee != null)
                     {
-                        DialogResult r = MessageBox.Show("Bạn có chắc muốn xóa Nhân Viên?", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Stop);
+                        DialogResult r = MessageBox.Show("Bạn có chắc muốn xóa nhân viên: " + employee.Name + " ?", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Stop);
                         if (r == DialogResult.Yes)
                         {
 
@@ -471,7 +520,7 @@ namespace CoachTicketManagement
                                 {
 
                                     cmd.ExecuteNonQuery();
-                                    MessageBox.Show("Xóa Nhân Viên Thành Công!!!", "Hoàn Thành", MessageBoxButtons.OK);
+                                    MessageBox.Show("Xóa nhân viên thành công.", "Hoàn thành", MessageBoxButtons.OK);
                                     int row = dataGridViewEmployee.Rows.GetFirstRow(DataGridViewElementStates.Selected);
                                     dataGridViewEmployee.Rows.RemoveAt(row);
                                 }
@@ -485,7 +534,7 @@ namespace CoachTicketManagement
             }
             catch
             {
-                MessageBox.Show("Không Thể Xóa !!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("Không Thể Xóa  do có dữ liệu trong hệ thống!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
             DongNut();
         }
@@ -502,16 +551,13 @@ namespace CoachTicketManagement
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn đối tượng nhân viên trong bảng trước khi cập nhật !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                MessageBox.Show("Vui lòng chọn nhân viên trong bảng trước khi cập nhật !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
         }
 
         private void tpEmployeeBtnSave_Click(object sender, EventArgs e)
         {
-            int idEmployee;
-            int.TryParse(tpEmployeeTxtIdEmployee.Text, out idEmployee);
 
-            Employee __Employee = EmployeeService.Instance.GetEmployee(idEmployee);
             if (string.IsNullOrEmpty(tpEmployeeTxtName.Text))
             {
                 MessageBox.Show("Không được bỏ trống tên !!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -553,20 +599,80 @@ namespace CoachTicketManagement
                 return;
             }
 
+            if (!Utilities.Instance.CheckPhone(tpEmployeeTxtPhone.Text))
+            {
+                MessageBox.Show("SDT không đúng định dạng!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                tpEmployeeTxtPhone.Focus();
+                return;
+            }
+            string phone = tpEmployeeTxtPhone.Text;
+            List<Employee> employees = EmployeeService.Instance.GetEmployees();
+            Employee employee = employees.SingleOrDefault(x => x.Phone == phone);
+            if (employee != null)
+            {
+                if (check_tpEmployeeADD || tpEmployeeTxtIdEmployee.Text != employee.Id.ToString())
+                {
+                    MessageBox.Show("SĐT bị trùng!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    tpEmployeeTxtPhone.Focus();
+                    return;
+                }
+            }
+
+            if (!Utilities.Instance.CheckGmail(tpEmployeeTxtEmail.Text))
+            {
+                MessageBox.Show("Mail không đúng định dạng!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                tpEmployeeTxtEmail.Focus();
+                return;
+            }
+            string mail = tpEmployeeTxtEmail.Text;
+            employee = employees.SingleOrDefault(x => x.Email == mail);
+
+            if (employee != null)
+            {
+                if (check_tpEmployeeADD || tpEmployeeTxtIdEmployee.Text != employee.Id.ToString())
+                {
+                    MessageBox.Show("Mail bị trùng!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    tpEmployeeTxtEmail.Focus();
+                    return;
+                }
+
+            }
+
+            if (!Utilities.Instance.CheckIdentityCard(tpEmployeeTxtIdentityCard.Text))
+            {
+                MessageBox.Show("CMND/CCCD không đúng định dạng!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                tpEmployeeTxtIdentityCard.Focus();
+                return;
+            }
+
+            string IDCard = tpEmployeeTxtIdentityCard.Text;
+            employee = employees.SingleOrDefault(x => x.IdentityCard == IDCard);
+
+            if (employee != null)
+            {
+                if (check_tpEmployeeADD || tpEmployeeTxtIdEmployee.Text != employee.Id.ToString())
+                {
+                    MessageBox.Show("CMND/CCCD bị trùng!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    tpEmployeeTxtIdentityCard.Focus();
+                    return;
+                }
+            }
+
+
             ///---------------
             if (check_tpEmployeeADD == false)
             {
-
-                if (__Employee == null)
+                employee = employees.SingleOrDefault(x => x.Id.ToString() == tpEmployeeTxtIdEmployee.Text);
+                if (employee == null)
                 {
                     MessageBox.Show("Chưa load được dữ liệu nhân viên!!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
                 else
                 {
-                    if (tpEmployeeTxtName.Text != __Employee.Name || (int)tpEmployeeCboWard.SelectedValue != __Employee.IdWard ||
-                        tpEmployeeCboGender.SelectedItem.ToString() != __Employee.Gender || tpEmployeeDtpDateOfBirth.Value != __Employee.DateOfBirth ||
-                        (int)tpEmployeeCboTypeOfEmployee.SelectedValue != __Employee.IdTypeOfEmployee || tpEmployeeTxtIdentityCard.Text != __Employee.IdentityCard ||
-                        tpEmployeeTxtPhone.Text != __Employee.Phone || tpEmployeeTxtEmail.Text != __Employee.Email
+                    if (tpEmployeeTxtName.Text != employee.Name || (int)tpEmployeeCboWard.SelectedValue != employee.IdWard ||
+                        tpEmployeeCboGender.SelectedItem.ToString() != employee.Gender || tpEmployeeDtpDateOfBirth.Value != employee.DateOfBirth ||
+                        (int)tpEmployeeCboTypeOfEmployee.SelectedValue != employee.IdTypeOfEmployee || tpEmployeeTxtIdentityCard.Text != employee.IdentityCard ||
+                        tpEmployeeTxtPhone.Text != employee.Phone || tpEmployeeTxtEmail.Text != employee.Email
                         )
                     {
                         DialogResult r = MessageBox.Show("Thông tin có sự thay đổi. Bạn có muốn cập nhật lại dữ liệu?", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Stop);
@@ -576,20 +682,21 @@ namespace CoachTicketManagement
                             {
                                 using (SqlConnection connection = new SqlConnection(ConnectionString.Instance.getConnectionString()))
                                 {
-                                    string query = string.Format(@"SET DATEFORMAT DMY exec sp_UpdateEMPLOYEE {0},{1},{2},{3},N'{4}','{5}',N'{6}','{7}','{8}','{9}'",
-                                                      __Employee.Id, (int)tpEmployeeCboWard.SelectedValue, tpEmployeeCboTypeOfEmployee.SelectedValue, __Employee.IdPermissionGroup,
-                                                       tpEmployeeTxtName.Text, tpEmployeeDtpDateOfBirth.Value, tpEmployeeCboGender.Text,
+                                    string query = string.Format(@"SET DATEFORMAT DMY exec sp_UpdateEMPLOYEE {0},{1},{2},N'{3}','{4}',N'{5}','{6}','{7}','{8}'",
+                                                      employee.Id, (int)tpEmployeeCboWard.SelectedValue, tpEmployeeCboTypeOfEmployee.SelectedValue,
+                                                       tpEmployeeTxtName.Text, tpEmployeeDtpDateOfBirth.Value.Date.ToString("dd/MM/yyyy"), tpEmployeeCboGender.Text,
                                                         tpEmployeeTxtIdentityCard.Text, tpEmployeeTxtPhone.Text, tpEmployeeTxtEmail.Text);
                                     connection.Open();
                                     SqlCommand cmd = new SqlCommand(query, connection);
                                     if (query != null)
                                     {
                                         cmd.ExecuteNonQuery();
+                                        loadEmployee();
                                         MessageBox.Show("Cập Nhật Thành Công!!!", "Hoàn Thành", MessageBoxButtons.OK);
 
                                     }
                                     connection.Close();
-                                    loadEmployee();
+
                                 }
 
                             }
@@ -609,28 +716,32 @@ namespace CoachTicketManagement
                 {
                     try
                     {
+
                         using (SqlConnection connection = new SqlConnection(ConnectionString.Instance.getConnectionString()))
                         {
-                            string query = string.Format(@"SET DATEFORMAT DMY exec sp_InsertEMPLOYEE {0},{1},{2},N'{3}','{4}',N'{5}','{7}','{7}','{8}'",
-                                              (int)tpEmployeeCboWard.SelectedValue, tpEmployeeCboTypeOfEmployee.SelectedValue, Convert.ToInt32(3),
-                                               tpEmployeeTxtName.Text, tpEmployeeDtpDateOfBirth.Value, tpEmployeeCboGender.Text,
+                            string query = string.Format(@"SET DATEFORMAT DMY
+                                                                exec sp_InsertEMPLOYEE @IDWARD = {0}, @IDTYPE = {1}, @NAMEEMPLOYEE = N'{2}', @DATEOFBIRTHEMPLOYEE = '{3}', 
+							                                        @GENDEREMPLOYEE = N'{4}', @IDENTITYCARDEMPLOYEE = '{5}',
+							                                        @PHONEEMPLOYEE = '{6}',@EMAILEMPLOYEE = '{7}'",
+                                              (int)tpEmployeeCboWard.SelectedValue, (int)tpEmployeeCboTypeOfEmployee.SelectedValue,
+                                               tpEmployeeTxtName.Text, tpEmployeeDtpDateOfBirth.Value.Date.ToString("dd/MM/yyyy"), tpEmployeeCboGender.Text,
                                                 tpEmployeeTxtIdentityCard.Text, tpEmployeeTxtPhone.Text, tpEmployeeTxtEmail.Text);
                             connection.Open();
                             SqlCommand cmd = new SqlCommand(query, connection);
                             if (query != null)
                             {
                                 cmd.ExecuteNonQuery();
+                                loadEmployee();
                                 MessageBox.Show("Thêm Thành Công!!!", "Hoàn Thành", MessageBoxButtons.OK);
 
                             }
                             connection.Close();
-                            loadEmployee();
                         }
 
                     }
                     catch
                     {
-                        MessageBox.Show("Thông tin bị trùng !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        MessageBox.Show("Không Thể Thêm !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     }
                 }
             }
@@ -695,7 +806,7 @@ namespace CoachTicketManagement
             int idEmployee;
             if (int.TryParse(tpEmployeeTxtIdEmployee.Text, out idEmployee))
             {
-                Employee __Employee = EmployeeService.Instance.GetEmployee(idEmployee);
+                Employee employee = EmployeeService.Instance.GetEmployee(idEmployee);
             }
         }
         private void tpEmployeeCboDistrict_SelectedIndexChanged(object sender, EventArgs e)
@@ -704,66 +815,6 @@ namespace CoachTicketManagement
             if (control.SelectedValue != null)
             {
                 ControlHelper.Instance.loadWard(tpEmployeeCboWard, (int)control.SelectedValue);
-            }
-        }
-        private void tpEmployeeTxtEmail_Leave(object sender, EventArgs e)
-        {
-            if (!Utilities.Instance.CheckGmail(tpEmployeeTxtEmail.Text))
-            {
-                MessageBox.Show("Mail không đúng định dạng!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                tpEmployeeTxtEmail.Focus();
-                return;
-            }
-            string mail = tpEmployeeTxtEmail.Text;
-            List<Employee> employees = EmployeeService.Instance.GetEmployees();
-            Employee employee = employees.SingleOrDefault(x => x.Email == mail);
-
-            if (employee != null)
-            {
-                MessageBox.Show("Mail bị trùng!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                tpEmployeeTxtEmail.Focus();
-                return;
-            }
-        }
-
-        private void tpEmployeeTxtPhone_Leave(object sender, EventArgs e)
-        {
-            if (!Utilities.Instance.CheckPhone(tpEmployeeTxtPhone.Text))
-            {
-                MessageBox.Show("SDT không đúng định dạng!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                tpEmployeeTxtPhone.Focus();
-                return;
-            }
-            string phone = tpEmployeeTxtPhone.Text;
-            List<Employee> employees = EmployeeService.Instance.GetEmployees();
-            Employee employee = employees.SingleOrDefault(x => x.Phone == phone);
-
-            if (employee != null)
-            {
-                MessageBox.Show("SĐT bị trùng!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                tpEmployeeTxtPhone.Focus();
-                return;
-            }
-        }
-
-        private void tpEmployeeTxtIdentityCard_Leave(object sender, EventArgs e)
-        {
-            if (!Utilities.Instance.CheckIdentityCard(tpEmployeeTxtIdentityCard.Text))
-            {
-                MessageBox.Show("CMND/CCCD không đúng định dạng!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                tpEmployeeTxtIdentityCard.Focus();
-                return;
-            }
-
-            string IDCard = tpEmployeeTxtIdentityCard.Text;
-            List<Employee> employees = EmployeeService.Instance.GetEmployees();
-            Employee employee = employees.SingleOrDefault(x => x.IdentityCard == IDCard);
-
-            if (employee != null)
-            {
-                MessageBox.Show("CMND/CCCD bị trùng!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                tpEmployeeTxtIdentityCard.Focus();
-                return;
             }
         }
         private void tpEmployeeTxtIdentityCard_KeyPress(object sender, KeyPressEventArgs e)
@@ -781,8 +832,7 @@ namespace CoachTicketManagement
         }
         #endregion
 
-
-        #region Driver Hạnh
+        #region Driver - Hoàng Thị Mỹ Hạnh
         bool check_tpDriverAdd = false;
         void loadDriver()
         {
@@ -917,7 +967,7 @@ namespace CoachTicketManagement
                 return;
             }
             List<Employee> employees = EmployeeService.Instance.GetEmployees();
-            if(employees.SingleOrDefault(x => x.Phone == tpDriverTxtPhone.Text) != null)
+            if (employees.SingleOrDefault(x => x.Phone == tpDriverTxtPhone.Text) != null)
             {
                 MessageBox.Show("Số điện thoại này đã tồn tại trong hệ thống !!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -1194,9 +1244,29 @@ namespace CoachTicketManagement
         }
         #endregion
 
-        #region Trip
+        #region Trip - Trần Mỹ Hằng    
+        private void tpTripDataGridViewTrip_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                loadDefaultTrip();
+            }
+        }
+        void loadDefaultTrip()
+        {
+            tpTripBtnSave.Enabled = false;
+            tpTripAmountSeat.Enabled = false;
+            tpTripCboIDEmployee.Enabled = false;
+            tpTripCboIDTimeBusLine.Enabled = false;
+            tpTripDepartureDay.Enabled = false;
+            tpTripIDBusLine.Enabled = false;
+            tpTripIDCoach.Enabled = false;
+            tpTripIDDriver.Enabled = false;
+        }
+
         void loadTrip()
         {
+            loadDefaultTrip();
             tpTripDataGridViewTrip.Columns.Clear();
             tpTripDataGridViewTrip.Columns.Add("IDTRIP", "Mã Chuyến Xe");
             tpTripDataGridViewTrip.Columns[0].DataPropertyName = "IDTRIP";
@@ -1243,8 +1313,306 @@ namespace CoachTicketManagement
             tpTripAmountSeat.DataBindings.Add("Text", data, "AMOUNTEMPTYSEAT", true, DataSourceUpdateMode.Never);
         }
 
+        private void tpTripBtnDelete_Click(object sender, EventArgs e)
+        {
+            int idTrip;
+            string startTime;
+            string finshTime;
+            string departurestation;
+            string destinationstation;
+            if (int.TryParse(tpTripTxtIDTrip.Text, out idTrip))
+            {
+                using (SqlConnection connection = new SqlConnection(ConnectionString.Instance.getConnectionString()))
+                {
+                    SqlCommand cmd1 = new SqlCommand(@"DECLARE @STARTTIME TIME(0), @FINISHTIME TIME(0)
+                    EXEC sp_GetTimeBusLine @idTrip = @para_0, @STARTTIME = @STARTTIME OUTPUT, @FINISHTIME = @FINISHTIME OUTPUT
+                    SELECT @STARTTIME,@FINISHTIME ", connection);
+                    cmd1.Parameters.AddWithValue("@para_0", idTrip);
+                    SqlDataAdapter adapter1 = new SqlDataAdapter(cmd1);
+                    DataTable data1 = new DataTable();
+                    adapter1.Fill(data1);
+                    startTime = data1.Rows[0][0].ToString();
+                    finshTime = data1.Rows[0][1].ToString();
+                }
+                using (SqlConnection connection = new SqlConnection(ConnectionString.Instance.getConnectionString()))
+                {
+                    SqlCommand cmd2 = new SqlCommand(@"DECLARE @DEPARTURESTATION nvarchar(MAX), @DESTINATIONSTATION nvarchar(MAX)
+                    EXEC sp_GetBusLine @idTrip = @para_0,@DEPARTURESTATION = @DEPARTURESTATION OUTPUT, @DESTINATIONSTATION = @DESTINATIONSTATION OUTPUT
+                    SELECT @DEPARTURESTATION, @DESTINATIONSTATION", connection);
+                    cmd2.Parameters.AddWithValue("@para_0", idTrip);
+                    SqlDataAdapter adapter2 = new SqlDataAdapter(cmd2);
+                    DataTable data2 = new DataTable();
+                    adapter2.Fill(data2);
+                    departurestation = data2.Rows[0][0].ToString();
+                    destinationstation = data2.Rows[0][1].ToString();
+                }
+                string s2 = string.Format("thời gian từ " + startTime + " đến " + finshTime);
+                string s1 = string.Format(" từ " + departurestation + " đến " + destinationstation + " và có " + s2);
+                Trip trip = TripService.Instance.GetTrip(idTrip);
+                if (trip != null)
+                {
+                    DialogResult r = MessageBox.Show("Bạn có chắc chắn muốn xóa chuyến xe " + s1 + " hay không ?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                    if (r == DialogResult.Yes)
+                    {
+                        string result;
+                        using (SqlConnection connection = new SqlConnection(ConnectionString.Instance.getConnectionString()))
+                        {
+                            SqlCommand cmd = new SqlCommand(@"DECLARE @RESULT INT EXEC sp_DeleteTrip @idTrip = @para_0, @RESULT = @RESULT OUTPUT SELECT @RESULT", connection);
+                            cmd.Parameters.AddWithValue("@para_0", idTrip);
+                            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                            DataTable data = new DataTable();
+                            adapter.Fill(data);
+                            result = data.Rows[0][0].ToString();
+                        }
+                        if (result != "1")
+                        {
+                            MessageBox.Show("Bạn không thể xóa chuyến xe này !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+                            int row = tpTripDataGridViewTrip.Rows.GetFirstRow(DataGridViewElementStates.Selected);
+                            tpTripDataGridViewTrip.Rows.RemoveAt(row);
+                            //ADOHelper.Instance.ExecuteNonQuery("DECLARE @RESULT INT EXEC sp_DeleteTrip @idTrip = @para_0, @RESULT = @RESULT OUTPUT SELECT @RESULT", new object[] { trip.IDTRIP });
+                            MessageBox.Show("Xóa chuyến xe thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+
+                    }
+                }
+            }
+        }
+
+        private void tpTripBtnUpdate_Click(object sender, EventArgs e)
+        {
+            tpTripBtnSave.Enabled = true;
+            tpTripCboIDEmployee.Enabled = true;
+            int row = tpTripDataGridViewTrip.Rows.GetFirstRow(DataGridViewElementStates.Selected);
+            if (row >= 0)
+            {
+                check_tpTripAdd = false;
+                tpTripBtnSave.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn chuyến xe trong bảng trước khi cập nhật !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+        }
+
+        private void tpTripBtnFind_Click(object sender, EventArgs e)
+        {
+            string textFind = tpTripTxtFind.Text;
+            List<Trip> trips = TripService.Instance.GetTrips();
+            Trip trip = trips.FirstOrDefault(x => x.IDTRIP.ToString() == textFind || x.IDTIME.ToString() == textFind || x.IDBUSLINE.ToString() == textFind || x.DEPARTUREDAY.ToString() == textFind);
+            if (trip == null)
+            {
+                MessageBox.Show("Không tìm thấy thông tin phù hợp !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                tpTripTxtFind.Clear();
+            }
+            else
+            {
+
+                //DataTable dt1 = new DataTable();
+                //for (int c = 0; c < tpTripDataGridViewTrip.ColumnCount; ++c)
+                //{
+                //    dt1.Columns.Add(new DataColumn(tpTripDataGridViewTrip.Columns[c].Name));
+                //}
+                int row = -1;
+                int i = 0;
+                foreach (DataGridViewRow item in tpTripDataGridViewTrip.Rows)
+                {
+                    //DataRow r = dt1.NewRow();
+                    if (item.Cells[0].Value.ToString() == trip.IDTRIP.ToString())
+                    {
+                        //dt1.Rows.Add(item);
+                        row = i;
+                        break;
+                    }
+                    i++;
+                }
+                //tpTripDataGridViewTrip.DataSource = dt1;
+                if (row != -1)
+                {
+                    tpTripDataGridViewTrip.ClearSelection();
+                    tpTripDataGridViewTrip.Rows[row].Selected = true;
+                    tpTripTxtIDTrip.Text = tpTripDataGridViewTrip.Rows[row].Cells[0].Value.ToString();
+                    tpTripCboIDTimeBusLine.Text = tpTripDataGridViewTrip.Rows[row].Cells[1].Value.ToString();
+                    tpTripIDBusLine.Text = tpTripDataGridViewTrip.Rows[row].Cells[2].Value.ToString();
+                    tpTripCboIDEmployee.Text = tpTripDataGridViewTrip.Rows[row].Cells[3].Value.ToString();
+                    tpTripIDCoach.Text = tpTripDataGridViewTrip.Rows[row].Cells[4].Value.ToString();
+                    tpTripIDDriver.Text = tpTripDataGridViewTrip.Rows[row].Cells[5].Value.ToString();
+                    tpTripDepartureDay.Text = tpTripDataGridViewTrip.Rows[row].Cells[6].Value.ToString();
+                    tpTripTxtFind.Clear();
+                }
+            }
+        }
+
+        bool check_tpTripAdd = false;
+
+        private void tpTripBtnAdd_Click(object sender, EventArgs e)
+        {
+            tpTripDataGridViewTrip.ClearSelection();
+            check_tpTripAdd = true;
+            tpTripBtnSave.Enabled = true;
+            tpTripTxtIDTrip.Clear();
+            tpTripAmountSeat.Enabled = true;
+            tpTripCboIDEmployee.Enabled = true;
+            tpTripCboIDTimeBusLine.Enabled = true;
+            tpTripDepartureDay.Enabled = true;
+            tpTripIDBusLine.Enabled = true;
+            tpTripIDCoach.Enabled = true;
+            tpTripIDDriver.Enabled = true;
+        }
+        private void tpTripBtnSave_Click(object sender, EventArgs e)
+        {
+            int idTrip;
+            string time;
+            string busLine;
+            string employee;
+            string coach;
+            string driver;
 
 
+            if (string.IsNullOrEmpty(tpTripCboIDTimeBusLine.Text))
+            {
+                MessageBox.Show("Vui lòng chọn thời gian !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (tpTripAmountSeat.Value < 0)
+            {
+                MessageBox.Show("Số ghế trống không được nhỏ hơn 0 !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (string.IsNullOrEmpty(tpTripIDBusLine.Text))
+            {
+                MessageBox.Show("Vui lòng chọn tuyến xe !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (string.IsNullOrEmpty(tpTripCboIDEmployee.Text))
+            {
+                MessageBox.Show("Vui lòng chọn phụ xe ( lơ xe ) !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (string.IsNullOrEmpty(tpTripIDDriver.Text))
+            {
+                MessageBox.Show("Vui lòng chọn tài xế !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (string.IsNullOrEmpty(tpTripIDCoach.Text))
+            {
+                MessageBox.Show("Vui lòng chọn xe !!!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
+            //busline
+            string[] bl = tpTripIDBusLine.Text.Split('-');
+            string bl1 = bl[0].ToString().Trim();
+            string bl2 = bl[1].ToString().Trim();
+
+            using (SqlConnection connection = new SqlConnection(ConnectionString.Instance.getConnectionString()))
+            {
+                SqlCommand cmd1 = new SqlCommand(@"SELECT * FROM dbo.f_GetBusLine(@para_0,@para_1)", connection);
+                cmd1.Parameters.AddWithValue("@para_0", bl1);
+                cmd1.Parameters.AddWithValue("@para_1", bl2);
+                SqlDataAdapter adapter1 = new SqlDataAdapter(cmd1);
+                DataTable data1 = new DataTable();
+                adapter1.Fill(data1);
+                busLine = data1.Rows[0][0].ToString();
+            }
+
+            //time
+            string[] t = tpTripCboIDTimeBusLine.Text.Split('-');
+            string t1 = t[0].ToString().Trim();
+            string t2 = t[1].ToString().Trim();
+
+            using (SqlConnection connection = new SqlConnection(ConnectionString.Instance.getConnectionString()))
+            {
+                SqlCommand cmd2 = new SqlCommand(@"SELECT * FROM f_GetTimeBusLine(@para_0,@para_1)", connection);
+                cmd2.Parameters.AddWithValue("@para_0", t1);
+                cmd2.Parameters.AddWithValue("@para_1", t2);
+                SqlDataAdapter adapter2 = new SqlDataAdapter(cmd2);
+                DataTable data2 = new DataTable();
+                adapter2.Fill(data2);
+                time = data2.Rows[0][0].ToString();
+            }
+
+            //employee
+            using (SqlConnection connection = new SqlConnection(ConnectionString.Instance.getConnectionString()))
+            {
+                SqlCommand cmd3 = new SqlCommand(@"select * from f_GetEmployee(@para_0)", connection);
+                cmd3.Parameters.AddWithValue("@para_0", tpTripCboIDEmployee.Text.Trim());
+                SqlDataAdapter adapter3 = new SqlDataAdapter(cmd3);
+                DataTable data3 = new DataTable();
+                adapter3.Fill(data3);
+                employee = data3.Rows[0][0].ToString();
+            }
+
+            //coach 
+            using (SqlConnection connection = new SqlConnection(ConnectionString.Instance.getConnectionString()))
+            {
+                SqlCommand cmd4 = new SqlCommand(@"select * from f_GetCoach(@para_0)", connection);
+                cmd4.Parameters.AddWithValue("@para_0", tpTripIDCoach.Text.Trim());
+                SqlDataAdapter adapter4 = new SqlDataAdapter(cmd4);
+                DataTable data4 = new DataTable();
+                adapter4.Fill(data4);
+                coach = data4.Rows[0][0].ToString();
+            }
+
+            //driver
+            using (SqlConnection connection = new SqlConnection(ConnectionString.Instance.getConnectionString()))
+            {
+                SqlCommand cmd5 = new SqlCommand(@"select * from f_GetDriver(@para_0)", connection);
+                cmd5.Parameters.AddWithValue("@para_0", tpTripIDDriver.Text.Trim());
+                SqlDataAdapter adapter5 = new SqlDataAdapter(cmd5);
+                DataTable data5 = new DataTable();
+                adapter5.Fill(data5);
+                driver = data5.Rows[0][0].ToString();
+
+            }
+
+            if (check_tpTripAdd)//them
+            {
+                DialogResult r = MessageBox.Show("Bạn có chắc chắn muốn thêm chuyến xe mới ?", "Thông báo", MessageBoxButtons.YesNo);
+                if (r == DialogResult.Yes)
+                {
+                    string result1;
+                    using (SqlConnection connection = new SqlConnection(ConnectionString.Instance.getConnectionString()))
+                    {
+                        try
+                        {
+                            SqlCommand cmd6 = new SqlCommand(@"declare @strResult nvarchar(max)
+                            exec sp_InsertTrip @idTime = @para_0, @departureday = @date, @idBusLine = @para_1, @idEmployee = @para_2, @idCoach = @para_3, @idDriver = @para_4, @strResult = @strResult output
+                            select @strResult", connection);
+                            cmd6.Parameters.AddWithValue("@para_0", time);
+                            cmd6.Parameters.AddWithValue("@para_1", busLine);
+                            cmd6.Parameters.AddWithValue("@para_2", employee);
+                            cmd6.Parameters.AddWithValue("@para_3", coach);
+                            cmd6.Parameters.AddWithValue("@para_4", driver);
+                            cmd6.Parameters.AddWithValue("@date", tpTripDepartureDay.Value.Date.ToString("dd/MM/yyyy"));
+                            SqlDataAdapter adapter6 = new SqlDataAdapter(cmd6);
+                            DataTable data6 = new DataTable();
+                            adapter6.Fill(data6);
+                            result1 = data6.Rows[0][0].ToString();
+                        }
+                        catch
+                        {
+                            result1 = "Thất bại !!!";
+                        }
+                    }
+                    if (result1 == "Thành công.")
+                        MessageBox.Show("Thêm chuyến xe " + " [ " + tpTripIDBusLine.Text + " ] " + "vào lúc" + " [ " + tpTripCboIDTimeBusLine.Text + " ] " + "thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else MessageBox.Show(result1, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    loadTrip();
+                }
+            }
+            else//cap nhat
+            {
+                
+            }
+        }
         #endregion
+
+        
+
+       
     }
 }

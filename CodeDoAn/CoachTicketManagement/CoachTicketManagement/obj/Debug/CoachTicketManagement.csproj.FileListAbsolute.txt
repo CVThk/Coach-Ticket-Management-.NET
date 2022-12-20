@@ -58,3 +58,5 @@ C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\Co
 C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\bin\Debug\CrystalDecisions.Windows.Forms.dll
 C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\obj\Debug\CoachTicketManagement.fTicket.resources
 C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\obj\Debug\CoachTicketManagement.fBaoCao.resources
+C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\obj\Debug\CoachTicketManagement.csproj.AssemblyReference.cache
+C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\obj\Debug\CoachTicketManagement.fSwitchPassword.resources

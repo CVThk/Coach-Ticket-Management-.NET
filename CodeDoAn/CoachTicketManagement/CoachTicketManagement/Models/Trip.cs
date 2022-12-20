@@ -8,14 +8,14 @@ namespace CoachTicketManagement.Models
 {
     public class Trip
     {
-        public int IDTRIP { get; set; }
-        public int IDTIME { get; set; }
-        public int IDBUSLINE { get; set; }
-        public int IDEMPLOYEE { get; set; }
-        public int IDCOACH { get; set; }
-        public int IDDRIVER { get; set; }
-        public DateTime DEPARTUREDAY { get; set; }
-        public int AMOUNTEMPTYSEAT { get; set; }
+        public virtual int IDTRIP { get; set; }
+        public virtual int IDTIME { get; set; }
+        public virtual int IDBUSLINE { get; set; }
+        public virtual int IDEMPLOYEE { get; set; }
+        public virtual int IDCOACH { get; set; }
+        public virtual int IDDRIVER { get; set; }
+        public virtual DateTime DEPARTUREDAY { get; set; }
+        public virtual int AMOUNTEMPTYSEAT { get; set; }
 
     }
 }

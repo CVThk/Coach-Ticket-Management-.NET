@@ -347,6 +347,7 @@ namespace CoachTicketManagement
             this.tpTripDataGridViewTrip.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tpTripDataGridViewTrip.Size = new System.Drawing.Size(448, 600);
             this.tpTripDataGridViewTrip.TabIndex = 12;
+            this.tpTripDataGridViewTrip.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tpTripDataGridViewTrip_CellClick);
             // 
             // panel37
             // 
@@ -363,6 +364,7 @@ namespace CoachTicketManagement
             this.tpTripAmountSeat.Location = new System.Drawing.Point(144, 14);
             this.tpTripAmountSeat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpTripAmountSeat.Name = "tpTripAmountSeat";
+            this.tpTripAmountSeat.ReadOnly = true;
             this.tpTripAmountSeat.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tpTripAmountSeat.Size = new System.Drawing.Size(291, 27);
             this.tpTripAmountSeat.TabIndex = 4;
@@ -390,6 +392,7 @@ namespace CoachTicketManagement
             this.tpTripBtnSave.TabIndex = 9;
             this.tpTripBtnSave.Text = "Lưu";
             this.tpTripBtnSave.UseVisualStyleBackColor = false;
+            this.tpTripBtnSave.Click += new System.EventHandler(this.tpTripBtnSave_Click);
             // 
             // tpTripBtnUpdate
             // 
@@ -404,6 +407,7 @@ namespace CoachTicketManagement
             this.tpTripBtnUpdate.TabIndex = 9;
             this.tpTripBtnUpdate.Text = "Cập nhật";
             this.tpTripBtnUpdate.UseVisualStyleBackColor = false;
+            this.tpTripBtnUpdate.Click += new System.EventHandler(this.tpTripBtnUpdate_Click);
             // 
             // panel38
             // 
@@ -447,6 +451,7 @@ namespace CoachTicketManagement
             this.tpTripBtnDelete.TabIndex = 8;
             this.tpTripBtnDelete.Text = "Xóa";
             this.tpTripBtnDelete.UseVisualStyleBackColor = false;
+            this.tpTripBtnDelete.Click += new System.EventHandler(this.tpTripBtnDelete_Click);
             // 
             // panel39
             // 
@@ -490,6 +495,7 @@ namespace CoachTicketManagement
             this.tpTripBtnAdd.TabIndex = 7;
             this.tpTripBtnAdd.Text = "Thêm";
             this.tpTripBtnAdd.UseVisualStyleBackColor = false;
+            this.tpTripBtnAdd.Click += new System.EventHandler(this.tpTripBtnAdd_Click);
             // 
             // panel40
             // 
@@ -562,6 +568,7 @@ namespace CoachTicketManagement
             this.tpTripBtnFind.TabIndex = 11;
             this.tpTripBtnFind.Text = "Tìm";
             this.tpTripBtnFind.UseVisualStyleBackColor = false;
+            this.tpTripBtnFind.Click += new System.EventHandler(this.tpTripBtnFind_Click);
             // 
             // panel42
             // 
@@ -1737,7 +1744,6 @@ namespace CoachTicketManagement
             this.tpEmployeeTxtEmail.Name = "tpEmployeeTxtEmail";
             this.tpEmployeeTxtEmail.Size = new System.Drawing.Size(291, 27);
             this.tpEmployeeTxtEmail.TabIndex = 2;
-            this.tpEmployeeTxtEmail.Leave += new System.EventHandler(this.tpEmployeeTxtEmail_Leave);
             // 
             // panel11
             // 
@@ -1998,7 +2004,6 @@ namespace CoachTicketManagement
             this.tpEmployeeTxtPhone.Size = new System.Drawing.Size(291, 27);
             this.tpEmployeeTxtPhone.TabIndex = 2;
             this.tpEmployeeTxtPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tpEmployeeTxtPhone_KeyPress);
-            this.tpEmployeeTxtPhone.Leave += new System.EventHandler(this.tpEmployeeTxtPhone_Leave);
             // 
             // panel26
             // 
@@ -2027,7 +2032,6 @@ namespace CoachTicketManagement
             this.tpEmployeeTxtIdentityCard.Size = new System.Drawing.Size(291, 27);
             this.tpEmployeeTxtIdentityCard.TabIndex = 2;
             this.tpEmployeeTxtIdentityCard.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tpEmployeeTxtIdentityCard_KeyPress);
-            this.tpEmployeeTxtIdentityCard.Leave += new System.EventHandler(this.tpEmployeeTxtIdentityCard_Leave);
             // 
             // tpAccount
             // 
@@ -2290,6 +2294,7 @@ namespace CoachTicketManagement
             this.tpAccountBtnResetPassword.TabIndex = 7;
             this.tpAccountBtnResetPassword.Text = "Reset Password";
             this.tpAccountBtnResetPassword.UseVisualStyleBackColor = false;
+            this.tpAccountBtnResetPassword.Click += new System.EventHandler(this.tpAccountBtnResetPassword_Click);
             // 
             // tabControlAdmin
             // 

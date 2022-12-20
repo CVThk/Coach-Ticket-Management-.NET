@@ -35,6 +35,7 @@ namespace CoachTicketManagement.Data
                  .AddFromAssemblyOf<Employee>()
                  .AddFromAssemblyOf<Client>()
                  .AddFromAssemblyOf<Driver>()
+                 .AddFromAssemblyOf<Trip>()
              )
              .ExposeConfiguration(cfg => new SchemaExport(cfg)
              .Create(false, false))

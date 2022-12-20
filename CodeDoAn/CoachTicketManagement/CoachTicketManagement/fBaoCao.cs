@@ -28,9 +28,15 @@ namespace CoachTicketManagement
             {
                 DateTime start = dateTimePickerStart.Value;
                 DateTime end = dateTimePickerEnd.Value;
+                DataTable data = ADOHelper.Instance.ExecuteReader("select * from view_BaoCao where IDDRIVER = @para_2 and DATEDIFF(D, CONVERT(datetime,@para_0,103),  DEPARTUREDAY) >= 0 and DATEDIFF(D, CONVERT(datetime,@para_1,103),  DEPARTUREDAY) <= 0", new object[] { start.ToString("dd/MM/yyyy"), end.ToString("dd/MM/yyyy"), cboDriver.SelectedValue });
+                if(data.Rows.Count <= 0)
+                {
+                    MessageBox.Show("Tài xế "+ cboDriver.Text +" trong khoảng ngày từ " + start.ToString("dd/MM/yyyy") + " đến " + end.ToString("dd/MM/yyyy") + " không chạy chuyến nào !!!", "Thông báo", MessageBoxButtons.OK);
+                    return;
+                }    
                 Rpt_BaoCaoThang rpBaoCao = new Rpt_BaoCaoThang();
                 rpBaoCao.SetDatabaseLogon("sa", "123", ".", "CoachTicketManagementCNPM");
-                rpBaoCao.SetDataSource(ADOHelper.Instance.ExecuteReader("select * from view_BaoCao"));
+                rpBaoCao.SetDataSource(data); /*ADOHelper.Instance.ExecuteReader("select * from view_BaoCao")*/
 
                 ParameterDiscreteValue pStart = new ParameterDiscreteValue();
                 pStart.Value = dateTimePickerStart.Value;

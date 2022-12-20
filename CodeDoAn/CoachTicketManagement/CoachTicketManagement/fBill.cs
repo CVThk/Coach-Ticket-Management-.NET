@@ -217,6 +217,10 @@ namespace CoachTicketManagement
                         MessageBox.Show("Không thể hủy vé !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }    
                 }    
+            }
+            else
+            {
+                MessageBox.Show("Bạn chưa chọn vé !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }    
         }
     }

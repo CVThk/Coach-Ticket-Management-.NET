@@ -49,6 +49,7 @@ namespace CoachTicketManagement
             this.ToolStripAdmin = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripAccount = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripInfoAccount = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripSwitchPassword = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripLogOut = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripManagement = new System.Windows.Forms.MenuStrip();
             this.ToolStripBill = new System.Windows.Forms.ToolStripMenuItem();
@@ -238,6 +239,7 @@ namespace CoachTicketManagement
             // 
             this.ToolStripAccount.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripInfoAccount,
+            this.ToolStripSwitchPassword,
             this.ToolStripLogOut});
             this.ToolStripAccount.Name = "ToolStripAccount";
             this.ToolStripAccount.Size = new System.Drawing.Size(89, 24);
@@ -249,6 +251,13 @@ namespace CoachTicketManagement
             this.ToolStripInfoAccount.Size = new System.Drawing.Size(226, 26);
             this.ToolStripInfoAccount.Text = "Thông tin tài khoản";
             this.ToolStripInfoAccount.Click += new System.EventHandler(this.ToolStripInfoAccount_Click);
+            // 
+            // ToolStripSwitchPassword
+            // 
+            this.ToolStripSwitchPassword.Name = "ToolStripSwitchPassword";
+            this.ToolStripSwitchPassword.Size = new System.Drawing.Size(226, 26);
+            this.ToolStripSwitchPassword.Text = "Đổi mật khẩu";
+            this.ToolStripSwitchPassword.Click += new System.EventHandler(this.ToolStripSwitchPassword_Click);
             // 
             // ToolStripLogOut
             // 
@@ -442,5 +451,6 @@ namespace CoachTicketManagement
         private System.Windows.Forms.ToolStripMenuItem ToolStripBill;
         private System.Windows.Forms.ToolStripMenuItem ToolStripTicket;
         private System.Windows.Forms.ToolStripMenuItem ToolStripBaoCao;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripSwitchPassword;
     }
 }

@@ -78,10 +78,12 @@
     <Compile Include="Core\ClientService.cs" />
     <Compile Include="Core\DriverService.cs" />
     <Compile Include="Core\EmployeeService.cs" />
+    <Compile Include="Core\TripService.cs" />
     <Compile Include="Data\Map\AccountMap.cs" />
     <Compile Include="Data\Map\ClientMap.cs" />
     <Compile Include="Data\Map\DriverMap.cs" />
     <Compile Include="Data\Map\EmployeeMap.cs" />
+    <Compile Include="Data\Map\TripMap.cs" />
     <Compile Include="Data\NHibernateHelper.cs" />
     <Compile Include="fAccountInfo.cs">
       <SubType>Form</SubType>
@@ -125,6 +127,12 @@
     <Compile Include="fPayment.Designer.cs">
       <DependentUpon>fPayment.cs</DependentUpon>
     </Compile>
+    <Compile Include="fSwitchPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fSwitchPassword.designer.cs">
+      <DependentUpon>fSwitchPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="fTicket.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,12 +167,6 @@
     <Compile Include="Utility\ConnectionString.cs" />
     <Compile Include="Utility\ControlHelper.cs" />
     <Compile Include="Utility\Utilities.cs" />
-    <Compile Include="Ve.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Ve.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <EmbeddedResource Include="fAccountInfo.resx">
       <DependentUpon>fAccountInfo.cs</DependentUpon>
     </EmbeddedResource>
@@ -186,6 +188,9 @@
     <EmbeddedResource Include="fPayment.resx">
       <DependentUpon>fPayment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fSwitchPassword.resx">
+      <DependentUpon>fSwitchPassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fTicket.resx">
       <DependentUpon>fTicket.cs</DependentUpon>
     </EmbeddedResource>
@@ -205,10 +210,6 @@
     <EmbeddedResource Include="rp_Ve.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rp_Ve.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ve.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Ve.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

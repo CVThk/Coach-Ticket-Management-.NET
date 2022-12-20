@@ -1,7 +1,4 @@
 ﻿
-
-
-
 /*==========================================================================================================================*/
 /*                                                         INSERT INTO                                                      */
 /*==========================================================================================================================*/
@@ -11966,10 +11963,3 @@ go
 SET DATEFORMAT DMY INSERT INTO TBL_PRICE(EFFECTIVEDATE, PRICE) values('01/12/2022', 140000)
 go
 -- =============== Trip
-exec sp_InsertTripDefault
-go	
-
---declare @result nvarchar(100)
---exec sp_InsertTrip @idTime=12,@idBusLine=1,@idEmployee=9,@idCoach=2,@idDriver=2,@strResult=@result output
---select @result	
--- =============== Ticket
