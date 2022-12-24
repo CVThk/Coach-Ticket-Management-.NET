@@ -178,3 +178,13 @@ C:\Users\HP\Máy tính\CodeDoAn\CoachTicketManagement\CoachTicketManagement\obj\
 C:\Users\HP\Máy tính\CodeDoAn\CoachTicketManagement\CoachTicketManagement\obj\Debug\CoachTicketManagement.exe
 C:\Users\HP\Máy tính\CodeDoAn\CoachTicketManagement\CoachTicketManagement\obj\Debug\CoachTicketManagement.pdb
 C:\Users\HP\Máy tính\CodeDoAn\CoachTicketManagement\CoachTicketManagement\obj\Debug\CoachTicketManagement.csproj.AssemblyReference.cache
+C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\bin\Debug\runtimes\win-x86\native\WebView2Loader.dll
+C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\bin\Debug\runtimes\win-x64\native\WebView2Loader.dll
+C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\bin\Debug\runtimes\win-arm64\native\WebView2Loader.dll
+C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\bin\Debug\Microsoft.Web.WebView2.Core.dll
+C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\bin\Debug\Microsoft.Web.WebView2.WinForms.dll
+C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\bin\Debug\Microsoft.Web.WebView2.Wpf.dll
+C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\bin\Debug\Microsoft.Web.WebView2.Core.xml
+C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\bin\Debug\Microsoft.Web.WebView2.WinForms.xml
+C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\bin\Debug\Microsoft.Web.WebView2.Wpf.xml
+C:\Users\HP\Documents\Workspace\UpOnedrive\Nam_Ba\HK1_2022_2023\Do_An_Winform\CodeDoAn\CoachTicketManagement\CoachTicketManagement\obj\Debug\CoachTicketManagement.fHome.resources
