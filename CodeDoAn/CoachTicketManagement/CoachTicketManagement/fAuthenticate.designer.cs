@@ -46,8 +46,10 @@ namespace CoachTicketManagement
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(63, 93);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(63, 84);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(140, 28);
             this.label1.TabIndex = 0;
@@ -55,8 +57,9 @@ namespace CoachTicketManagement
             // 
             // txtUsername
             // 
+            this.txtUsername.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.Location = new System.Drawing.Point(209, 90);
+            this.txtUsername.Location = new System.Drawing.Point(209, 81);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(517, 34);
@@ -65,11 +68,12 @@ namespace CoachTicketManagement
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(247, 19);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(0, 29);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(340, 38);
+            this.label2.Size = new System.Drawing.Size(801, 38);
             this.label2.TabIndex = 0;
             this.label2.Text = "ĐĂNG NHẬP HỆ THỐNG";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -77,8 +81,10 @@ namespace CoachTicketManagement
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(63, 146);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(63, 137);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(94, 28);
             this.label3.TabIndex = 0;
@@ -86,8 +92,9 @@ namespace CoachTicketManagement
             // 
             // txtPassword
             // 
+            this.txtPassword.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(208, 143);
+            this.txtPassword.Location = new System.Drawing.Point(208, 134);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
@@ -102,7 +109,7 @@ namespace CoachTicketManagement
             this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(405, 193);
+            this.btnClose.Location = new System.Drawing.Point(405, 184);
             this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(149, 51);
@@ -118,7 +125,7 @@ namespace CoachTicketManagement
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(576, 193);
+            this.btnLogin.Location = new System.Drawing.Point(576, 184);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(149, 51);
@@ -129,8 +136,9 @@ namespace CoachTicketManagement
             // 
             // pictureBoxEyePassword
             // 
+            this.pictureBoxEyePassword.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.pictureBoxEyePassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxEyePassword.Location = new System.Drawing.Point(698, 145);
+            this.pictureBoxEyePassword.Location = new System.Drawing.Point(698, 135);
             this.pictureBoxEyePassword.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBoxEyePassword.Name = "pictureBoxEyePassword";
             this.pictureBoxEyePassword.Size = new System.Drawing.Size(24, 24);
@@ -152,8 +160,9 @@ namespace CoachTicketManagement
             this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::CoachTicketManagement.Properties.Resources.Screenshot_2022_12_21_110701;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 270);
-            this.ControlBox = false;
             this.Controls.Add(this.pictureBoxEyePassword);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.btnClose);
@@ -162,6 +171,7 @@ namespace CoachTicketManagement
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

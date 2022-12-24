@@ -46,15 +46,6 @@ namespace CoachTicketManagement
             this.btnStartChooseSeat = new System.Windows.Forms.Button();
             this.imageListSeat = new System.Windows.Forms.ImageList(this.components);
             this.dataGridViewTrip = new System.Windows.Forms.DataGridView();
-            this.ToolStripAdmin = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripAccount = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripInfoAccount = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripSwitchPassword = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripLogOut = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStripManagement = new System.Windows.Forms.MenuStrip();
-            this.ToolStripBill = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripTicket = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripBaoCao = new System.Windows.Forms.ToolStripMenuItem();
             this.cboBusLine = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -66,7 +57,6 @@ namespace CoachTicketManagement
             ((System.ComponentModel.ISupportInitialize)(this.picBoxChoose)).BeginInit();
             this.panelSeat.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTrip)).BeginInit();
-            this.menuStripManagement.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbResultChooseSeat
@@ -227,87 +217,6 @@ namespace CoachTicketManagement
             this.dataGridViewTrip.TabIndex = 4;
             this.dataGridViewTrip.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTrip_CellClick);
             // 
-            // ToolStripAdmin
-            // 
-            this.ToolStripAdmin.Name = "ToolStripAdmin";
-            this.ToolStripAdmin.Size = new System.Drawing.Size(68, 24);
-            this.ToolStripAdmin.Text = "Admin";
-            this.ToolStripAdmin.Visible = false;
-            this.ToolStripAdmin.Click += new System.EventHandler(this.ToolStripAdmin_Click);
-            // 
-            // ToolStripAccount
-            // 
-            this.ToolStripAccount.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ToolStripInfoAccount,
-            this.ToolStripSwitchPassword,
-            this.ToolStripLogOut});
-            this.ToolStripAccount.Name = "ToolStripAccount";
-            this.ToolStripAccount.Size = new System.Drawing.Size(89, 24);
-            this.ToolStripAccount.Text = "Tài khoản";
-            // 
-            // ToolStripInfoAccount
-            // 
-            this.ToolStripInfoAccount.Name = "ToolStripInfoAccount";
-            this.ToolStripInfoAccount.Size = new System.Drawing.Size(226, 26);
-            this.ToolStripInfoAccount.Text = "Thông tin tài khoản";
-            this.ToolStripInfoAccount.Click += new System.EventHandler(this.ToolStripInfoAccount_Click);
-            // 
-            // ToolStripSwitchPassword
-            // 
-            this.ToolStripSwitchPassword.Name = "ToolStripSwitchPassword";
-            this.ToolStripSwitchPassword.Size = new System.Drawing.Size(226, 26);
-            this.ToolStripSwitchPassword.Text = "Đổi mật khẩu";
-            this.ToolStripSwitchPassword.Click += new System.EventHandler(this.ToolStripSwitchPassword_Click);
-            // 
-            // ToolStripLogOut
-            // 
-            this.ToolStripLogOut.Name = "ToolStripLogOut";
-            this.ToolStripLogOut.Size = new System.Drawing.Size(226, 26);
-            this.ToolStripLogOut.Text = "Đăng xuất";
-            this.ToolStripLogOut.Click += new System.EventHandler(this.ToolStripLogOut_Click);
-            // 
-            // menuStripManagement
-            // 
-            this.menuStripManagement.BackColor = System.Drawing.Color.DarkGray;
-            this.menuStripManagement.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.menuStripManagement.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStripManagement.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ToolStripAdmin,
-            this.ToolStripBill,
-            this.ToolStripTicket,
-            this.ToolStripBaoCao,
-            this.ToolStripAccount});
-            this.menuStripManagement.Location = new System.Drawing.Point(0, 0);
-            this.menuStripManagement.Name = "menuStripManagement";
-            this.menuStripManagement.Padding = new System.Windows.Forms.Padding(9, 2, 0, 2);
-            this.menuStripManagement.Size = new System.Drawing.Size(1605, 28);
-            this.menuStripManagement.TabIndex = 0;
-            this.menuStripManagement.Text = "menuStrip1";
-            // 
-            // ToolStripBill
-            // 
-            this.ToolStripBill.Name = "ToolStripBill";
-            this.ToolStripBill.Size = new System.Drawing.Size(82, 24);
-            this.ToolStripBill.Text = "Hóa đơn";
-            this.ToolStripBill.Visible = false;
-            this.ToolStripBill.Click += new System.EventHandler(this.ToolStripBill_Click);
-            // 
-            // ToolStripTicket
-            // 
-            this.ToolStripTicket.Name = "ToolStripTicket";
-            this.ToolStripTicket.Size = new System.Drawing.Size(56, 24);
-            this.ToolStripTicket.Text = "In vé";
-            this.ToolStripTicket.Visible = false;
-            this.ToolStripTicket.Click += new System.EventHandler(this.ToolStripTicket_Click);
-            // 
-            // ToolStripBaoCao
-            // 
-            this.ToolStripBaoCao.Name = "ToolStripBaoCao";
-            this.ToolStripBaoCao.Size = new System.Drawing.Size(77, 24);
-            this.ToolStripBaoCao.Text = "Báo cáo";
-            this.ToolStripBaoCao.Visible = false;
-            this.ToolStripBaoCao.Click += new System.EventHandler(this.ToolStripBaoCao_Click);
-            // 
             // cboBusLine
             // 
             this.cboBusLine.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -396,11 +305,9 @@ namespace CoachTicketManagement
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cboBusLine);
-            this.Controls.Add(this.menuStripManagement);
             this.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Black;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStripManagement;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "fManagement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -413,8 +320,6 @@ namespace CoachTicketManagement
             this.panelSeat.ResumeLayout(false);
             this.panelSeat.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTrip)).EndInit();
-            this.menuStripManagement.ResumeLayout(false);
-            this.menuStripManagement.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -437,20 +342,11 @@ namespace CoachTicketManagement
         private System.Windows.Forms.Button btnStartChooseSeat;
         private System.Windows.Forms.ImageList imageListSeat;
         private System.Windows.Forms.DataGridView dataGridViewTrip;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripAdmin;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripAccount;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripInfoAccount;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripLogOut;
-        private System.Windows.Forms.MenuStrip menuStripManagement;
         private System.Windows.Forms.ComboBox cboBusLine;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dateTimePickerChoose;
         private System.Windows.Forms.Button btnFindTrip;
         private System.Windows.Forms.Button btnPayment;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripBill;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripTicket;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripBaoCao;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripSwitchPassword;
     }
 }

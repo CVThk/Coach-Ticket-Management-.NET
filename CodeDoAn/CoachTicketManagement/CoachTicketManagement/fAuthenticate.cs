@@ -32,7 +32,7 @@ namespace CoachTicketManagement
             {
                 Employee employee = employees.Find(x => x.Id == accounts.Find(a => a.Id == idAccount).IdEmployee);
                 this.Hide();
-                fManagement f = new fManagement(employee, employees, accounts);
+                fHome f = new fHome(employee, employees, accounts);
                 f.ShowDialog();
                 this.Show();
             }

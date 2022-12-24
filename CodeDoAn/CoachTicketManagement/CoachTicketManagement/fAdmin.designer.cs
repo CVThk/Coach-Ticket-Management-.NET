@@ -300,7 +300,7 @@ namespace CoachTicketManagement
             this.tpTrip.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpTrip.Name = "tpTrip";
             this.tpTrip.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tpTrip.Size = new System.Drawing.Size(1347, 613);
+            this.tpTrip.Size = new System.Drawing.Size(1428, 717);
             this.tpTrip.TabIndex = 5;
             this.tpTrip.Text = "Chuyến xe";
             this.tpTrip.UseVisualStyleBackColor = true;
@@ -653,7 +653,7 @@ namespace CoachTicketManagement
             this.tpTimeBusLine.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpTimeBusLine.Name = "tpTimeBusLine";
             this.tpTimeBusLine.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tpTimeBusLine.Size = new System.Drawing.Size(1347, 613);
+            this.tpTimeBusLine.Size = new System.Drawing.Size(1428, 717);
             this.tpTimeBusLine.TabIndex = 4;
             this.tpTimeBusLine.Text = "Khung thời gian";
             this.tpTimeBusLine.UseVisualStyleBackColor = true;
@@ -908,7 +908,7 @@ namespace CoachTicketManagement
             this.tpBusLine.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpBusLine.Name = "tpBusLine";
             this.tpBusLine.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tpBusLine.Size = new System.Drawing.Size(1347, 613);
+            this.tpBusLine.Size = new System.Drawing.Size(1428, 717);
             this.tpBusLine.TabIndex = 3;
             this.tpBusLine.Text = "Tuyến xe";
             this.tpBusLine.UseVisualStyleBackColor = true;
@@ -1170,7 +1170,7 @@ namespace CoachTicketManagement
             this.tpDriver.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpDriver.Name = "tpDriver";
             this.tpDriver.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tpDriver.Size = new System.Drawing.Size(1347, 613);
+            this.tpDriver.Size = new System.Drawing.Size(1428, 717);
             this.tpDriver.TabIndex = 2;
             this.tpDriver.Text = "Tài xế";
             this.tpDriver.UseVisualStyleBackColor = true;
@@ -1586,7 +1586,7 @@ namespace CoachTicketManagement
             this.tpEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpEmployee.Name = "tpEmployee";
             this.tpEmployee.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tpEmployee.Size = new System.Drawing.Size(1347, 613);
+            this.tpEmployee.Size = new System.Drawing.Size(1428, 717);
             this.tpEmployee.TabIndex = 1;
             this.tpEmployee.Text = "Nhân viên";
             this.tpEmployee.UseVisualStyleBackColor = true;
@@ -2048,7 +2048,7 @@ namespace CoachTicketManagement
             this.tpAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpAccount.Name = "tpAccount";
             this.tpAccount.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tpAccount.Size = new System.Drawing.Size(1347, 613);
+            this.tpAccount.Size = new System.Drawing.Size(1428, 717);
             this.tpAccount.TabIndex = 0;
             this.tpAccount.Text = "Tài khoản";
             this.tpAccount.UseVisualStyleBackColor = true;
@@ -2304,11 +2304,11 @@ namespace CoachTicketManagement
             this.tabControlAdmin.Controls.Add(this.tpTimeBusLine);
             this.tabControlAdmin.Controls.Add(this.tpTrip);
             this.tabControlAdmin.Controls.Add(this.tpBusLine);
-            this.tabControlAdmin.Location = new System.Drawing.Point(2, 2);
+            this.tabControlAdmin.Location = new System.Drawing.Point(12, 2);
             this.tabControlAdmin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControlAdmin.Name = "tabControlAdmin";
             this.tabControlAdmin.SelectedIndex = 0;
-            this.tabControlAdmin.Size = new System.Drawing.Size(1355, 646);
+            this.tabControlAdmin.Size = new System.Drawing.Size(1436, 750);
             this.tabControlAdmin.TabIndex = 0;
             this.tabControlAdmin.SelectedIndexChanged += new System.EventHandler(this.tabControlAdmin_SelectedIndexChanged);
             // 
@@ -2367,7 +2367,7 @@ namespace CoachTicketManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1360, 654);
+            this.ClientSize = new System.Drawing.Size(1460, 752);
             this.Controls.Add(this.tabControlAdmin);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -2375,6 +2375,7 @@ namespace CoachTicketManagement
             this.Name = "fAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.fAdmin_Load);
             this.tpTrip.ResumeLayout(false);
             this.tpTrip.PerformLayout();
