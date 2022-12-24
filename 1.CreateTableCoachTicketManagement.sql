@@ -875,13 +875,15 @@ go
 create table TBL_DRIVER (
    IDDRIVER             int                  identity,
    IDWARD               int                  not null,
-   NAMEDRIVER           nvarchar(max)                 not null,
-   DATEOFBIRTHDRIVER    date             not null,
-   GENDERDRIVER         nvarchar(max)                 not null,
+   NAMEDRIVER           nvarchar(max)        not null,
+   DATEOFBIRTHDRIVER    date				 not null,
+   GENDERDRIVER         nvarchar(max)        not null,
    IDENTITYCARDDRIVER   varchar(12)          not null,
    PHONEDRIVER          varchar(10)          not null,
    EMAILDRIVER          varchar(200)         not null,
    DEGREE               varchar(5)           null,
+   STATUSDRIVER			nvarchar(max)		 null,
+   IMAGEDRIVER			varchar(max)		 null,
    constraint PK_TBL_DRIVER primary key (IDDRIVER)
 )
 go
@@ -936,12 +938,14 @@ create table TBL_EMPLOYEE (
    IDTYPE               int                  not null,
    IDACCOUNT            int                  null,
    IDPERMISSIONGROUP    int                  null,
-   NAMEEMPLOYEE         nvarchar(max)                 null,
-   DATEOFBIRTHEMPLOYEE  date             null,
-   GENDEREMPLOYEE       nvarchar(3)                 null,
+   NAMEEMPLOYEE         nvarchar(max)        null,
+   DATEOFBIRTHEMPLOYEE  date				 null,
+   GENDEREMPLOYEE       nvarchar(3)          null,
    IDENTITYCARDEMPLOYEE varchar(12)          null,
    PHONEEMPLOYEE        varchar(10)          null,
    EMAILEMPLOYEE        varchar(200)         null,
+   STATUSEMPLOYEE		nvarchar(max)		 null,
+   IMAGEEMPLOYEE		varchar(max)		 null,
    constraint PK_TBL_EMPLOYEE primary key (IDEMPLOYEE)
 )
 go
@@ -1067,13 +1071,13 @@ create table TBL_SERVICE (
    IDCLIENT             int                  not null,
    IDEMPLOYEE           int                  not null,
    IDUNIT               int                  not null,
-   DESCRIBE             nvarchar(max)                 null,
+   DESCRIBE             nvarchar(max)        null,
    AMOUNT               float                null,
-   NAMERECIEVER         nvarchar(max)                 null,
+   NAMERECIEVER         nvarchar(max)        null,
    PHONERECIEVER        varchar(11)          null,
-   PICKUPPOINTSERVICE   nvarchar(max)                 null,
-   DROPOFFPOINT         nvarchar(max)                 null,
-   USEDATESERVICE       date             null,
+   PICKUPPOINTSERVICE   nvarchar(max)        null,
+   DROPOFFPOINT         nvarchar(max)        null,
+   USEDATESERVICE       date				 null,
    constraint PK_TBL_SERVICE primary key (IDSERVICE)
 )
 go
@@ -1533,6 +1537,8 @@ ALTER TABLE tbl_Driver
 ADD CONSTRAINT UNI_Phone_Driver UNIQUE(PhoneDriver)
 ALTER TABLE tbl_Driver
 ADD CONSTRAINT CK_Email_Driver Check(EmailDriver like '[a-z0-9]%@gmail.[a-z0-9]%')
+ALTER TABLE tbl_Driver
+ADD CONSTRAINT CK_STATUS_DRIVER Check(StatusDriver = N'Đang làm' or StatusDriver = N'Đã nghỉ')
 ------------------------------------
 AlTER TABLE tbl_Employee
 ADD CONSTRAINT CK_Gender_Employee CHECK (GenderEmployee IN (N'Nam', N'Nữ'))
@@ -1543,6 +1549,8 @@ AlTER TABLE tbl_Employee
 ADD CONSTRAINT UNI_Email_Employee UNIQUE (EmailEmployee)
 ALTER TABLE tbl_Employee
 ADD CONSTRAINT CK_Email_Employee Check(EmailEmployee like '[a-z0-9]%@gmail.[a-z0-9]%')
+ALTER TABLE tbl_Employee
+ADD CONSTRAINT CK_STATUS_EMPLOYEE Check(StatusEmployee = N'Đang làm' or StatusEmployee = N'Đã nghỉ')
 ------------------------------------
 ALTER TABLE tbl_PermissionGroup
 ADD CONSTRAINT UNI_PermissionGroup_Name UNIQUE(NAMEGROUP)
